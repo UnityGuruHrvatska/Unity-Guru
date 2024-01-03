@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C# Unos podataka</title>
+    <link rel="icon" href="../slike/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../stil.css">
+    <link rel="stylesheet" href="../prism.css">
+</head>
+<body onload="promjenaSvjetline()"><!--Promjena svjetline radi samo kada je stranica objavljena na serveru-->
+    <button id="treba" onclick="svjetlina()" class = "tema-gumb"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm40-83q119-15 199.5-104.5T800-480q0-123-80.5-212.5T520-797v634Z"/></svg></button>
+    <div class="gornja-navigacija">
+        <a class="gornji-gumbi"  id = "odabrano" href="intro.html">C#</a>
+        <a class="gornji-gumbi" href="../UnityUI/intro.html">Unity UI</a>
+        <a class="gornji-gumbi" href="../UnityCSharp/intro.html">Unity C#</a>
+    </div>
+
+    <div class="lijeva-navigacija">
+        <a class="lijevi-gumbi" href="../home.html">Početna stranica</a><br>  
+        <a class="lijevi-gumbi" href = "intro.html">Polazna lekcija</a><br>
+        <a class="lijevi-gumbi" href="instalacija.html">Instalacija</a><br>
+        <a class="lijevi-gumbi" href="ispisivanjeIsintaksa.html">Sintaksa i ispisivanje</a><br>
+        <a class="lijevi-gumbi" href="komentari.html">Komentari</a><br>
+        <a class="lijevi-gumbi" href="varijable.html">Varijable i vrste podataka</a><br>
+        <a class="lijevi-gumbi" href="pretvaranjePodataka.html">Pretvaranje vrsta podataka</a><br>
+        <a class="lijevi-gumbi" id = "odabrano" href="unosPodataka.html">Unošenje podataka</a><br>
+        <a class="lijevi-gumbi" href="operatori.html">Operatori</a><br>
+        <a class="lijevi-gumbi" href="math.html">Math</a><br>
+        <a class="lijevi-gumbi" href="string.html">String</a><br>
+        <a class="lijevi-gumbi" href="booleans.html">Booleans</a><br>
+        <a class="lijevi-gumbi" href="if.html">If i else</a><br>
+        <a class="lijevi-gumbi" href="switch.html">Switch</a><br>
+        <a class="lijevi-gumbi" href="while.html">While</a><br>
+        <a class="lijevi-gumbi" href="for.html">For</a><br>
+        <a class="lijevi-gumbi" href="breakandcontinue.html">Break i Continue</a><br>
+        <a class="lijevi-gumbi" href="array.html">Niz</a><br>
+        <a class="lijevi-gumbi" href="metoda.html">Metoda</a><br>
+        <a class="lijevi-gumbi" href="klasa.html">Klasa</a><br>
+        <a class="lijevi-gumbi" href="enum.html">Enum</a><br>
+        <a class="lijevi-gumbi" href="iznimka.html">Iznimka</a><br>
+        <a class="lijevi-gumbi" href="datoteke.html">Datoteke</a><br>
+    </div>
+
+    <br>
+    
+    <div class="tekstualna-kutija">
+        <h1>Unos podataka</h1>
+        <p>U C#-u se za korisnikov unos podataka koristi <span style="font-size: 20px; color: #8a71c5;">Console.ReadLine()</span>.</p>
+        
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+//ispiše: "Upiši ime:"
+Console.WriteLine("Upiši ime:");
+                
+//stvori string varijablu i u nju spremi podatke koje unese korisnik
+string ime = Console.ReadLine();
+                
+//ispiše vrijednost varijable (ime), što će ispisati korisnikov unos
+Console.WriteLine("Ime je: " + ime);
+            </code></pre>
+        </div>
+
+        <br>
+
+        <script src="../prism.js"></script>
+        
+    </div>
+
+    <br>
+
+    <div class="tekstualna-kutija">
+        <h1>Unos podataka i brojevi</h1>
+        <p>Pošto <span style="font-size: 20px; color: #8a71c5;">Console.ReadLine()</span> vraća podatke u obliku stringa, za unos brojeva moramo koristiti <a style="font-size: 20px; color: #8a71c5;" href="pretvaranjePodataka.html">pretvaranje vrsta podataka</a>.</p>
+        
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+//ispiše: "Upiši broj godine:"
+Console.WriteLine("Upiši broj godine:");
+                
+//stvori int varijablu i u nju spremi podatke koje unese korisnik
+int godina = Convert.ToInt32(Console.ReadLine());
+                
+//ispiše vrijednost varijable (godine), što će ispisati korisnikov unos
+Console.WriteLine("Broj godina: " + godina);
+            </code></pre>
+        </div>
+        
+        <br>
+        <p>Ako se u unos upiše krivi format (Npr. tekst kao unos za brojeve) dobit će se iznimka/pogreška (Npr. System.FormatException: 'Input string was not in a correct format.')</p>
+        <script src="../prism.js"></script>
+        
+    </div>
+    
+    <br>
+    
+    
+    
+
+    <div class="drzac-gumba">
+        <a class="donji-gumbi" href="pretvaranjePodataka.html"><h1 class="naslovni-gumb">Prijašnje</h1></a>
+        <a class="donji-gumbi" href="operatori.html"><h1 class="naslovni-gumb">Sljedeće</h1></a>
+    </div>
+    <script src="../pojavljivanje.js"></script>
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unity Guru Home Page</title>
+    <link rel="icon" href="slike/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="stillhome.css">
+    <link href="prism.css" rel="stylesheet">
+</head>
+<body onload="promjenaSvjetline()"><!--Promjena svjetline radi samo kada je stranica objavljena na serveru-->
+  <button onclick="svjetlina()" class = "tema-gumb"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm40-83q119-15 199.5-104.5T800-480q0-123-80.5-212.5T520-797v634Z"/></svg></button>
+  
+  <!--naslov stranice-->
+  <div class="header">
+    <img id="logo" class="logo" src="slike/logo3.png" alt="Logo">
+    <h1 class="header-title"><b>UNITY <br> GURU<b></h1>
+  </div>
+  <!--crtica-->
+  <svg style="background-color: rgb(41, 44, 49);" width="100%" height="70" viewBox="0 0 100 100" preserveAspectRatio="none">
+    <path id="wavepath" d="M0,0  L110,0 C35,150 35,0 0,100 z" fill="rgb(35, 37, 41)"></path>
+  </svg>
+  <!--Gumbi za lekcije-->
+  <div class="drzac-cjelina cSharp">
+    <div class="gumb-teksti">
+      <a class = "gumb-cjelina" href="CSharpTutorial/intro.html">
+        <h1>
+          C#
+        </h1>
+      </a>
+      <br>
+      <p style="font-size: 1rem; font-size: 21px; text-align: center;">C# je programski jezik razvijen od strane Microsofta. Njegova primarna svrha je razvoj aplikacija za Microsoftove platforme.</p>
+    </div>
+
+    <div class="jednakost">
+      <div class = "drzac-koda">
+        <h1 style="margin: 4%; margin-top: 0%; margin-bottom: 0%;">C# primjer:</h1>
+        <pre><code class="language-csharp">
+using System;
+
+namespace Tutorial
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello world");
+        }
+    }
+}
+               </code></pre>
+      </div>
+    <script src="prism.js"></script>
+    </div>
+  </div style="p">
+  <!--crtica-->
+  <svg style="background-color: rgb(41, 44, 49);" width="100%" height="70" viewBox="0 0 100 100" preserveAspectRatio="none">
+    <path id="wavepath" d="M 110,100 C35,-50 35,100 0,0 L0,100z" fill="rgb(35, 37, 41)"></path>
+  </svg>
+
+  <!--Gumbi za lekcije-->
+  <div class="drzac-cjelina unityUI">
+    <div class="gumb-teksti">
+      <a class = "gumb-cjelina" href="UnityUI/intro.html">
+        <h1>
+          Unity UI
+        </h1>
+      </a>
+      <br>
+      <p style="font-size: 1rem; font-size: 21px; text-align: center;">Unity je danas jedan od najpopularnijih game enginea za razvoj videoigara. Jedna od velikih prednosti Unitya je što se može koristiti za razvoj 2D i 3D videoigrica.</p>
+    </div>
+
+    <div class="jednakost">
+      <div class="drzac-koda">
+        <h1 style="margin: 4%; margin-top: 0%; margin-bottom: 0%;">Unity UI primjer:</h1>
+        <img style="height: 40%; width: 500px; border-radius: 20px;" src="slike/unityUI.png" alt="unityUI">
+      </div>
+    </div>
+  </div style="p">
+  <!--crtica-->
+  <svg style="background-color: rgb(41, 44, 49);" width="100%" height="70" viewBox="0 0 100 100" preserveAspectRatio="none">
+    <path id="wavepath" d="M0,0  L110,0 C35,150 35,0 0,100 z" fill="rgb(35, 37, 41)"></path>
+  </svg>
+
+  <!--Gumbi za lekcije-->
+  <div class="drzac-cjelina cSharpUnity">
+    <div class="gumb-teksti">
+      <a class = "gumb-cjelina" href="UnityCSharp/intro.html">
+        <h1>
+          Unity C#
+        </h1>
+      </a>
+      <br>
+      <p style="font-size: 1rem; font-size: 21px; text-align: center;">Za implementaciju igračkog iskustva unutar Unitya koristi se C# kao programski jezik.</p>
+    </div>
+
+    <div class="jednakost">
+      <div class = "drzac-koda">
+        <h1 style="margin: 4%; margin-top: 0%; margin-bottom: 0%;">Unity C# primjer:</h1>
+        <pre><code class="language-csharp">
+  using System.Collections;
+  using System.Collections.Generic;
+  using UnityEngine;
+
+  public class gas : MonoBehaviour
+  {
+      // Start is called before the first frame update
+      void Start()
+      {
+          
+      }
+
+      // Update is called once per frame
+      void Update()
+      {
+          
+      }
+  }
+            
+        </code></pre>
+      </div>
+    <script src="prism.js"></script>
+    </div>
+  </div style="p">
+
+  <svg style="background-color: rgb(41, 44, 49);" width="100%" height="70" viewBox="0 0 100 100" preserveAspectRatio="none">
+    <path id="wavepath" d="M 110,100 C35,-50 35,100 0,0 L0,100z" fill="rgb(35, 37, 41)"></path>
+  </svg>
+
+    <!--Gumbi za lekcije-->
+    <div class="drzac-cjelina unityUI">
+      <div class="gumb-teksti">
+        <a class = "gumb-cjelina" href="pisanjeKoda.html">
+          <h1>
+            Pokretač C# koda
+          </h1>
+        </a>
+        <br>
+        <p style="font-size: 1rem; font-size: 21px; text-align: center;">Pokušaj te pisati vaš vlastiti C#.</p>
+      </div>
+  
+      <div class="jednakost">
+        <div class = "drzac-koda">
+          <h1 style="margin: 4%; margin-top: 0%; margin-bottom: 0%;">Unity C# primjer:</h1>
+          <pre><code class="language-csharp">
+using System;
+
+internal class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Hello world");
+    }
+}  
+          </code></pre>
+        </div>
+      <script src="prism.js"></script>
+      </div>
+    </div style="p">
+    
+  <!--Naši projekti-->
+  <div class="ds">
+    
+    <!--Crtica-->
+    <svg style="background-color: transparent;" width="100%" height="70" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <path id="wavepath" d="M0,0  L110,0 C35,150 35,0 0,100 z" fill="rgb(35, 37, 41)"></path>
+    </svg>
+
+    <div style="overflow-x: hidden; text-align: center; padding-bottom: 10px ; padding-top: 40px;">
+      <a href="https://gamejolt.com/games/drone-sim/780667" class="aScale fade-in" id="treba">DRONE SIMULATION</a>
+    </div>
+    <div class="naši-projekti">
+      <div class="držač-teksta fade-in lijevo">
+        <p style="font-size: 21px; padding: 10px; padding-top: 0px;" id = "treba">
+          Drone simulation je simulacija Phantom 4 PRO drona. U ovoj simulaciji možete vježbati korištenje svog drona u tri prekrasna okruženja (šuma, uništeni grad, soba za simulaciju).
+        </p>
+      </div>
+      <div class="držač-slika fade-in desno">
+        <img src="slike\DroneSimUltra1.png" alt="sim drona">
+      </div>
+      <div class="držač-slika fade-in lijevo">
+        <img src="slike\DroneSimUltra4.png" alt="sim drona">
+      </div>
+      <div class="držač-slika fade-in desno">
+        <img src="slike\DroneSimUltra5.png" alt="sim drona">
+      </div>
+      <br>
+    </div>
+  </div>
+  
+  <div class="etn">
+    <div style="overflow-x: hidden; text-align: center; padding-bottom: 10px; padding-top: 40px;">
+      <a href="https://gamejolt.com/games/nightmare/760720" class="aScale fade-in" id="treba">ESCAPE THE NIGHTMARE</a>
+    </div>
+
+    <div class="naši-projekti">
+      <div class="držač-teksta fade-in lijevo">
+        <p style="font-size: 21px; padding: 10px; padding-top: 0px;" id = "treba">
+          Vi ste dijete, nalazite se u komi u bolnici, ali sanjate o čudnim i ponekad poznatim mjestima. Problem je to što niste sami. Čudovište vas progoni kroz svaku sobu u koju uđete. Sve sobe su povezane sa stvarnim životom glavnog lika.
+        </p>
+      </div>
+      <div class="držač-slika fade-in desno">
+        <img src="slike\escape_the_nightmare1.png" alt="sim drona">
+      </div>
+      <div class="držač-slika fade-in lijevo">
+        <img src="slike\escape_the_nightmare2.png" alt="sim drona">
+      </div>
+      <div class="držač-slika fade-in desno">
+        <img src="slike\escapetheNightmareGraphicsShowcase.png" alt="sim drona">
+      </div>
+      <br>
+    </div>
+  </div>
+
+  <div class="jb">    
+    <div style="overflow-x: hidden; text-align: center; padding-bottom: 10px; padding-top: 40px;">
+      <h1 class="fade-in" style="transition-duration: 0.2s; font-size: 48px;">JUMPY BALL</h1>
+    </div>
+
+    <div class="naši-projekti jbgrid">
+      <div class="držač-gumba item1 fade-in lijevo">
+        <a href="https://play.google.com/store/apps/details?id=com.Gaser101.JumpyBall">
+          <img class="jbGumb" src="slike/jumpyball/play.png" alt="playstore link">
+        </a>
+        <a href="https://appgallery.huawei.com/app/C108924327?sharePrepath=ag&locale=en_US&source=appshare&subsource=C108924327&shareTo=com.android.bluetooth&shareFrom=appmarket&shareIds=c8bb5b45109947658aa3258e3d002d3f_com.android.bluetooth&callType=SHARE">
+          <img class="jbGumb" src="slike/jumpyball/appg.png" alt="appgallery link">
+        </a>
+      </div>
+      <div class="držač-videozapisa item2 fade-in desno">
+        <video style="width: 329px; height: 710px; border-radius: 10px;" autoplay loop muted>
+          <source src="videozapisi/jbGameplaz.mp4">
+        </video>
+      </div>
+      <div class="držač-teksta držač-teksta2 item3 fade-in lijevo">
+        <p style="font-size: 21px; padding: 10px; padding-top: 0px;" id = "treba">
+          Pripremite se uroniti u zadivljujuću avanturu mobilnog igranja koja će testirati vaše reflekse, agilnost i strateško razmišljanje. Predstavljamo našu najnoviju senzaciju Jumpy Ball! Zavežite se i pripremite se voditi našu živahnu loptu kroz očaravajući svijet preokreta, sve na vršku vaših prstiju.
+        </p>
+      </div>
+      <br>
+    </div>
+  </div>
+
+
+  <div>
+    <h1 style="text-align: center; font-size: 48px;">O nama</h1>
+    <div class="opis">
+      <p>"Unity Guru" je web stranica namijenjena tome da početnike nauči programiranje u programskom jeziku C# te da ih uputi u rad s Unity game engineom kako bi mogli stvoriti igre, animacije ili koncepte u arhitekturi.
+      
+        Imamo već dosta iskustva u radu s Unity game engineom te smo uz pomoć njega kreirali simulaciju drona, horor igru "Escape the Nightmare" te razvili igru "Jumpy Ball" za mobilnu platformu.
+      </p>
+    </div>
+  </div> 
+
+
+  <br>
+  <br>
+  <script src="pojavljivanje.js"></script>
+</body>
+</html>

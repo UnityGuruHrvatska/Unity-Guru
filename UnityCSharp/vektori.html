@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unity C# Vektori</title>
+    <link rel="icon" href="../slike/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../stil.css">
+    <link rel="stylesheet" href="../prism.css">
+</head>
+<body onload="promjenaSvjetline()"><!--Promjena svjetline radi samo kada je stranica objavljena na serveru-->
+    <button id="treba" onclick="svjetlina()" class = "tema-gumb"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm40-83q119-15 199.5-104.5T800-480q0-123-80.5-212.5T520-797v634Z"/></svg></button>
+  
+    <div class="gornja-navigacija">
+        <a class="gornji-gumbi" href = "../CSharpTutorial/intro.html">C#</a>
+        <a class="gornji-gumbi" href = "../UnityUI/intro.html">Unity UI</a>
+        <a class="gornji-gumbi" id = "odabrano" href = "../UnityCSharp/intro.html">Unity C#</a>
+    </div> 
+
+    <div class="lijeva-navigacija">
+        <a class="lijevi-gumbi" href="../home.html">Početna stranica</a><br>  
+        <a class="lijevi-gumbi" href = "intro.html">Polazna lekcija</a><br>
+        <a class="lijevi-gumbi" href = "pravaPristupa.html">Prava pristupa</a><br>
+        <a class="lijevi-gumbi" href = "time.html">Time</a><br>
+        <a class="lijevi-gumbi" href="GameObject.html">GameObject</a><br>  
+        <a class="lijevi-gumbi" href="destroyISectActive.html">Destroy i SetActive</a><br>  
+        <a class="lijevi-gumbi" href="mathf.html">Mathf</a><br>  
+        <a class="lijevi-gumbi" href="input.html">Input</a><br>
+        <a class="lijevi-gumbi" href="SceneManager.html">SceneManagement</a><br>  
+        <a class="lijevi-gumbi" href="UIlekcija.html">UI programiranje</a><br>  
+        <a class="lijevi-gumbi" href="audioS.html">Audio source</a><br>
+        <a class="lijevi-gumbi" id = "odabrano" href="vektori.html">Vektori</a><br>
+        <a class="lijevi-gumbi" href="quaternion.html">Kvaternion</a><br>
+        <a class="lijevi-gumbi" href="transform.html">Transform</a><br>
+        <a class="lijevi-gumbi" href="RigidBody.html">RigidBody</a><br>
+        <a class="lijevi-gumbi" href="voidOnTrigger.html">OnTrigger</a><br>
+        <a class="lijevi-gumbi" href="voidOnCollision.html">OnCollision</a><br>
+        <a class="lijevi-gumbi" href="raycast.html">RayCast</a><br>
+        <a class="lijevi-gumbi" href="playerPref.html">PlayerPref</a><br>
+    </div>
+
+    <br>
+
+    <div class="tekstualna-kutija">
+        <h1>Vektori</h1>
+        <p><span style="font-size: 20px; color: #8a71c5;">Vektor</span> je matematički koncept koji se sastoji od magnitude i smjera.</p>
+        <p>U Unityju vektore koristimo za manipulaciju <span style="font-size: 20px; color: #8a71c5;">pozicije</span> i <span style="font-size: 20px; color: #8a71c5;">veličine</span>.</p>
+        <p>Ispod se nalazi sintaksa vektora za 3d prostor gdje su <span style="font-size: 20px; color: #8a71c5;">x</span>, <span style="font-size: 20px; color: #8a71c5;">y</span> i <span style="font-size: 20px; color: #8a71c5;">z</span> <span style="font-size: 20px; color: #8a71c5;">flout-ovi</span>.</p>
+
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Sintaksa:</h1>
+            <pre><code class="language-csharp">
+Vector3 imeVektora = new Vector3(x, y, z);    
+            </code></pre>
+          </div>
+
+          <br>
+    <script src="../prism.js"></script>
+    </div>
+
+    <br>
+
+    <div class="tekstualna-kutija">
+        <h1>Distance</h1>
+        <p>Udaljenost 2 vektora možemo provjeriti uz pomoć <span style="font-size: 20px; color: #8a71c5;">Vector3.Distnace</span>.</p>
+        <p>Na prvo mijesto napišemo početni vektor, a na drugu poziciju krajnji vektor.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+private Vector3 vektor1;
+private Vector3 vektor2;
+
+private float udaljenost;
+
+void Start()
+{
+    vektor1 = new Vector3(1, 1, 1);
+    vektor2 = new Vector3(2, 2, 2);
+
+    udaljenost = Vector3.Distance(vektor1, vektor2);
+} 
+            </code></pre>
+          </div>
+
+          <br>
+    <script src="../prism.js"></script>
+    </div>
+
+    <br>
+
+    <div class="tekstualna-kutija">
+        <h1>Lerp</h1>
+        <p><span style="font-size: 20px; color: #8a71c5;">Lerp</span> koristimo kako bi mogli glatko interpolirati između dva vektora.</p>
+        <p>Prvo napišemo početni vektor, zatim konačni vektor. Treća vrijednost je brzina kojom će se ta interpolacija desiti.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+private Vector3 vektor1;
+private Vector3 vektor2;
+
+[SerializeField] float brzina;
+
+void Start()
+{
+    vektor1 = new Vector3(1, 1, 1);
+    vektor2 = new Vector3(2, 2, 2);
+}
+
+void Update()    
+{
+    vektor1 = Vector3.Lerp(vektor1, vektor2, Time.deltaTime * brzina);
+}
+            </code></pre>
+          </div>
+
+          <br>
+    <script src="../prism.js"></script>
+    </div>
+
+    <br>
+
+
+    <div class="drzac-gumba">
+        <a class="donji-gumbi" href="audioS.html"><h1 class="naslovni-gumb">Prijašnje</h1></a>
+        <a class="donji-gumbi" href="quaternion.html"><h1 class="naslovni-gumb">Sljedeće</h1></a>
+    </div>
+    <script src="../pojavljivanje.js"></script>
+</body>
+</html>

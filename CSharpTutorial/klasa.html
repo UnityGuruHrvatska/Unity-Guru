@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C# Klasa</title>
+    <link rel="icon" href="../slike/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../stil.css">
+    <link href="../prism.css" rel="stylesheet">
+</head>
+<body onload="promjenaSvjetline()"><!--Promjena svjetline radi samo kada je stranica objavljena na serveru-->
+    <button id="treba" onclick="svjetlina()" class = "tema-gumb"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm40-83q119-15 199.5-104.5T800-480q0-123-80.5-212.5T520-797v634Z"/></svg></button>
+    <div class="gornja-navigacija">
+        <a class="gornji-gumbi"  id = "odabrano" href="intro.html">C#</a>
+        <a class="gornji-gumbi" href="../UnityUI/intro.html">Unity UI</a>
+        <a class="gornji-gumbi" href="../UnityCSharp/intro.html">Unity C#</a>
+    </div> 
+
+    <div class="lijeva-navigacija">
+        <a class="lijevi-gumbi" href="../home.html">Početna stranica</a><br>  
+        <a class="lijevi-gumbi" href = "intro.html">Polazna lekcija</a><br>
+        <a class="lijevi-gumbi" href="instalacija.html">Instalacija</a><br>
+        <a class="lijevi-gumbi" href="ispisivanjeIsintaksa.html">Sintaksa i ispisivanje</a><br>
+        <a class="lijevi-gumbi" href="komentari.html">Komentari</a><br>
+        <a class="lijevi-gumbi" href="varijable.html">Varijable i vrste podataka</a><br>
+        <a class="lijevi-gumbi" href="pretvaranjePodataka.html">Pretvaranje vrsta podataka</a><br>
+        <a class="lijevi-gumbi" href="unosPodataka.html">Unošenje podataka</a><br>
+        <a class="lijevi-gumbi" href="operatori.html">Operatori</a><br>
+        <a class="lijevi-gumbi" href="math.html">Math</a><br>
+        <a class="lijevi-gumbi" href="string.html">String</a><br>
+        <a class="lijevi-gumbi" href="booleans.html">Booleans</a><br>
+        <a class="lijevi-gumbi" href="if.html">If i else</a><br>
+        <a class="lijevi-gumbi" href="switch.html">Switch</a><br>
+        <a class="lijevi-gumbi" href="while.html">While</a><br>
+        <a class="lijevi-gumbi" href="for.html">For</a><br>
+        <a class="lijevi-gumbi" href="breakandcontinue.html">Break i Continue</a><br>
+        <a class="lijevi-gumbi" href="array.html">Niz</a><br>
+        <a class="lijevi-gumbi" href="metoda.html">Metoda</a><br>
+        <a class="lijevi-gumbi" id = "odabrano" href="klasa.html">Klasa</a><br>
+        <a class="lijevi-gumbi" href="enum.html">Enum</a><br>
+        <a class="lijevi-gumbi" href="iznimka.html">Iznimka</a><br>
+        <a class="lijevi-gumbi" href="datoteke.html">Datoteke</a><br>
+    </div>
+
+    <br>
+
+    <div class="tekstualna-kutija">
+        <h1>OOP</h1>
+        <p><span style="font-size: 20px; color: #8a71c5;">OOP</span>(objektno orijentirano programiranje) je vrsta programiranja koja se temelji na konceptu objekta di su objekti instance klase, a klase predstavljaju šablone za stvaranje objekta.</p>
+        <p><span style="font-size: 20px; color: #8a71c5;">Objekt</span> su instance klasa koje kombiniraju atribute i funkcije/metode.</p>
+        <p><span style="font-size: 20px; color: #8a71c5;">Klase</span>  predstavljaju šablone za stvaranje objekata. Definiraju atribute i metode koje će objekti imati, ali same po sebi ne stvaraju objekte.</p>
+        <p>Primjer <span style="font-size: 20px; color: #8a71c5;">klase</span> iz stvarnog života bi bio auto, a njegovi <span style="font-size: 20px; color: #8a71c5;">objekti</span> bi bili Toyota, Nissan, Tesla...</p>
+    </div>
+
+    <br>
+
+    <div class = "tekstualna-kutija">
+        <h1>Klase i objekti</h1>
+        <p>U sljedećem primjeru ćemo vam pokazati kako kreirati klasu.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+class ImeKlase
+{
+    
+}
+            </code></pre>
+        </div>
+        <br>
+
+        <p>Objekt se stvori iz klase. U sljedećem primjeru ćemo stvoriti klasu <span style="font-size: 20px; color: #8a71c5;">Auto</span> i iz nje ćemo stvoriti objekt. Kako bi stvorili objekt iz klase <span style="font-size: 20px; color: #8a71c5;">Auto</span>, moramo specificirati ime klase i nakon toga ime objekta. Nakon toga koristimo se s <span style="font-size: 20px; color: #8a71c5;">new</span>.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+class Auto 
+{
+    string boja = "plava";
+
+    static void Main(string[] args)
+    {
+        Auto objektAutomobila = new Auto();
+        Console.WriteLine(objektAutomobila.boja); // Ispisuje plava
+    }
+}
+            </code></pre>
+        </div>
+        <br>
+
+        <p>Moguće je imati više od jednog objekta iste klase.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+class Auto 
+{
+    string boja = "plava";
+
+    static void Main(string[] args)
+    {
+        Auto objektAutomobila1 = new Auto();
+        Auto objektAutomobila2 = new Auto();
+
+        Console.WriteLine(objektAutomobila1.boja); // Ispisuje plava
+        Console.WriteLine(objektAutomobila2.boja); // Ispisuje plava
+    }
+}
+            </code></pre>
+        </div>
+        <br>
+
+        <p>Možete stvoriti objekt klase i pristupiti mu u drugoj klasi. To se uglavnom radi zbog bolje organizacije koda.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Program1.cs:</h1>
+            <pre><code class="language-csharp">
+class Auto 
+{
+    string boja = "crvena";
+}
+            </code></pre>
+        </div>
+        <br>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Program2.cs:</h1>
+            <pre><code class="language-csharp">
+class Program
+{
+    static void Main(string[] args)
+    {
+        Auto objektAuto = new Auto();
+        Console.WriteLine(objektAuto.boja); // Ispisuje crvena
+    }
+}
+            </code></pre>
+        </div>
+        <br>
+        <script src="../prism.js"></script>
+    </div>
+
+    <br>
+
+    <div class = "tekstualna-kutija">
+        <h1>Članovi klase</h1>
+        <p>Polja i metode unutar klasa često se nazivaju "članovi klasa".</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+class Auto
+{
+    // Članovi klase
+    string boja = "ljubicasta";  // polje
+    int brzina = 200;          // polje
+    
+    static void Main(string[] args)
+    {
+        Auto objektAuto = new Auto();
+
+        Console.WriteLine("Boja automobila je " + objektAuto.boja);
+        Console.WriteLine("Brzina automobila je " + objektAuto.brzina);
+    }
+}
+            </code></pre>
+        </div>
+        <br>
+        <script src="../prism.js"></script>
+    </div>
+
+    <br>
+
+    <div class = "tekstualna-kutija">
+        <h1>Objekt metode</h1>
+        <p><span style="font-size: 20px; color: #8a71c5;">Objekti metode</span> bi se odnoslio na  metode objekta, odnosno funkcije koje su povezane s objektom određene klase. Klase u C# definiraju objekte, a metode su funkcije koje se izvršavaju u kontekstu tih objekata.</p>
+        <p>U sljedećem primjeru ćemo stvoriti objekt metode <span style="font-size: 20px; color: #8a71c5;">maksimalniPotencijal</span>.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+class Auto 
+{
+    string boja = "crna"; // polje
+    int brzina = 100; // polje                 
+    
+    public void maksimalniPotencijal() // metoda
+    {
+        Console.WriteLine("Auto je postigao svoj maksimalni potencijal."); 
+    }
+
+    static void Main(string[] args)
+    {
+        Auto objektAuto = new Auto();
+        objektAuto.maksimalniPotencijal();  // Pozvali smo metodu maksimalni potencijal
+    }
+}
+            </code></pre>
+        </div>
+        <br>
+        <script src="../prism.js"></script>
+    </div>
+
+    <br>
+
+    <div class = "tekstualna-kutija">
+        <h1>Konstruktori</h1>
+        <p>Konstruktor je posebna metoda koja se koristi za inicijalizaciju objekti. Prednost konstruktora je u tome što se poziva kada se stvori objekt klase. Koristi se za postavljanje početnih vrijednosti za polja.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+class Auto
+{
+    public string model;  // Polje
+
+    // Konstruktor
+    public Auto()
+    {
+        model = "Qashqai";
+    }
+
+    static void Main(string[] args)
+    {
+        Auto Nissan = new Auto(); 
+        Console.WriteLine(Nissan.model);  // Ispisuje Qashqai
+    }
+}
+            </code></pre>
+        </div>
+        <br>
+
+        <p>U sljedećem primjeru ćemo stvoriti klasu konstruktora s parametrom.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+class Auto
+{
+    public string model;  // Polje
+
+    // Konstruktor
+    public Auto(string imeModela)
+    {
+        model = imeModela;
+    }
+
+    static void Main(string[] args)
+    {
+        Auto Nissan = new Auto("Qashqai"); 
+        Console.WriteLine(Nissan.model);  // Ispisuje Qashqai
+    }
+}
+            </code></pre>
+        </div>
+        <br>
+        <script src="../prism.js"></script>
+    </div>
+
+    <br>
+
+    
+    <div class = "tekstualna-kutija">
+        <h1>Modifikatori pristupa</h1>
+        <table class="tablica">
+            <tr>
+                <th>public</th>
+                <th>Kod je prisutan svim klasama.</th>
+            </tr>
+            <tr>
+                <th>private</th>
+                <th>Kod je prisutan samo unutar iste klase.</th>
+            </tr>
+            <tr>
+                <th>protected</th>
+                <th>Kod je dostupan unutar iste klase ili u klasi koja je izvedena iz te klase.</th>
+            </tr>
+            <tr>
+                <th>internal</th>
+                <th>Kod je dostupan samo unutar vlastite skupine, ali ne i iz druge skupine.</th>
+            </tr>
+        </table>
+
+        <br>
+
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+public string boja;
+private string model;
+            </code></pre>
+        </div>
+        <br>
+
+        <p>U sljedećem primjeru ako probamo pristupiti <span style="font-size: 20px; color: #8a71c5;">boja</span> dobit ćemo <span style="font-size: 20px; color: #8a71c5;">error</span>. Razlog zašto ga ne dobivamo je jer je taj dio koda komentiran.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+class Auto
+{
+    public string model = "Qashqai";
+    private string boja = "plava";
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Auto nissan = new Auto();
+        Console.WriteLine(nissan.model); // Ispisuje Qashqai
+        /* Console.WriteLine(nissan.boja); da ovaj dio nije komentiran dobili bi error 
+        jer je boja stavljena pod privatno */
+    }
+}
+            </code></pre>
+        </div>
+        <br>
+        <p>Kako bi mogli pristupiti boji moramo je postaviti umjesto private napisati public.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+class Auto
+{
+    public string model = "Qashqai";
+    public string boja = "plava";
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Auto nissan = new Auto();
+        Console.WriteLine(nissan.model); // Ispisuje Qashqai
+        Console.WriteLine(nissan.boja);  // Ispisuje plava
+    }
+}
+            </code></pre>
+        </div>
+        <br>
+        
+        <p>U ovom primjeru, pristupanjem <span style="font-size: 20px; color: #8a71c5;">boja</span> iz <span style="font-size: 20px; color: #8a71c5;">Main</span> metode izazvat će grešku jer <span style="font-size: 20px; color: #8a71c5;">boja</span> ima protected pristup, što znači da je vidljiva samo unutar klase <span style="font-size: 20px; color: #8a71c5;">Auto</span>.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+class Auto
+{
+    public string model = "Qashqai";
+    protected string boja = "plava"; // Primjena protecteda na varijablu boja
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Auto nissan = new Auto();
+        Console.WriteLine(nissan.model); // Ispisuje Qashqai
+        Console.WriteLine(nissan.boja); // Ovo će uzrokovati grešku jer je boja protected i ne može se pristupiti izvan klase ili izvedene klase
+    }
+}
+            </code></pre>
+        </div>
+        <br>
+
+        <p>U ovom primjeru, <span style="font-size: 20px; color: #8a71c5;">boja</span> je označena s <span style="font-size: 20px; color: #8a71c5;">internal</span>, pa se može koristiti unutar iste skupine (u okviru istog projekta). Ako biste pokušali pristupiti <span style="font-size: 20px; color: #8a71c5;">boja</span> iz druge skupine, dobili biste grešku pristupa.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+class Auto
+{
+    public string model = "Qashqai";
+    internal string boja = "plava"; // Primjena internala na varijablu boja
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Auto nissan = new Auto();
+        Console.WriteLine(nissan.model); // Ispisuje Qashqai
+        Console.WriteLine(nissan.boja); // Ispisuje plava, jer smo unutar iste skupine
+    }
+}
+            </code></pre>
+        </div>
+        <br>
+        <script src="../prism.js"></script>
+    </div>
+
+    <br>
+
+    
+    <div class = "tekstualna-kutija">
+        <h1>Svojstva</h1>
+        <p><span style="font-size: 20px; color: #8a71c5;">Svojstva</span> vam omogućuju definiranje članova klase koji se ponašaju kao atributi, ali imaju dodatnu logiku povezanu s čitanjem <span style="font-size: 20px; color: #8a71c5;">get</span> i pisanjem <span style="font-size: 20px; color: #8a71c5;">set</span> njihovih vrijednosti.</p>
+        <p>U prijašnjoj lekciji naučili smo da ne možemo pristupiti atribute s modifikatorom <span style="font-size: 20px; color: #8a71c5;">private</span> unutar drugih klasa. Nekad nam je potrebno pristupiti privatnom atributu i to je moguće uz korištenje svojstva <span style="font-size: 20px; color: #8a71c5;">get</span> i <span style="font-size: 20px; color: #8a71c5;">set</span>.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+class Auto
+{
+    private string model; // polje
+    public string Model   // svojstvo
+    {
+        get { return model; }
+        set { model = value; }
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Auto marka = new Auto();
+        marka.Model = "Nissan";
+
+        Console.WriteLine(marka.Model); // Ispisuje Nissan
+    }
+}
+
+            </code></pre>
+        </div>
+
+        <br>
+        <script src="../prism.js"></script>
+
+    </div>
+
+    <br>
+
+    
+    <div class = "tekstualna-kutija">
+        <h1>Nasljeđivanje</h1>
+        <p>U C# je moguće naslijediti polja i metode iz jedne klase u drugu</p>
+        <p><span style="color: #8a71c5;">Izvedena klasa</span> je klasa koja nasljeđuje iz druge klase.</p>
+        <p><span style="color: #8a71c5;">Osnovna klasa</span> je klasa od koje se nasljeđuje.</p>
+        <p>Da bismo nešto naslijedili iz klase, koristimo se znakom<span style="color: #8a71c5;">:</span>.</p>
+        <p>U sljedećem primjeru, klasa <span style="color: #8a71c5;">Kompjuter</span> će nasljediti <span style="color: #8a71c5;">polja</span> i <span style="color: #8a71c5;">metode</span> iz klase <span style="color: #8a71c5;">Racunala</span>.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+class Racunalo
+{
+    public string brand = "Razer"; // polje Racunala
+    
+    public void ventilator() // Metoda Racunala
+    {                    
+        Console.WriteLine("Vrrrrrrrrrrr!");
+    }
+}
+
+class Kompjuter : Racunalo // Izvedena klasa
+{
+    public string kompanija = "Asus";  // Kompjuter field
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        
+        Kompjuter mojKompjuter = new Kompjuter();
+
+        // Pozovi metodu ventilator() iz klase Racunalo na objekt mojKompjuter.
+        mojKompjuter.ventilator();
+
+        Console.WriteLine(mojKompjuter.brand + " " + mojKompjuter.kompanija);
+
+        /*Ispisuje:
+        Vrrrrrrrrrrr!
+        Razer Asus
+        */
+    }
+}
+            </code></pre>
+        </div>
+        <br>
+
+        <p>Ako želite onemogućiti nasljeđivanje klasa, koristite riječ <span style="color: #8a71c5;">sealed</span>.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+sealed class Vozilo 
+{
+    // Komentar
+}
+
+class Auto : Vozilo 
+{
+    // Komentar 
+}
+
+/*
+S obzirom da je klasa vozilo "sealed"
+dobit ćemo error koji glasi 
+'Auto': cannot derive from sealed type 'Vozilo'
+*/
+            </code></pre>
+        </div>
+        <br>
+        <script src="../prism.js"></script>
+    </div>
+
+    <br>
+  
+
+    <div class="drzac-gumba">
+        <a class="donji-gumbi" href="metoda.html"><h1 class="naslovni-gumb">Prijašnje</h1></a>
+        <a class="donji-gumbi" href="enum.html"><h1 class="naslovni-gumb">Sljedeće</h1></a>
+    </div>
+    <script src="../pojavljivanje.js"></script>
+</body>
+</html>

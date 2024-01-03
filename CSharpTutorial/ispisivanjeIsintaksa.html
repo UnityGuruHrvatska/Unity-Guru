@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C# Sintaksa i ispisivanje</title>
+    <link rel="icon" href="../slike/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../stil.css">
+    <link href="../prism.css" rel="stylesheet">
+</head>
+<body onload="promjenaSvjetline()"><!--Promjena svjetline radi samo kada je stranica objavljena na serveru-->
+    <button id="treba" onclick="svjetlina()" class = "tema-gumb"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm40-83q119-15 199.5-104.5T800-480q0-123-80.5-212.5T520-797v634Z"/></svg></button>
+    <div class="gornja-navigacija">
+        <a class="gornji-gumbi"  id = "odabrano" href="intro.html">C#</a>
+        <a class="gornji-gumbi" href="../UnityUI/intro.html">Unity UI</a>
+        <a class="gornji-gumbi" href="../UnityCSharp/intro.html">Unity C#</a>
+    </div> 
+
+    <div class="lijeva-navigacija">
+        <a class="lijevi-gumbi" href="../home.html">Početna stranica</a><br>  
+        <a class="lijevi-gumbi" href = "intro.html">Polazna lekcija</a><br>
+        <a class="lijevi-gumbi" href="instalacija.html">Instalacija</a><br>
+        <a class="lijevi-gumbi" id = "odabrano" href="ispisivanjeIsintaksa.html">Sintaksa i ispisivanje</a><br>
+        <a class="lijevi-gumbi" href="komentari.html">Komentari</a><br>
+        <a class="lijevi-gumbi" href="varijable.html">Varijable i vrste podataka</a><br>
+        <a class="lijevi-gumbi" href="pretvaranjePodataka.html">Pretvaranje vrsta podataka</a><br>
+        <a class="lijevi-gumbi" href="unosPodataka.html">Unošenje podataka</a><br>
+        <a class="lijevi-gumbi" href="operatori.html">Operatori</a><br>
+        <a class="lijevi-gumbi" href="math.html">Math</a><br>
+        <a class="lijevi-gumbi" href="string.html">String</a><br>
+        <a class="lijevi-gumbi" href="booleans.html">Booleans</a><br>
+        <a class="lijevi-gumbi" href="switch.html">Switch</a><br>
+        <a class="lijevi-gumbi" href="if.html">If i else</a><br>
+        <a class="lijevi-gumbi" href="while.html">While</a><br>
+        <a class="lijevi-gumbi" href="for.html">For</a><br>
+        <a class="lijevi-gumbi" href="breakandcontinue.html">Break i Continue</a><br>
+        <a class="lijevi-gumbi" href="array.html">Niz</a><br>
+        <a class="lijevi-gumbi" href="metoda.html">Metoda</a><br>
+        <a class="lijevi-gumbi" href="klasa.html">Klasa</a><br>
+        <a class="lijevi-gumbi" href="enum.html">Enum</a><br>
+        <a class="lijevi-gumbi" href="iznimka.html">Iznimka</a><br>
+        <a class="lijevi-gumbi" href="datoteke.html">Datoteke</a><br>
+    </div>
+
+    <br>
+
+    <div class = "tekstualna-kutija">
+        <h1>C# Sintaksa i ispisivanje</h1>
+        <p>U ovoj lekciji proći ćemo sintaksu C# programskog jezika i pokazati kako ispisivati kod.</p>
+        <p>Kod pokrećete tako što pritisnete F5 ako koristite Visual Studio Community.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+using System;
+
+namespace Tutorial
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello world");
+            Console.ReadKey();
+        }
+    }
+}
+                
+            </code></pre>
+          </div>
+        <script src="../prism.js"></script>
+        <br>
+    </div style="p">
+    
+    <br>
+    
+    <div class="tekstualna-kutija">
+        <h1>Objašnjenje sintakse</h1>
+        <p><span style="font-size: 20px; color: #8a71c5;">using</span> - koristimo kada želimo koristiti klase iz određenog imenskog prostora. U ovom primjeru napisali smo <span style="color: #8a71c5">using System</span> čime koristimo klase iz imenskog prostora <span style="color: #8a71c5">System.</span></p>
+        <p><span style="font-size: 20px; color: #8a71c5;">namespace</span> - spremnik za klase i druge imenske prostore. Naš projekt se zove &quot;Tutorial&quot; te iz tog razloga piše <span style="color: #8a71c5">namespace Tutorial.</span></p>
+        <p><span style="font-size: 20px; color: #8a71c5;">{}</span> - označavaju početak i kraj.</p>
+        <p><span style="font-size: 20px; color: #8a71c5;">class</span> - spremnik za podatke i metode koji pruža funkcionalnost vašem programu. Svaka linija koda koja se izvršava u C# mora biti unutar klase. Kasnije unutar ove cijeline naučićete više o klasama.</p>
+        <p><span style="font-size: 20px; color: #8a71c5;">Console.ReadKey()</span> - čeka dok korisnik ne pritisne bilo koju tipku na tipkovnici, a zatim vraća objekt koji predstavlja pritisnutu tipku. Možete ga koristiti kako vam se program ne bi odmah zatvorio te da tako vidite što je ispisano.</p>
+    </div>
+
+    <br>
+
+    <div class="tekstualna-kutija">
+        <h1>Console.WriteLine()</h1>
+        <p><span style="color: #8a71c5;">Console.WriteLine()</span> - koristimo ga kada želimo nešto ispisati, a da se nakon toga sljedeći ispis nalazi u novom redu.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+using System;
+
+namespace Tutorial
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello world");
+            Console.WriteLine("Hello world");
+            Console.WriteLine("Hello world");
+
+            Console.ReadKey();
+        }
+    }
+}             
+            </code></pre>
+          </div>
+        <script src="../prism.js"></script>
+        <br>
+    </div>
+    
+    <br>
+
+    <div class="tekstualna-kutija">
+        <h1>Console.Write()</h1>
+        <p><span style="color: #8a71c5;">Console.Write()</span> - koristimo ga kada želimo nešto ispisati, a da se nakon toga sljedeći ispis nalazi u istom redu.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+using System;
+
+namespace Tutorial
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Hello world");
+            Console.Write("Hello world");
+            Console.Write("Hello world");
+
+            Console.ReadKey();
+        }
+    }
+}              
+            </code></pre>
+          </div>
+        <script src="../prism.js"></script>
+        <br>
+    </div>
+
+    <br>
+
+    <div class="drzac-gumba">
+        <a class="donji-gumbi" href="instalacija.html"><h1 class="naslovni-gumb">Prijašnje</h1></a>
+        <a class="donji-gumbi" href="komentari.html"><h1 class="naslovni-gumb">Sljedeće</h1></a>
+    </div>
+    <script src="../pojavljivanje.js"></script>
+</body>
+</html>

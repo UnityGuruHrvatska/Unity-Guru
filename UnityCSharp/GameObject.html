@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unity C# GameObject</title>
+    <link rel="icon" href="../slike/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../stil.css">
+    <link rel="stylesheet" href="../prism.css">
+</head>
+<body onload="promjenaSvjetline()"><!--Promjena svjetline radi samo kada je stranica objavljena na serveru-->
+    <button id="treba" onclick="svjetlina()" class = "tema-gumb"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm40-83q119-15 199.5-104.5T800-480q0-123-80.5-212.5T520-797v634Z"/></svg></button>
+  
+    <div class="gornja-navigacija">
+        <a class="gornji-gumbi" href = "../CSharpTutorial/intro.html">C#</a>
+        <a class="gornji-gumbi" href = "../UnityUI/intro.html">Unity UI</a>
+        <a class="gornji-gumbi" id = "odabrano" href = "../UnityCSharp/intro.html">Unity C#</a>
+    </div> 
+
+    <div class="lijeva-navigacija">
+        <a class="lijevi-gumbi" href="../home.html">Početna stranica</a><br>  
+        <a class="lijevi-gumbi" href = "intro.html">Polazna lekcija</a><br>
+        <a class="lijevi-gumbi" href="pravaPristupa.html">Prava pristupa</a><br>  
+        <a class="lijevi-gumbi" href = "time.html">Time</a><br>
+        <a class="lijevi-gumbi" id = "odabrano" href="GameObject.html">GameObject</a><br>  
+        <a class="lijevi-gumbi" href="destroyISectActive.html">Destroy i SetActive</a><br>  
+        <a class="lijevi-gumbi" href="mathf.html">Mathf</a><br>
+        <a class="lijevi-gumbi" href="input.html">Input</a><br>  
+        <a class="lijevi-gumbi" href="SceneManager.html">SceneManagement</a><br>
+        <a class="lijevi-gumbi" href="UIlekcija.html">UI programiranje</a><br>
+        <a class="lijevi-gumbi" href="audioS.html">Audio source</a><br>
+        <a class="lijevi-gumbi" href="vektori.html">Vektori</a><br>
+        <a class="lijevi-gumbi" href="quaternion.html">Kvaternion</a><br>
+        <a class="lijevi-gumbi" href="transform.html">Transform</a><br>
+        <a class="lijevi-gumbi" href="RigidBody.html">RigidBody</a><br>
+        <a class="lijevi-gumbi" href="voidOnTrigger.html">OnTrigger</a><br>
+        <a class="lijevi-gumbi" href="voidOnCollision.html">OnCollision</a><br>
+        <a class="lijevi-gumbi" href="raycast.html">RayCast</a><br>
+        <a class="lijevi-gumbi" href="playerPref.html">PlayerPref</a><br>
+    </div>
+
+    <br>
+
+    <div class = "tekstualna-kutija">
+        <h1>GameObject</h1>
+        <p><span style="font-size: 20px; color: #8a71c5;">GameObject</span> je glavna Unity klasa za sve objekte/entitete u unity sceni.</p>
+        <p>Primjeri GameObject su: kamera, kocka, svjetla...</p>
+        <p>Svaki GameObject sadrži određene komponente (transform, collider...) kojima možemo pristupiti i putem koda.</p>
+    </div>
+
+    <br>
+
+    <div class="tekstualna-kutija">
+        <h1>Traženje objekta</h1>
+        <p>Objekt stvaramo unutar skripte tako što prvo definiramo pravo pristupa (<span style="font-size: 20px; color: #8a71c5;">private</span> ili <span style="font-size: 20px; color: #8a71c5;">public</span>) zatim napišemo <span style="font-size: 20px; color: #8a71c5;">GameObject</span> te ga nazovemo po želji.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+private GameObject objekt1;
+public GameObject objekt2;
+            </code></pre>
+        </div>
+
+        <br>
+
+        <p>Ako smo objekt označili s <span style="font-size: 20px; color: #8a71c5;">public</span> ili <span style="font-size: 20px; color: #8a71c5;">[SerializeField]</span> dovoljno je otići u Unity te povući željeni objekt iz <span style="font-size: 20px; color: #8a71c5;">hierarchya</span> na predviđeno mjesto u skripti koja se nalazi pod  <span style="font-size: 20px; color: #8a71c5;">Inspectorom</span> na objektu na kojem je skripta. Na taj način će  <span style="font-size: 20px; color: #8a71c5;">C#</span> znati o kojem se objektu radi kada mu mjenjamo svojstva unutar skripte.</p>
+        <p>Ako smo objekt označili s <span style="font-size: 20px; color: #8a71c5;">private</span> onda nam objekt nije vidljiv unutar <span style="font-size: 20px; color: #8a71c5;">Inspectora</span> te ga je potrebno naći unutar skripte uz pomoć imena ili taga. Pronalaženje obično pišemo unutar <span style="font-size: 20px; color: #8a71c5;">void Start()</span> jer je to metoda koja se poziva prilikom pokretanja scene nakon što je objekt stvoren. Iz tog razloga se ne koristimo metodom <span style="font-size: 20px; color: #8a71c5;">OnAwake() za pronalaženje objekta putem <span style="font-size: 20px; color: #8a71c5;">taga</span> ili <span style="font-size: 20px; color: #8a71c5;">imena</span>.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+public GameObject objekt1;
+public GameObject objekt2;
+
+void Start()
+{
+    objekt1 = GameObject.FindWithTag("TagObjekta"); //Pronalaženje objekta uz pomoć taga
+    objekt2 = GameObject.Find("ImeObjekta"); //Pronalaženje objekta uz pomoć imena
+}
+            </code></pre>
+        </div>
+        <script src="../prism.js"></script>
+        <br>
+    </div>
+    
+   <br>
+       
+    <div class = "tekstualna-kutija">
+        <h1>Pristupanje koponentama</h1>
+        <p>Kada pristupamo komponenti nekog objekta prvo napišemo naziv objekta čijim komponentama želimo pristupiti, a zatim dohvatimo tu komponentu uz pomoć <span style="font-size: 20px; color: #8a71c5;">GetComponent&lt;imeKomponente&gt;()</span>.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Sintaksa:</h1>
+            <pre><code class="language-csharp">
+objekt1.GetComponent&lt;imeKomponente&gt;().svojstvoKomponente = promjena;
+            </code></pre>
+        </div>
+
+        <br>
+
+        <p>U sljedećem primjeru pristupit ćemo komponenti <span style="font-size: 20px; color: #8a71c5;">MeshRenderer</span> te ćemo je uz pomoć koda isključiti pa odmah nakon toga uključiti.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+public GameObject objekt1;
+
+void Start()
+{
+    objekt1.GetComponent&lt;MeshRenderer&gt;().enabled = false; //Ovdje isključujemo MeshRenderer objektu kojeg smo unutar skripte nazvali objekt1
+    objekt1.GetComponent&lt;MeshRenderer&gt;().enabled = true; //Ovdje uključujemo MeshRenderer objektu kojeg smo unutar skripte nazvali objekt1      
+}
+            </code></pre>
+        </div>
+
+        <br>
+
+        <p>U sljedećem primjeru pristupit ćemo komponeti  <span style="font-size: 20px; color: #8a71c5;">Rigidbody</span> te ćemo joj promjeniti brzinu za naprijed.</p>
+        <p>O ovoj komponenti ćemo posebno učiti u jednoj od nadolazećih lekcija.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+public GameObject objekt1;
+
+void Start()
+{
+    objekt1.GetComponent&lt;Rigidbody&gt;().velocity = this.transform.forward * 20; //mjenjamo brzinu za naprijed od Rigidbodya na objektu1  
+}
+            </code></pre>
+        </div>
+
+        <br>
+
+        <p>Ako se skripta nalazi na objektu čijim komponentama želimo pristupiti umjesto nazaiva objekta napišemo <span style="font-size: 20px; color: #8a71c5;">this</span>.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+void Start()
+{
+    this.GetComponent&lt;MeshRenderer&gt;().enabled = false; //Ovdje isključujemo MeshRenderer objektu na kojem je skripta
+    this.GetComponent&lt;MeshRenderer&gt;().enabled = true; //Ovdje uključujemo MeshRenderer  objektu na kojem je skripta
+}
+            </code></pre>
+        </div>
+
+        <script src="../prism.js"></script>
+        <br>
+
+        <p>Isto bi bilo i da smo napiasli samo <span style="font-size: 20px; color: #8a71c5;">GetComponent&lt;MeshRenderer&gt;().enabled = false;</span> bez <span style="font-size: 20px; color: #8a71c5;">this</span>.</p>
+    </div>
+
+    <br>
+
+    <div class = "tekstualna-kutija">
+        <h1>Referenca</h1>
+        <p>Kontinuirano korištenje <span style="font-size: 20px; color: #8a71c5;">GetComponent&lt;ImeKomponente&gt;()</span> za svaki put kada želimo izmjeniti svojstva komponente određenog objekta je procesorski zahtjevno.</p>
+        <p>Iz takvog razloga komponentu određenog objekta spremamo pod referencu.</p>
+        <p>U sljedećem primjeru imamo privatnu komponentu <span style="font-size: 20px; color: #8a71c5;">MeshRenderer</span>. Unutar <span style="font-size: 20px; color: #8a71c5;">void Start</span> stavljamo da se ta komponenta <span style="font-size: 20px; color: #8a71c5;">MeshRenderer</span> odnosi na <span style="font-size: 20px; color: #8a71c5;">MeshRenderer</span> objekta kojeg smo unutar skripte nazvali <span style="font-size: 20px; color: #8a71c5;">objekt1</span>. Nakon toga isključujemo <span style="font-size: 20px; color: #8a71c5;">MeshRenderer</span> tog objekta.</p>
+        <p>Objekt1 pronalazimo putem imena u ovom primjeru.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">              
+private GameObject objekt1;
+private MeshRenderer meshR;
+
+void Start()
+{
+    objekt1 = GameObject.Find("kocka"); //objekt1 se unutar scene zove kocka
+    meshR = objekt1.GetComponent&lt;MeshRenderer&gt;();
+    meshR.enabled = false;
+}               
+            </code></pre>
+        </div>
+
+        <script src="../prism.js"></script>
+        <br>
+    </div>
+
+    <br>
+
+    <div class = "tekstualna-kutija">
+        <h1>Iznimka</h1>
+        <p>Jedina komponenta kojoj možemo pristupiti bez korištenja <span style="font-size: 20px; color: #8a71c5;">GetComponent&lt;imeKomponente&gt;()</span> je <span style="font-size: 20px; color: #8a71c5;">transform</span>.</p>
+        <p>O njoj ćemo detaljnije učiti u jednoj od sljedećih lekcija.</p>
+    </div>
+
+    <br>
+
+    <div class="drzac-gumba">
+        <a class="donji-gumbi" href="time.html"><h1 class="naslovni-gumb">Prijašnje</h1></a>
+        <a class="donji-gumbi" href="destroyISectActive.html"><h1 class="naslovni-gumb">Sljedeće</h1></a>
+    </div>
+    <script src="../pojavljivanje.js"></script>
+</body>
+</html>

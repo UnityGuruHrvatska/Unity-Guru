@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unity C# RayCast</title>
+    <link rel="icon" href="../slike/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../stil.css">
+    <link rel="stylesheet" href="../prism.css">
+</head>
+<body onload="promjenaSvjetline()"><!--Promjena svjetline radi samo kada je stranica objavljena na serveru-->
+    <button id="treba" onclick="svjetlina()" class = "tema-gumb"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm40-83q119-15 199.5-104.5T800-480q0-123-80.5-212.5T520-797v634Z"/></svg></button>
+  
+    <div class="gornja-navigacija">
+        <a class="gornji-gumbi" href = "../CSharpTutorial/intro.html">C#</a>
+        <a class="gornji-gumbi" href = "../UnityUI/intro.html">Unity UI</a>
+        <a class="gornji-gumbi" id = "odabrano" href = "../UnityCSharp/intro.html">Unity C#</a>
+    </div> 
+
+    <div class="lijeva-navigacija">
+        <a class="lijevi-gumbi" href="../home.html">Početna stranica</a><br>  
+        <a class="lijevi-gumbi" href = "intro.html">Polazna lekcija</a><br>
+        <a class="lijevi-gumbi" href = "pravaPristupa.html">Prava pristupa</a><br>
+        <a class="lijevi-gumbi" href = "time.html">Time</a><br>
+        <a class="lijevi-gumbi" href="GameObject.html">GameObject</a><br>  
+        <a class="lijevi-gumbi" href="destroyISectActive.html">Destroy i SetActive</a><br>  
+        <a class="lijevi-gumbi" href="mathf.html">Mathf</a><br>  
+        <a class="lijevi-gumbi" href="input.html">Input</a><br>
+        <a class="lijevi-gumbi" href="SceneManager.html">SceneManagement</a><br>  
+        <a class="lijevi-gumbi" href="UIlekcija.html">UI programiranje</a><br>  
+        <a class="lijevi-gumbi" href="audioS.html">Audio source</a><br>
+        <a class="lijevi-gumbi" href="vektori.html">Vektori</a><br>
+        <a class="lijevi-gumbi" href="quaternion.html">Kvaternion</a><br>
+        <a class="lijevi-gumbi" href="transform.html">Transform</a><br>
+        <a class="lijevi-gumbi" href="RigidBody.html">RigidBody</a><br>
+        <a class="lijevi-gumbi" href="voidOnTrigger.html">OnTrigger</a><br>
+        <a class="lijevi-gumbi" href="voidOnCollision.html">OnCollision</a><br>
+        <a class="lijevi-gumbi" id = "odabrano" href="raycast.html">RayCast</a><br>
+        <a class="lijevi-gumbi" href="playerPref.html">PlayerPref</a><br>
+    </div>
+
+    <br>
+
+    <div class = "tekstualna-kutija">
+        <h1>RayCast</h1>
+        <p><span style="font-size: 20px; color: #8a71c5;">RayCast</span> je tehnika koja se koristi za određivanje interakcije između zrake i objekata u sceni.</p>
+        <p>Moežemo ga koristi za detektiranje ako igrač gleda u određen objekt, pucanje...</p>
+        <p>Pišemo ga tako što prvo definiramo iz koje <span style="font-size: 20px; color: #8a71c5;">pozicije</span> želimo ispaliti zraku, zatim u kojem <span style="font-size: 20px; color: #8a71c5;">smijeru</span>. Nakon toga joj nadodajemo <span style="font-size: 20px; color: #8a71c5;">RaycastHit</span> koji pohranjuje podatke o sudaru zrake s ostalim objektima. Kao zadnje postavljamo na koju <span style="font-size: 20px; color: #8a71c5;">udaljenost</span> želimo da se ta zraka ispali. Ako ništa ne postavimo na mijesto <span style="font-size: 20px; color: #8a71c5;">udaljenosti</span> onda će ta udaljenost biti <span style="font-size: 20px; color: #8a71c5;">beskonačna</span>.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Sintaksa:</h1>
+            <pre><code class="language-csharp">
+Physics.Raycast(pozicijaIspaljivanja, smijerIspaljivanja, out RaycastHit, duljinaZrake);
+            </code></pre>
+        </div>
+        <br>
+
+        <p>U sljedećem primjeru ćemo ispisivati ime objekta kojeg zrake pogode. Ako ne pogode niti jedan objekt ipisati će tu poruku u konzolu.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+RaycastHit pogoden;
+public float maxDistance;
+
+void Update()
+{
+    Vector3 pozicijaIspaljivanja = this.transform.position;
+    Vector3 smijerIspaljivanja = this.transform.forward;
+
+    if (Physics.Raycast(pozicijaIspaljivanja, smijerIspaljivanja, out pogoden, maxDistance))
+    {
+        //ispisujemo ime objekta kojeg je pogodio RayCast
+        Debug.Log(pogoden.collider.name);
+    } 
+
+    else
+    {
+        Debug.Log("Zrake nisu pogodile niti jedan objekt");
+    }
+}
+            </code></pre>
+        </div>
+        <br>
+
+        <p>U sljedećem primjeru ćemo <span style="font-size: 20px; color: #8a71c5;">uništiti</span> objekt kojeg su zrake pogodile ako pritisnemo lijevi klik miša.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+RaycastHit pogoden;
+public float maxDistance;
+
+void Update()
+{
+    Vector3 pozicijaIspaljivanja = this.transform.position;
+    Vector3 smijerIspaljivanja = this.transform.forward;
+
+    if (Physics.Raycast(pozicijaIspaljivanja, smijerIspaljivanja, out pogoden, maxDistance) && Input.GetKeyDown(KeyCode.Mouse0))
+    {
+        Destroy(pogoden.collider.gameObject);
+    } 
+}       
+            </code></pre>
+        </div>
+        <br>
+
+    <script src="../prism.js"></script>
+    </div>
+
+
+    <div class="drzac-gumba">
+        <a class="donji-gumbi" href="voidOnCollision.html"><h1 class="naslovni-gumb">Prijašnje</h1></a>
+        <a class="donji-gumbi" href="playerPref.html"><h1 class="naslovni-gumb">Sljedeće</h1></a>
+    </div>
+    <script src="../pojavljivanje.js"></script>
+</body>
+</html>

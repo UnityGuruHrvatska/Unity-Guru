@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C# For</title>
+    <link rel="icon" href="../slike/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../stil.css">
+    <link rel="stylesheet" href="../prism.css">
+</head>
+<body onload="promjenaSvjetline()"><!--Promjena svjetline radi samo kada je stranica objavljena na serveru-->
+    <button id="treba" onclick="svjetlina()" class = "tema-gumb"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm40-83q119-15 199.5-104.5T800-480q0-123-80.5-212.5T520-797v634Z"/></svg></button>
+    <div class="gornja-navigacija">
+        <a class="gornji-gumbi"  id = "odabrano" href="intro.html">C#</a>
+        <a class="gornji-gumbi" href="../UnityUI/intro.html">Unity UI</a>
+        <a class="gornji-gumbi" href="../UnityCSharp/intro.html">Unity C#</a>
+    </div>
+
+    <br>
+
+    <div class="lijeva-navigacija">
+        <a class="lijevi-gumbi" href="../home.html">Početna stranica</a><br>  
+        <a class="lijevi-gumbi" href = "intro.html">Polazna lekcija</a><br>
+        <a class="lijevi-gumbi" href="instalacija.html">Instalacija</a><br>
+        <a class="lijevi-gumbi" href="ispisivanjeIsintaksa.html">Sintaksa i ispisivanje</a><br>
+        <a class="lijevi-gumbi" href="komentari.html">Komentari</a><br>
+        <a class="lijevi-gumbi" href="varijable.html">Varijable i vrste podataka</a><br>
+        <a class="lijevi-gumbi" href="pretvaranjePodataka.html">Pretvaranje vrsta podataka</a><br>
+        <a class="lijevi-gumbi" href="unosPodataka.html">Unošenje podataka</a><br>
+        <a class="lijevi-gumbi" href="operatori.html">Operatori</a><br>
+        <a class="lijevi-gumbi" href="math.html">Math</a><br>
+        <a class="lijevi-gumbi" href="string.html">String</a><br>
+        <a class="lijevi-gumbi" href="booleans.html">Booleans</a><br>
+        <a class="lijevi-gumbi" href="if.html">If i else</a><br>
+        <a class="lijevi-gumbi" href="switch.html">Switch</a><br>
+        <a class="lijevi-gumbi" href="while.html">While</a><br>
+        <a class="lijevi-gumbi" id = "odabrano" href="for.html">For</a><br>
+        <a class="lijevi-gumbi" href="breakandcontinue.html">Break i Continue</a><br>
+        <a class="lijevi-gumbi" href="array.html">Niz</a><br>
+        <a class="lijevi-gumbi" href="metoda.html">Metoda</a><br>
+        <a class="lijevi-gumbi" href="klasa.html">Klasa</a><br>
+        <a class="lijevi-gumbi" href="enum.html">Enum</a><br>
+        <a class="lijevi-gumbi" href="iznimka.html">Iznimka</a><br>
+        <a class="lijevi-gumbi" href="datoteke.html">Datoteke</a><br>
+    </div>
+
+    <br>
+
+    <div class="tekstualna-kutija">
+        <h1>For</h1>
+        <p><span style="font-size: 20px; color: #8a71c5;">For</span> petlja se koristi kada znamo koliko točno puta želimo izvršiti određeni blok koda.</p>
+        <p><span style="font-size: 20px; color: #8a71c5;">Izjava 1</span> se izvršava jednom i to prije izvršavanja bloka koda unutar <span style="font-size: 20px; color: #8a71c5;">for</span> petlje.</p>
+        <p><span style="font-size: 20px; color: #8a71c5;">Izjava 2</span> definira uvjet za izvršavanje bloka koda.</p>
+        <p><span style="font-size: 20px; color: #8a71c5;">Izjava 3</span> se izvršava svaki put i to prije izvršavanja bloka koda unutar <span style="font-size: 20px; color: #8a71c5;">for</span> petlje.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Sintaksa:</h1>
+            <pre><code class="language-csharp">
+for (izjava1; izjava2; izjava3) 
+{
+    // određeni kod
+}
+            </code></pre>
+          </div>
+        <br>
+
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+for (int i = 0; i < 10; i++) 
+{
+    Console.WriteLine(i); // U ovom primjeru ispisivati će se brojevi od 0 do 9
+}
+            </code></pre>
+          </div>
+        <br>
+
+        <p>U primjeru iznad u <span style="font-size: 20px; color: #8a71c5;">izjavi 1</span> postavljamo početnu vrijednost <span style="font-size: 20px; color: #8a71c5;">int i</span>. U <span style="font-size: 20px; color: #8a71c5;">izjavi 2</span> postavljamo uvjet da <span style="font-size: 20px; color: #8a71c5;">int i</span> mora biti <span style="font-size: 20px; color: #8a71c5;">manji</span> od <span style="font-size: 20px; color: #8a71c5;">10</span>. U <span style="font-size: 20px; color: #8a71c5;">izjavi 3</span> povećavamo <span style="font-size: 20px; color: #8a71c5;">int i</span> za <span style="font-size: 20px; color: #8a71c5;">1</span> svaki put kada je blok koda unutar petlje izvršen.</p>
+        <br>
+        <p>U sljedećem primjeru <span style="font-size: 20px; color: #8a71c5;">izjava 1</span> i <span style="font-size: 20px; color: #8a71c5;">izjava 2</span> će biti iste kao u primjeru iznad, ali ćemo unutar <span style="font-size: 20px; color: #8a71c5;">izjave 3 int i</span> povećati za <span style="font-size: 20px; color: #8a71c5;">2</span> svaki put kada je blok koda unutar petlje izvršen.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+for (int i = 0; i < 10; i += 2) 
+{
+    Console.WriteLine(i); // U ovom primjeru ispisivati će se samo parni brojevi od 0 do 8
+}
+            </code></pre>
+          </div>
+        <br>
+
+        <p>Moguće je isto tako imati petlju unutar petlje.</p>
+        <p><span style="font-size: 20px; color: #8a71c5;">Unutarnja petlja</span> izvršit će se jednom za svaku iteraciju <span style="font-size: 20px; color: #8a71c5;">vanjske petlje</span>.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+// Vanjska petlja
+for (int i = 0; i <= 2; i++) 
+{
+    Console.WriteLine("Vanjska: " + i);  // Pokreće se 3 puta i ispisuje brojeve od 0 do 2
+
+    // Unutarnja petlja
+    for (int j = 0; j <= 3; j++) 
+    {
+        Console.WriteLine("Unutarnja: " + j); // Pokreće se 12 puta (4 * 3)
+    }
+}
+            </code></pre>
+          </div>
+        <br>
+        <script src="../prism.js"></script>
+    </div>
+
+    <br>
+
+    <div class = "tekstualna-kutija">
+        <h1>Foreach</h1>
+        <p><span style="font-size: 20px; color: #8a71c5;">Foreach</span> je vrsta petlje koja se najčešće koristi za prolazak kroz elemente neke liste, skupa...</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Sintaksa:</h1>
+            <pre><code class="language-csharp">
+foreach (type imeVarijable in imeVarijableKrozKojuProlazimo) 
+{
+    // određeni kod
+}
+            </code></pre>
+          </div>
+        <br>
+        
+        <p></p><span style="font-size: 20px; color: #8a71c5;">Foreach</span> se isto tako može koristit kako bi prošli kroz neki string.</p>
+        <p>U sljedećem primjeru ćemo ispisati sva slova stringa <span style="font-size: 20px; color: #8a71c5;">x</span>.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Sintaksa:</h1>
+            <pre><code class="language-csharp">
+string x = "Ovo je fora";
+
+foreach (char i in x)
+{
+    Console.WriteLine(i);
+}     
+
+/*
+Ispisuje:
+O
+v
+o
+
+j
+e
+
+f
+o
+r
+a
+*/
+            </code></pre>
+          </div>
+        <br>
+        <script src="../prism.js"></script>
+    </div>
+
+    <br>
+
+    <div class="drzac-gumba">
+        <a class="donji-gumbi" href="while.html"><h1 class="naslovni-gumb">Prijašnje</h1></a>
+        <a class="donji-gumbi" href="breakandcontinue.html"><h1 class="naslovni-gumb">Sljedeće</h1></a>
+    </div>
+
+    <script src="../pojavljivanje.js"></script>
+</body>
+</html>

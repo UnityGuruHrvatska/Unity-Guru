@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unity C# Transform</title>
+    <link rel="icon" href="../slike/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../stil.css">
+    <link rel="stylesheet" href="../prism.css">
+</head>
+<body onload="promjenaSvjetline()"><!--Promjena svjetline radi samo kada je stranica objavljena na serveru-->
+    <button id="treba" onclick="svjetlina()" class = "tema-gumb"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm40-83q119-15 199.5-104.5T800-480q0-123-80.5-212.5T520-797v634Z"/></svg></button>
+  
+    <div class="gornja-navigacija">
+        <a class="gornji-gumbi" href = "../CSharpTutorial/intro.html">C#</a>
+        <a class="gornji-gumbi" href = "../UnityUI/intro.html">Unity UI</a>
+        <a class="gornji-gumbi" id = "odabrano" href = "../UnityCSharp/intro.html">Unity C#</a>
+    </div> 
+
+    <div class="lijeva-navigacija">
+        <a class="lijevi-gumbi" href="../home.html">Početna stranica</a><br>  
+        <a class="lijevi-gumbi" href = "intro.html">Polazna lekcija</a><br>
+        <a class="lijevi-gumbi" href = "pravaPristupa.html">Prava pristupa</a><br>
+        <a class="lijevi-gumbi" href = "time.html">Time</a><br>
+        <a class="lijevi-gumbi" href="GameObject.html">GameObject</a><br>  
+        <a class="lijevi-gumbi" href="destroyISectActive.html">Destroy i SetActive</a><br>  
+        <a class="lijevi-gumbi" href="mathf.html">Mathf</a><br>  
+        <a class="lijevi-gumbi" href="input.html">Input</a><br>
+        <a class="lijevi-gumbi" href="SceneManager.html">SceneManagement</a><br>  
+        <a class="lijevi-gumbi" href="UIlekcija.html">UI programiranje</a><br>
+        <a class="lijevi-gumbi" href="audioS.html">Audio source</a><br>
+        <a class="lijevi-gumbi" href="vektori.html">Vektori</a><br>
+        <a class="lijevi-gumbi" href="quaternion.html">Kvaternion</a><br>
+        <a class="lijevi-gumbi" id ="odabrano" href="transform.html">Transform</a><br>
+        <a class="lijevi-gumbi" href="RigidBody.html">RigidBody</a><br>
+        <a class="lijevi-gumbi" href="voidOnTrigger.html">OnTrigger</a><br>
+        <a class="lijevi-gumbi" href="voidOnCollision.html">OnCollision</a><br>
+        <a class="lijevi-gumbi" href="raycast.html">RayCast</a><br>
+        <a class="lijevi-gumbi" href="playerPref.html">PlayerPref</a><br>
+    </div>
+
+    <br>
+
+    <div class="tekstualna-kutija">
+        <h1>Transform</h1>
+        <p><span style="font-size: 20px; color: #8a71c5;">Transform</span> je jedina Unityjeva komponenta za koju ne moramo koristiti <span style="font-size: 20px; color: #8a71c5;">GetComponent</span> kako bi je koristili.</p>
+        <p>Ona se sastoji od <span style="font-size: 20px; color: #8a71c5;">position</span>, <span style="font-size: 20px; color: #8a71c5;">rotation</span> i <span style="font-size: 20px; color: #8a71c5;">scale</span>. </p>
+        <p>U lekciji <a style="text-decoration: none; color: #9e83de;" href="GameObject.html">GameObject</a> smo je samo spomenuli, a u ovoj ćemo se malo bolje upoznati s njom.</p>
+    </div>
+
+    <br>
+
+    <div class="tekstualna-kutija">
+        <h1>Lokalna i globlana svojstva.</h1>
+        <p>Prije nego li krenemo na <span style="font-size: 20px; color: #8a71c5;">transfrom</span> moramo razumjeti razliku njegovih globalnih i lokalnih svojstva.</p>
+        <p><span style="font-size: 20px; color: #8a71c5;">Globalna</span> svojstva predstavljaju <span style="font-size: 20px; color: #8a71c5;">poziciju</span> i <span style="font-size: 20px; color: #8a71c5;">rotaciju</span> u odnosu na globalnom kordinatnom sustavu igre. Naprimjer ako promijenimo rotaciju objekta njegovi se <span style="font-size: 20px; color: #8a71c5;">globalni</span> vektori <span style="font-size: 20px; color: #8a71c5;">pozicije</span> neće promijeniti.</p>
+        <p> <span style="font-size: 20px; color: #8a71c5;">Lokalna</span> svojstva predstavljaju <span style="font-size: 20px; color: #8a71c5;">poziciju</span>, <span style="font-size: 20px; color: #8a71c5;">rotaciju</span> i <span style="font-size: 20px; color: #8a71c5;">veličinu </span> u odnosu na njegov roditeljski objekt u lokalnom koordinatnom sustavu. Naprimjer ako promijenimo rotaciju objekta njegovi  će se <span style="font-size: 20px; color: #8a71c5;">lokalni</span> vektori <span style="font-size: 20px; color: #8a71c5;">pozicije</span> promijeniti. <span style="font-size: 20px; color: #8a71c5;">Veličina</span> je jedino svojstvo <span style="font-size: 20px; color: #8a71c5;">transform-a</span> koje ne može biti <span style="font-size: 20px; color: #8a71c5;">globlano</span>.</p>
+    </div>
+    
+    <!--Dovrsiti nakon sto dovrsim vektore-->
+
+    <br>
+
+    <div class="tekstualna-kutija">
+        <h1>Pozicija</h1>
+        <p>Poziciju mijeanjamo uz pomoć <span style="font-size: 20px; color: #8a71c5;">Vektora</span>.</p>
+        <p>U sljedećem primjeru ćemo vam pokazati kako promijeniti poziciju za <span style="font-size: 20px; color: #8a71c5;">objekt1</span>.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+public GameObject objekt1;
+
+void Start()
+{
+    objekt1.transform.position = new Vector3(1, 2, 3);
+
+    //ispisivanje x, y i z pozicije
+    Debug.Log(objekt1.transform.position.x); //ispisuje 1
+    Debug.Log(objekt1.transform.position.y); //ispisuje 2
+    Debug.Log(objekt1.transform.position.z); //ispisuje 3
+}           
+            </code></pre>
+          </div>
+
+          <br>
+
+          <p>Poziciju za samo x, y ili z ne možemo mijenjati posebno. Kod ispod je pogrešean.</p>
+          <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+public GameObject objekt1;
+
+void Start()
+{
+    objekt1.transform.position.x = 2; //ovo je pogrešno
+}           
+            </code></pre>
+          </div>
+
+          <br>
+
+          <p>Ako želimo napraviti glatku interpolaciju pozicije koristimo se <span style="font-size: 20px; color: #8a71c5;">Vector3.Lerp</span>.</p>
+          <p>U sljedećem primjeru mijenjamo poziciju <span style="font-size: 20px; color: #8a71c5;">objekt1</span> uz pomoć <span style="font-size: 20px; color: #8a71c5;">Vector3.Lerp</span>.</p>
+          <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+public GameObject objekt1;
+[SerializeField] float brzina;
+
+void Update()
+{
+    Vector3 novaPozicija = new Vector3(1, 2, 3);
+    objekt1.transform.position = new Vector3.Lerp(objekt1.transform.position, novaPozicija, Time.deltaTime * brzina);
+
+}        
+            </code></pre>
+          </div>
+
+          <br>
+          
+          <p>Ovi primjeri do sad su bili primjeri za <span style="font-size: 20px; color: #8a71c5;">globalnu poziciju</span>. Lokalna se pozicija piše na isti način samo nakon <span style="font-size: 20px; color: #8a71c5;">transform-a</span> napišemo <span style="font-size: 20px; color: #8a71c5;">localPosition</span>.</p>
+          <p>Ispod se nalazi primjer za lokalnu poziciju.</p>
+          <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+public GameObject objekt1;
+
+void Start()
+{
+    objekt1.transform.localPosition = new Vector3(1, 2, 3);
+}           
+                        
+            </code></pre>
+          </div>
+          <br>
+    <script src="../prism.js"></script>
+    </div>
+
+    <br>
+
+    <div class="tekstualna-kutija">
+        <h1>Rotacija</h1>
+        <p>Kao što smo spomenuli u prijašnjoj lekciji, <span style="font-size: 20px; color: #8a71c5;">kvaternione</span> koristimo umjesto <span style="font-size: 20px; color: #8a71c5;">vektora</span> za mijenjanje <span style="font-size: 20px; color: #8a71c5;">rotacije</span>.</p>
+        <p>U sljedećem primjeru ćemo promijeniti rotaciju za <span style="font-size: 20px; color: #8a71c5;">objekt1</span>.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+public GameObject objekt1;
+
+void Start()
+{
+    objekt1.transform.rotation = Quaternion.Euler(90, 0, 180);
+
+    //ispisivanje rotacije
+    Debug.Log(objekt1.transform.rotation.x); //ispisuje 90
+    Debug.Log(objekt1.transform.rotation.y); //ispisuje 0
+    Debug.Log(objekt1.transform.rotation.z); //ispisuje 180
+}
+            </code></pre>
+          </div>
+
+          <br>
+
+          <p>Rotaciju za samo x, y ili z ne možemo mijenjati posebno. Kod ispod je pogrešean.</p>
+          <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+public GameObject objekt1;
+
+void Start()
+{
+    objekt1.transform.rotation.x = 2; //ovo je pogrešno
+}
+            </code></pre>
+          </div>
+          <br>
+
+          <p>Ako želimo napraviti glatku interpolaciju rotacije koristimo se <span style="font-size: 20px; color: #8a71c5;">Quaternion.Lerp</span>.</p>
+          <p>U sljedećem primjeru mijenjamo rotaciju objekt1 uz pomoć <span style="font-size: 20px; color: #8a71c5;"> Quaternion.Lerp</span>.</p>
+          <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+public GameObject objekt1;
+
+[SerializeField] float brzina;
+
+void Update()
+{
+    Quaternion novaRotacija = Quaternion.Euler(90, 0, 180);
+    objekt1.transform.rotation = Quaternion.Lerp(objekt1.transform.rotation, novaRotacija, Time.deltaTime * brzina);
+}
+            </code></pre>
+          </div>
+          <br>
+          <p>Neki objekt možemo rotirati uz pomoć skripte tako da se koristimo <span style="font-size: 20px; color: #8a71c5;">Quaternion.Lerp</span> i nakon toga samo povećavamo <span style="font-size: 20px; color: #8a71c5;">x</span>, <span style="font-size: 20px; color: #8a71c5;">y</span> ili <span style="font-size: 20px; color: #8a71c5;">z</span> rotaciju.</p>
+          <p>Kako bi nam bilo lakše možemo se koristiti funkcjiom <span style="font-size: 20px; color: #8a71c5;">Rotate</span> koja će automatski rotirati objekt po zadanoj osi.</p>
+          <p>Nakon što postavimo po kojima će se osima i kako rotirati moramo napisati <span style="font-size: 20px; color: #8a71c5;">Space.Self</span> ili  <span style="font-size: 20px; color: #8a71c5;">Space.World</span>.</p>
+          <p><span style="font-size: 20px; color: #8a71c5;">Space.Self</span> se koristi kako bi rekli kodu da mijenja <span style="font-size: 20px; color: #8a71c5;">lokalnu</span> rotaciju.</p>
+          <p><span style="font-size: 20px; color: #8a71c5;">Space.World</span> se koristi kako bi rekli kodu da mijenja <span style="font-size: 20px; color: #8a71c5;">globalnu</span> rotaciju.</p>
+          <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+public GameObject objekt1;
+public GameObject objekt2;
+
+void Update()
+{
+    objekt1.transform.Rotate(1, 0, 0, Space.Self); //mijenja se lokalna rotacija po x osi
+    objekt2.transform.Rotate(1, 0, 0, Space.World); //mijenja se globalna rotacija po x osi
+}
+            </code></pre>
+          </div>
+
+          <br>
+
+          <p>Ovi primjeri do sad su bili primjeri za <span style="font-size: 20px; color: #8a71c5;">globalnu rotaciju</span>. Lokalna se rotacija piše na isti način samo nakon <span style="font-size: 20px; color: #8a71c5;">transform-a</span> napišemo <span style="font-size: 20px; color: #8a71c5;">localRotation</span>.</p>
+          <p>Ispod se nalazi primjer za lokalnu rotaciju.</p>
+          <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+public GameObject objekt1;
+
+void Start()
+{
+    objekt1.transform.localRotation = Quaternion.Euler(90, 180, 90);
+}           
+                        
+            </code></pre>
+          </div>
+
+          <br>
+
+    <script src="../prism.js"></script>
+    </div>
+
+    <br>
+
+    <div class="tekstualna-kutija">
+        <h1>Veličina</h1>
+        <p>Kao što smo prije spomenuli <span style="font-size: 20px; color: #8a71c5;">veličina</span> je jedino svojstvo <span style="font-size: 20px; color: #8a71c5;">transform-a</span> koje ne može biti <span style="font-size: 20px; color: #8a71c5;">globalno</span>.</p>
+        <p>Kao i kod pozicije za promjenu veličine koristimo se <span style="font-size: 20px; color: #8a71c5;">Vektorima</span>.</p>
+        <p>U sljedećem primjeru mijenjamo veličinu za <span style="font-size: 20px; color: #8a71c5;">objekt1</span>.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+public GameObject objekt1;
+
+void Update()
+{
+    objekt1.transform.localScale = new Vector3(2, 3, 4);
+
+    //ispisivanje veličine
+    Debug.Log(objekt1.transform.localScale.x); //ispisuje 2
+    Debug.Log(objekt1.transform.localScale.y); //ispisuje 3
+    Debug.Log(objekt1.transform.localScale.z); //ispisuje 4
+}
+            </code></pre>
+          </div>
+
+          <br>
+
+          
+          <p>Veličinu za samo x, y ili z ne možemo mijenjati posebno. Kod ispod je pogrešean.</p>
+          <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+public GameObject objekt1;
+
+void Start()
+{
+    objekt1.transform.localScale.x = 2; //ovo je pogrešno
+}           
+            </code></pre>
+          </div>
+
+          <br>
+
+          <p>Ako želimo napraviti glatku interpolaciju veličine koristimo se <span style="font-size: 20px; color: #8a71c5;">Vector3.Lerp</span>.</p>
+          <p>U sljedećem primjeru mijenjamo veličinu za <span style="font-size: 20px; color: #8a71c5;">objekt1</span> uz pomoć <span style="font-size: 20px; color: #8a71c5;">Vector3.Lerp</span>.</p>
+          <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+public GameObject objekt1;
+[SerializeField] float brzina;
+
+void Update()
+{
+    Vector3 novaVelicina = new Vector3(1, 2, 3);
+    objekt1.transform.localScale = Vector3.Lerp(objekt1.transform.localScale, novaVelicina, Time.deltaTime * brzina);
+
+}        
+            </code></pre>
+          </div>
+
+          <br>
+
+    <script src="../prism.js"></script>
+    </div>
+
+    <br>
+
+    <div class="drzac-gumba">
+        <a class="donji-gumbi" href="quaternion.html"><h1 class="naslovni-gumb">Prijašnje</h1></a>
+        <a class="donji-gumbi" href="RigidBody.html"><h1 class="naslovni-gumb">Sljedeće</h1></a>
+    </div>
+    <script src="../pojavljivanje.js"></script>
+</body>
+</html>

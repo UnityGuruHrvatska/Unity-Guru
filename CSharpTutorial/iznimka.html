@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C# Iznimka</title>
+    <link rel="icon" href="../slike/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../stil.css">
+    <link rel="stylesheet" href="../prism.css">
+</head>
+<body onload="promjenaSvjetline()"><!--Promjena svjetline radi samo kada je stranica objavljena na serveru-->
+    <button id="treba" onclick="svjetlina()" class = "tema-gumb"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm40-83q119-15 199.5-104.5T800-480q0-123-80.5-212.5T520-797v634Z"/></svg></button>
+    <div class="gornja-navigacija">
+        <a class="gornji-gumbi"  id = "odabrano" href="intro.html">C#</a>
+        <a class="gornji-gumbi" href="../UnityUI/intro.html">Unity UI</a>
+        <a class="gornji-gumbi" href="../UnityCSharp/intro.html">Unity C#</a>
+    </div>
+
+    <div class="lijeva-navigacija">
+        <a class="lijevi-gumbi" href="../home.html">Početna stranica</a><br>  
+        <a class="lijevi-gumbi" href = "intro.html">Polazna lekcija</a><br>
+        <a class="lijevi-gumbi" href="instalacija.html">Instalacija</a><br>
+        <a class="lijevi-gumbi" href="ispisivanjeIsintaksa.html">Sintaksa i ispisivanje</a><br>
+        <a class="lijevi-gumbi" href="komentari.html">Komentari</a><br>
+        <a class="lijevi-gumbi" href="varijable.html">Varijable i vrste podataka</a><br>
+        <a class="lijevi-gumbi" href="pretvaranjePodataka.html">Pretvaranje vrsta podataka</a><br>
+        <a class="lijevi-gumbi" href="unosPodataka.html">Unošenje podataka</a><br>
+        <a class="lijevi-gumbi" href="operatori.html">Operatori</a><br>
+        <a class="lijevi-gumbi" href="math.html">Math</a><br>
+        <a class="lijevi-gumbi" href="string.html">String</a><br>
+        <a class="lijevi-gumbi" href="booleans.html">Booleans</a><br>
+        <a class="lijevi-gumbi" href="if.html">If i else</a><br>
+        <a class="lijevi-gumbi" href="switch.html">Switch</a><br>
+        <a class="lijevi-gumbi" href="while.html">While</a><br>
+        <a class="lijevi-gumbi" href="for.html">For</a><br>
+        <a class="lijevi-gumbi" href="breakandcontinue.html">Break i Continue</a><br>
+        <a class="lijevi-gumbi" href="array.html">Niz</a><br>
+        <a class="lijevi-gumbi" href="metoda.html">Metoda</a><br>
+        <a class="lijevi-gumbi" href="klasa.html">Klasa</a><br>
+        <a class="lijevi-gumbi" href="enum.html">Enum</a><br>
+        <a class="lijevi-gumbi" id = "odabrano" href="iznimka.html">Iznimka</a><br>
+        <a class="lijevi-gumbi" href="datoteke.html">Datoteke</a><br>
+    </div>
+
+    <br>
+
+    <div class = "tekstualna-kutija">
+        <h1>Try i catch</h1>
+        <p>Unutar <span style="font-size: 20px; color: #8a71c5;">try</span> bloka se stavlja kod koji može izazvati iznimku(error).</p>
+        <p>Unutar <span style="font-size: 20px; color: #8a71c5;">catch</span> bloka se stavlja kod za obradu izuzetka.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Sintaksa:</h1>
+            <pre><code class="language-csharp">
+try 
+{
+    // blok koda za try
+}
+
+catch (Exception e)
+{
+    //  blok koda koji se nosi s errorima
+}
+            </code></pre>
+        </div>
+
+        <br>
+
+        <p>U sljedećem primjeru će se desiti iznimka iz razloga što ćemo pokušati odabrati broj iz niza koji ne postoji(odabiremo deseti broj u nizu koji se sastoji od 5 elementa).</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Sintaksa:</h1>
+            <pre><code class="language-csharp">
+try
+{
+    int[] brojevi = {1, 2, 3, 4, 5};
+    Console.WriteLine(brojevi[10]);
+}
+
+catch (Exception e)
+{
+    Console.WriteLine(e.Message); // Ispisuje Index was outside the bounds of the array.
+}
+            </code></pre>
+        </div>
+
+        <br>
+
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Sintaksa:</h1>
+            <pre><code class="language-csharp">
+try
+{
+    int[] brojevi = {1, 2, 3, 4, 5};
+    Console.WriteLine(brojevi[10]);
+}
+
+catch (Exception e) //Exception e nam nije ovdje potreban jer ga uopće ne koristimo
+{
+    int[] brojevi = { 1, 2, 3, 4, 5 };
+    Console.WriteLine(brojevi[3]); // Ispisuje 4
+}
+            </code></pre>
+        </div>
+
+        <br>
+        <script src="../prism.js"></script>
+    </div>
+
+    <br>
+
+    <div class = "tekstualna-kutija">
+        <h1>Finally</h1>
+        <p><span style="font-size: 20px; color: #8a71c5;">Finally</span> izvršava blok koda neovisno o rezultatu.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Sintaksa:</h1>
+            <pre><code class="language-csharp">
+try
+{
+    int[] brojevi = {1, 2, 3, 4, 5};
+    Console.WriteLine(brojevi[10]);
+}
+
+catch (Exception e)
+{
+    Console.WriteLine(e.Message);
+}
+
+finally
+{
+    Console.WriteLine("Dovršena provjera.");
+}
+
+/*
+Ispisuje:
+Index was outside the bounds of the array.
+Dovršena provjera.
+*/
+            </code></pre>
+        </div>
+
+        <br>
+
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Sintaksa:</h1>
+            <pre><code class="language-csharp">
+try
+{
+    int[] brojevi = {1, 2, 3, 4, 5};
+    Console.WriteLine(brojevi[0]);
+}
+
+catch (Exception e) 
+{
+    Console.WriteLine(e.Message);
+}
+
+finally
+{
+    Console.WriteLine("Dovršena provjera.");
+}
+
+/*
+Ispisuje:
+1
+Dovršena provjera.
+*/
+            </code></pre>
+        </div>
+
+        <br>
+        <script src="../prism.js"></script>
+    </div>
+
+    <br>
+    </div>
+
+    <br>
+
+    <div class = "tekstualna-kutija">
+        <h1>Throw</h1>
+        <p><span style="font-size: 20px; color: #8a71c5;">Throw</span> nam omogućuje da stvorimo vlastiti error.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Sintaksa:</h1>
+            <pre><code class="language-csharp">
+static void provjeraGodine(int godina)
+{
+    if (godina < 18)
+    {
+        throw new ArithmeticException("Pogreška u sistemu, nisi punoljetan.");
+    }
+
+    else
+    {
+        Console.WriteLine("Punoljetan si.");
+    }
+}
+
+static void Main(string[] args)
+{
+    provjeraGodine(17);
+    //Ispisuje System.ArithmeticException: 'Pogreška u sistemu, nisi punoljetan.'
+}
+            </code></pre>
+        </div>
+
+        <br>
+
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Sintaksa:</h1>
+            <pre><code class="language-csharp">
+static void provjeraGodine(int godina)
+{
+    if (godina < 18)
+    {
+        throw new ArithmeticException("Pogreška u sistemu, nisi punoljetan.");
+    }
+
+    else
+    {
+        Console.WriteLine("Punoljetan si.");
+    }
+}
+
+static void Main(string[] args)
+{
+    provjeraGodine(21);
+    //Ispisuje Punoljetan si.
+}
+            </code></pre>
+        </div>
+
+        <br>
+        <script src="../prism.js"></script>
+    </div>
+
+    <br>
+  
+    <div class="drzac-gumba">
+        <a class="donji-gumbi" href="enum.html"><h1 class="naslovni-gumb">Prijašnje</h1></a>
+        <a class="donji-gumbi" href="datoteke.html"><h1 class="naslovni-gumb">Sljedeće</h1></a>
+    </div>
+    <script src="../pojavljivanje.js"></script>
+</body>
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C# String</title>
+    <link rel="icon" href="../slike/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../stil.css">
+    <link rel="stylesheet" href="../prism.css">
+</head>
+<body onload="promjenaSvjetline()"><!--Promjena svjetline radi samo kada je stranica objavljena na serveru-->
+    <button id="treba" onclick="svjetlina()" class = "tema-gumb"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm40-83q119-15 199.5-104.5T800-480q0-123-80.5-212.5T520-797v634Z"/></svg></button>
+    <div class="gornja-navigacija">
+        <a class="gornji-gumbi"  id = "odabrano" href="intro.html">C#</a>
+        <a class="gornji-gumbi" href="../UnityUI/intro.html">Unity UI</a>
+        <a class="gornji-gumbi" href="../UnityCSharp/intro.html">Unity C#</a>
+    </div>
+
+    <div class="lijeva-navigacija">
+        <a class="lijevi-gumbi" href="../home.html">Početna stranica</a><br>  
+        <a class="lijevi-gumbi" href = "intro.html">Polazna lekcija</a><br>
+        <a class="lijevi-gumbi" href="instalacija.html">Instalacija</a><br>
+        <a class="lijevi-gumbi" href="ispisivanjeIsintaksa.html">Sintaksa i ispisivanje</a><br>
+        <a class="lijevi-gumbi" href="komentari.html">Komentari</a><br>
+        <a class="lijevi-gumbi" href="varijable.html">Varijable i vrste podataka</a><br>
+        <a class="lijevi-gumbi" href="pretvaranjePodataka.html">Pretvaranje vrsta podataka</a><br>
+        <a class="lijevi-gumbi" href="unosPodataka.html">Unošenje podataka</a><br>
+        <a class="lijevi-gumbi" href="operatori.html">Operatori</a><br>
+        <a class="lijevi-gumbi" href="math.html">Math</a><br>
+        <a class="lijevi-gumbi" id = "odabrano" href="string.html">String</a><br>
+        <a class="lijevi-gumbi" href="booleans.html">Booleans</a><br>
+        <a class="lijevi-gumbi" href="if.html">If i else</a><br>
+        <a class="lijevi-gumbi" href="switch.html">Switch</a><br>
+        <a class="lijevi-gumbi" href="while.html">While</a><br>
+        <a class="lijevi-gumbi" href="for.html">For</a><br>
+        <a class="lijevi-gumbi" href="breakandcontinue.html">Break i Continue</a><br>
+        <a class="lijevi-gumbi" href="array.html">Niz</a><br>
+        <a class="lijevi-gumbi" href="metoda.html">Metoda</a><br>
+        <a class="lijevi-gumbi" href="klasa.html">Klasa</a><br>
+        <a class="lijevi-gumbi" href="enum.html">Enum</a><br>
+        <a class="lijevi-gumbi" href="iznimka.html">Iznimka</a><br>
+        <a class="lijevi-gumbi" href="datoteke.html">Datoteke</a><br>
+    </div>
+
+    <br>
+    
+    <div class="tekstualna-kutija">
+        <h1>String</h1>
+        <p><span style="font-size: 20px; color: #8a71c5;">String</span> je varijabla koja se sastoji od niza slova i piše se s duplim navodnicima <span style="font-size: 20px; color: #8a71c5;">""</span>.</p>
+        <p>Sama varijabla se može sastojati od više riječi.</p>
+        
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+string osoba1 = "Erik Strumfic";
+
+Console.WriteLine(osoba1); //ispisuje Erik Strumfic
+            </code></pre>
+        </div>
+        <br>
+
+        <p>Bitno je za napomenuti da C# ne podržava <span style="font-size: 20px; color: #8a71c5;">hrvatska slova</span> s "<span style="font-size: 20px; color: #8a71c5;">kvačicom</span>". To su č, ć, đ, ž, š.</p>
+        <p>Ako ta slova stavimo u string on će ih samo ispisati bez kvačice.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+string hrSlova = "č, ć, đ, ž, š";
+
+Console.WriteLine(hrSlova); //Ispisuje c, c, d, z, s
+            </code></pre>
+        </div>
+        <br>
+        <script src="../prism.js"></script>
+    </div>
+
+    <br>
+
+    <div class="tekstualna-kutija">
+        <h1>Ulančavanje stringa</h1>
+        <p>Operator se može koristiti između stringova za njihovo kombiniranje. To se naziva <span style="font-size: 20px; color: #8a71c5;">ulančavanje</span>.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+string ime = "Marko ";
+string prezime = "Perić";
+
+string punoIme = ime + prezime;
+
+Console.WriteLine(punoIme); //ispisuje Marko Peric
+            </code></pre>
+        </div>
+
+        <br>
+
+        <p>Istu stvar možemo postići uz metodu <span style="font-size: 20px; color: #8a71c5;">Concat</span>.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+string ime = "Marko ";
+string prezime = "Perić";
+
+string punoIme = string.Concat(ime, prezime);
+
+Console.WriteLine(punoIme); //ispisuje Marko Peric
+            </code></pre>
+        </div>
+        <br>
+        <p>Ako zbrojimo dva broja koja su zapisana u obliku stringa onda će rezultat ispisa biti ulančanje stringa.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+string x = "20";
+string y = "30";
+
+string zbrojStringa = x + y;
+
+Console.WriteLine(zbrojStringa); //ispisuje 2030
+            </code></pre>
+        </div>
+        <br>
+        <script src="../prism.js"></script>
+    </div>
+
+    <br>
+
+    <div class="tekstualna-kutija">
+        <h1>Interpolacija</h1>
+        <p>Druga mogućnost <span style="font-size: 20px; color: #8a71c5;">ulančavanja stringa</span> je <span style="font-size: 20px; color: #8a71c5;">interpolacija stringa</span>, koja zamjenjuje vrijednosti varijabli u rezervirana mjesta u nizu. Imajte na umu da ne morate brinuti o razmacima, kao kod <span style="font-size: 20px; color: #8a71c5;">ulančavanja</span>.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+string ime = "Marko";
+string prezime = "Marić";
+
+string punoIme = $"Moje puno ime je {ime} {prezime}";
+
+Console.WriteLine(punoIme); //ispisuje Moje puno ime je Marko Maric
+            </code></pre>
+        </div>
+        <br>
+        <script src="../prism.js"></script>
+    </div>
+
+    <br>
+
+    <div class="tekstualna-kutija">
+        <h1>Duljina stringa</h1>
+        <p>Duljinu <span style="font-size: 20px; color: #8a71c5;">stringa</span> odnosno broj slova u <span style="font-size: 20px; color: #8a71c5;">stringu</span> možemo prebrojati uz pomoć metode <span style="font-size: 20px; color: #8a71c5;">Length</span>.</p>
+        <p>Napomena da se i "Space" odnosno prazno polje ubraja u duljinu stringa.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+string abeceda = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+Console.WriteLine(abeceda.Length); //ispisuje 26
+            </code></pre>
+        </div>
+
+        <br>
+
+        <p>Ako imamo neka slova poput hrvatskih koja se sastoje od više slova kao što su <span style="font-size: 20px; color: #8a71c5;">Lj</span>, <span style="font-size: 20px; color: #8a71c5;">Nj</span> <span style="font-size: 20px; color: #8a71c5;">C#</span> će ih brojati kao dva slova.</p>
+
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+string slovo = "Nj";
+
+Console.WriteLine(slovo.Length); //ispisuje 2
+            </code></pre>
+        </div>
+
+        <br>
+
+        <script src="../prism.js"></script>
+    </div>
+
+    <br>
+
+    <div class="tekstualna-kutija">
+        <h1>Velika i mala slova</h1>
+        <p><span style="font-size: 20px; color: #8a71c5;">ToUpper</span> je metoda koja pretvara sva slova unutar  <span style="font-size: 20px; color: #8a71c5;">stringa</span> u velika tiskana slova.</p>
+        <p><span style="font-size: 20px; color: #8a71c5;">ToLower</span> je metoda koja pretvara sva slova unutar  <span style="font-size: 20px; color: #8a71c5;">stringa</span> u mala tiskana slova.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+string tekst = "Ovo je tekst o Marku.";
+
+Console.WriteLine(tekst.ToUpper()); //ispisuje OVO JE TEKST O MARKU.
+Console.WriteLine(tekst.ToLower()); //ispisuje ovo je tekst o marku.
+            </code></pre>
+        </div>
+
+        <br>
+
+        <script src="../prism.js"></script>
+    </div>
+
+    <br>
+
+    <div class="tekstualna-kutija">
+        <h1>Niz stringa</h1>
+        <p>Znakovima u nizu možete pristupiti pozivajući se na njegov broj indeksa unutar uglatih zagrada <span style="font-size: 20px; color: #8a71c5;">[]</span>.</p>
+        <p>U sljedećem primjeru ćemo ispisati prvi i drugi znak stringa.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+string ime = "Marko";
+Console.WriteLine(ime[0]); //Ispisuje M
+Console.WriteLine(ime[1]); //Ispisuje a
+            </code></pre>
+        </div>
+        <br>
+
+        <p>Uz pomoć metode <span style="font-size: 20px; color: #8a71c5;">IndexOf()</span> možemo pronaći indeks/položaj određenog znaka u stringu.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+string ime = "Marko";
+Console.WriteLine(ime.IndexOf("r")); //Ispisuje 2
+            </code></pre>
+        </div>
+        <br>
+
+        <p>Uz pomoć metode <span style="font-size: 20px; color: #8a71c5;">Substring</span> možemo izdvojiti određene znakove iz niza. Radi tako što unutar zagrada napišemo nakon kojeg znaka želimo da nam se vraća string.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+string punoIme = "Marko Darić";
+Console.WriteLine(punoIme.Substring(6)); //Ispisuje Daric
+            </code></pre>
+        </div>
+        <br>
+        <script src="../prism.js"></script>
+    </div>
+
+    <br>
+
+    <div class="tekstualna-kutija">
+        <h1>Posebni znakovi</h1>
+        <table class="tablica">
+            <tr>
+                <th>Znak</th>
+                <th>Rezultat pri ispisu</th>
+                <th>Opis</th>
+            </tr>
+            
+            <tr>
+                <th>\'</th>
+                <th>'</th>
+                <th>Jednostruki navodnici</th>
+            </tr>
+            
+            <tr>
+                <th>\"</th>
+                <th>"</th>
+                <th>Dvostruki navodnici</th>
+            </tr>
+            <tr>
+                <th>\\</th>
+                <th>\</th>
+                <th>Kosa crta</th>
+            </tr>
+        </table>
+        <br>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+string tekst1 = "Njegovo ime je \"Marko\".";
+string tekst2 = "Njegovo ime je \'Marko\'.";
+string tekst3 = "Ovo je kosa crta \\.";
+
+Console.WriteLine(tekst1); //Ispisuje Njegovo ime je "Marko".
+Console.WriteLine(tekst2); //Ispisuje Njegovo ime je 'Marko'.
+Console.WriteLine(tekst3); //Ovo je kosa crta \.
+
+            </code></pre>
+        </div>
+        <br>
+
+        <table class="tablica">
+            <tr>
+                <th>Znak</th>
+                <th>Opis</th>
+            </tr>
+            
+            <tr>
+                <th>\n</th>
+                <th>Nova linija</th>
+            </tr>
+            
+            <tr>
+                <th>\t</th>
+                <th>Tab</th>
+            </tr>
+            <tr>
+                <th>\b</th>
+                <th>Backspace</th>
+            </tr>
+        </table>
+        <br>
+        <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+        <pre><code class="language-csharp">
+string tekst1 = "Njegovo ime je Marko.\n On je sanjao o tome da postane \t programerr\b.";
+Console.WriteLine(tekst1);
+/*
+Ispisuje:
+Njegovo ime je Marko.
+On je sanjao o tome da postane          programer.
+*/
+
+        </code></pre>
+    </div>
+    <br>
+    
+        <script src="../prism.js"></script>
+    </div>
+    
+    <div class="drzac-gumba">
+        <a class="donji-gumbi" href="math.html"><h1 class="naslovni-gumb">Prijašnje</h1></a>
+        <a class="donji-gumbi" href="booleans.html"><h1 class="naslovni-gumb">Sljedeće</h1></a>
+    </div>
+    <script src="../pojavljivanje.js"></script>
+</body>
+</html>

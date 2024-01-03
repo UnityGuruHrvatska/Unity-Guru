@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C# Instalacija</title>
+    <link rel="icon" href="../slike/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../stil.css">
+</head>
+<body onload="promjenaSvjetline()"><!--Promjena svjetline radi samo kada je stranica objavljena na serveru-->
+    <button id="treba" onclick="svjetlina()" class = "tema-gumb"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm40-83q119-15 199.5-104.5T800-480q0-123-80.5-212.5T520-797v634Z"/></svg></button>
+    <div class="gornja-navigacija">
+        <a class="gornji-gumbi"  id = "odabrano" href="intro.html">C#</a>
+        <a class="gornji-gumbi" href="../UnityUI/intro.html">Unity UI</a>
+        <a class="gornji-gumbi" href="../UnityCSharp/intro.html">Unity C#</a>
+    </div>
+
+    <div class="lijeva-navigacija">
+        <a class="lijevi-gumbi" href="../home.html">Početna stranica</a><br>  
+        <a class="lijevi-gumbi" href = "intro.html">Polazna lekcija</a><br>
+        <a class="lijevi-gumbi" id = "odabrano" href="instalacija.html">Instalacija</a><br>
+        <a class="lijevi-gumbi" href="ispisivanjeIsintaksa.html">Sintaksa i ispisivanje</a><br>
+        <a class="lijevi-gumbi" href="komentari.html">Komentari</a><br>
+        <a class="lijevi-gumbi" href="varijable.html">Varijable i vrste podataka</a><br>
+        <a class="lijevi-gumbi" href="pretvaranjePodataka.html">Pretvaranje vrsta podataka</a><br>
+        <a class="lijevi-gumbi" href="unosPodataka.html">Unošenje podataka</a><br>
+        <a class="lijevi-gumbi" href="operatori.html">Operatori</a><br>
+        <a class="lijevi-gumbi" href="math.html">Math</a><br>
+        <a class="lijevi-gumbi" href="string.html">String</a><br>
+        <a class="lijevi-gumbi" href="booleans.html">Booleans</a><br>
+        <a class="lijevi-gumbi" href="if.html">If i else</a><br>
+        <a class="lijevi-gumbi" href="switch.html">Switch</a><br>
+        <a class="lijevi-gumbi" href="while.html">While</a><br>
+        <a class="lijevi-gumbi" href="for.html">For</a><br>
+        <a class="lijevi-gumbi" href="breakandcontinue.html">Break i Continue</a><br>
+        <a class="lijevi-gumbi" href="array.html">Niz</a><br>
+        <a class="lijevi-gumbi" href="metoda.html">Metoda</a><br>
+        <a class="lijevi-gumbi" href="klasa.html">Klasa</a><br>
+        <a class="lijevi-gumbi" href="enum.html">Enum</a><br>
+        <a class="lijevi-gumbi" href="iznimka.html">Iznimka</a><br>
+        <a class="lijevi-gumbi" href="datoteke.html">Datoteke</a><br>
+    </div>
+
+    <br>
+
+    <div class="tekstualna-kutija"> 
+        <h1>IDE</h1>
+        <p>IDE(Integrated Development Environment) se koristi za pisanje i kompajliranje koda.</p>
+        <p>U ovoj i sljedećim lekcijama ćemo se koristiti Visual Studio Communityjem.</p>
+    </div>
+
+    <br>
+
+    <div class="tekstualna-kutija">
+        <h1>Instalacija</h1>
+        <p>Idite na stranicu <a href="https://visualstudio.microsoft.com/vs/community/">Visual Studio Comunityja</a> te preuzmite Visual Studio Comunity.</p>
+        <p>Nakon šte ste preuzeli Visual Studio Comunity kliknite &quot;.NET desktop development&quot; i &quot;Game development with Unity&quot;. Game development with Unity će nam biti potreban u 3. cjelini.</p>
+        <p>Kliknite na &quot;Create a new project&quot;, &quot;Console App(.NET Framework)&quot;.</p>
+        <p>Projekt nazovite po želji te potom kliknite &quot;Create&quot;.</p><br> 
+        <div class="mjesto-slika">
+            <div class="drzac-slika">
+                <img src="slike/NET desktop slika.png" alt="Slika 1">
+            </div>
+
+            <div class="drzac-slika">
+                <img src="slike/gameDevWithUnity.png" alt="Slika 2">
+            </div>
+        </div>
+
+        <div class="mjesto-slika">
+            <div class="drzac-slika">
+                <img src="slike/kreiranje projekta.png" alt="Slika 3">
+            </div>
+
+            <div class="drzac-slika">
+                <img src="slike/consolve app net.png" alt="Slika 4">
+            </div>
+        </div>
+
+        <div class="mjesto-slika">
+            <div class="drzac-slika">
+                <img src="slike/naming projectpng.png" alt="Slika 5">
+            </div>
+        </div>
+        
+        <div class="mjesto-slika">
+            <div class="drzac-slika">
+                <img src="slike/look after creating project.png" alt="Slika 6">
+            </div>
+        </div>
+    </div>
+
+    <div class="drzac-gumba">
+        <a class="donji-gumbi" href="intro.html"><h1 class="naslovni-gumb">Prijašnje</h1></a>
+        <a class="donji-gumbi" href="ispisivanjeIsintaksa.html"><h1 class="naslovni-gumb">Sljedeće</h1></a>
+    </div>
+    <script src="../pojavljivanje.js"></script>
+</body>
+</html>

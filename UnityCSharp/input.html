@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unity C# Input</title>
+    <link rel="icon" href="../slike/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../stil.css">
+    <link rel="stylesheet" href="../prism.css">
+</head>
+<body onload="promjenaSvjetline()"><!--Promjena svjetline radi samo kada je stranica objavljena na serveru-->
+    <button id="treba" onclick="svjetlina()" class = "tema-gumb"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm40-83q119-15 199.5-104.5T800-480q0-123-80.5-212.5T520-797v634Z"/></svg></button>
+  
+    <div class="gornja-navigacija">
+        <a class="gornji-gumbi" href = "../CSharpTutorial/intro.html">C#</a>
+        <a class="gornji-gumbi" href = "../UnityUI/intro.html">Unity UI</a>
+        <a class="gornji-gumbi" id = "odabrano" href = "../UnityCSharp/intro.html">Unity C#</a>
+    </div> 
+
+    <div class="lijeva-navigacija">
+        <a class="lijevi-gumbi" href="../home.html">Početna stranica</a><br>  
+        <a class="lijevi-gumbi" href = "intro.html">Polazna lekcija</a><br>
+        <a class="lijevi-gumbi" href = "pravaPristupa.html">Prava pristupa</a><br>
+        <a class="lijevi-gumbi" href = "time.html">Time</a><br>
+        <a class="lijevi-gumbi" href="GameObject.html">GameObject</a><br>  
+        <a class="lijevi-gumbi" href="destroyISectActive.html">Destroy i SetActive</a><br>  
+        <a class="lijevi-gumbi" href="mathf.html">Mathf</a><br> 
+        <a class="lijevi-gumbi" id = "odabrano" href="input.html">Input</a><br>  
+        <a class="lijevi-gumbi" href="SceneManager.html">SceneManagement</a><br>
+        <a class="lijevi-gumbi" href="UIlekcija.html">UI programiranje</a><br>
+        <a class="lijevi-gumbi" href="audioS.html">Audio source</a><br>
+        <a class="lijevi-gumbi" href="vektori.html">Vektori</a><br>
+        <a class="lijevi-gumbi" href="quaternion.html">Kvaternion</a><br>
+        <a class="lijevi-gumbi" href="transform.html">Transform</a><br>
+        <a class="lijevi-gumbi" href="RigidBody.html">RigidBody</a><br>
+        <a class="lijevi-gumbi" href="voidOnTrigger.html">OnTrigger</a><br>
+        <a class="lijevi-gumbi" href="voidOnCollision.html">OnCollision</a><br>
+        <a class="lijevi-gumbi" href="raycast.html">RayCast</a><br>
+        <a class="lijevi-gumbi" href="playerPref.html">PlayerPref</a><br>
+
+    </div>
+
+    <br>
+
+    <div class = "tekstualna-kutija">
+        <h1>Input</h1>
+        <p><span style="font-size: 20px; color: #8a71c5;">Input</span> je sistem u Unityju koji koristimo kako bi pristupili unosu korisnika.</p>
+    </div>
+
+    <br>
+
+    <div class = "tekstualna-kutija">
+        <h1>Unosi za tipkovnicu (GetKey)</h1>    
+        <p>Prilikom deklariranja tipke prvo slovo riječi određene tipke je veliko (<span style="font-size: 20px; color: #8a71c5;">K</span>, <span style="font-size: 20px; color: #8a71c5;">Escape</span>, <span style="font-size: 20px; color: #8a71c5;">LeftControl</span>).</p>
+        <p><span style="font-size: 20px; color: #8a71c5;">GetKey</span> će biti istinit dok držimo tipku pritisnutom.</p>
+        <p><span style="font-size: 20px; color: #8a71c5;">GetKeyDown</span> će biti istinit samo u trenutku kada pritisnemo tipku.</p>
+        <p><span style="font-size: 20px; color: #8a71c5;">GetKeyUp</span> će biti istinit u trenutku kada otpustimo tipku.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Sintaksa:</h1>
+            <pre><code class="language-csharp">
+Input.GetKey(KeyCode.TipkaKojuPritiščemo);
+Input.GetKeyDown(KeyCode.TipkaKojuPritiščemo);
+Input.GetKeyUp(KeyCode.TipkaKojuPritiščemo);
+            </code></pre>
+          </div>
+          <br>
+
+        <p>U sljedećem primjeru provjeravamo jesmo li stisnuli tipku <span style="font-size: 20px; color: #8a71c5;">Space</span>. Ako jesmo <span style="font-size: 20px; color: #8a71c5;">objekt1</span> će se uključiti ako je bio isključen i obrnuto.</p>
+        <p>Držanjem tipke <span style="font-size: 20px; color: #8a71c5;">A</span> povećat ćemo int <span style="font-size: 20px; color: #8a71c5;">x</span> za 1</p>
+        <p>Kada otpustimo tipku <span style="font-size: 20px; color: #8a71c5;">S</span> oduzet ćemo float <span style="font-size: 20px; color: #8a71c5;">decx</span> za 1.5.<p>
+            <div>
+                <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+                <pre><code class="language-csharp">
+public GameObject objekt1;
+public int x;
+public float decx;
+
+void Update()
+{
+    //provjerava je li objekt aktiviran. Ako je onda ga deaktivira i suprotno
+    if (Input.GetKeyDown(KeyCode.Space))
+    {
+        if (objekt1 != null)
+        {
+            objekt1.SetActive(!objekt1.activeSelf);
+        }       
+    }
+
+    //držanjem tipke A povećavamo x za 1
+    if(Input.GetKey(KeyCode.A))
+    {
+        x++;
+    }
+
+    //otpuštanjem tipke S oduzet ćemo decx za 1.5
+    if(Input.GetKeyUp(KeyCode.S)) 
+    {
+        decx -= 1.5f;
+    }
+}
+                </code></pre>
+              </div>
+              <br>
+        <script src="../prism.js"></script>
+    </div>
+
+    <br>
+
+    <div class = "tekstualna-kutija">
+        <h1>Unosi za miš (GetKey)</h1>
+        <p>Unosi za miš se pišu isto kao i unosi za tipkovnicu. Jedina je razlika što nećemo za lijevu tipku miša napisati <span style="font-size: 20px; color: #8a71c5;">MouseLeft </span> nego <span style="font-size: 20px; color: #8a71c5;">Mouse0</span>.</p>
+        <p>Ispod su navedeni svi primjeri za unos miša.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+Input.GetKey(KeyCode.Mouse0); //lijevi klik miša
+Input.GetKey(KeyCode.Mouse1); //desni klik miša
+Input.GetKey(KeyCode.Mouse2); //srednji klik miša
+            </code></pre>
+          </div>
+          <br>
+
+          <p>Sve nakon <span style="font-size: 20px; color: #8a71c5;">Mouse2</span> su ostale tipke na mišu.</p>
+    <script src="../prism.js"></script>
+    </div>
+
+    <br>
+
+    <div class = "tekstualna-kutija">
+        <h1>GetAxis</h1>
+        <p>Unos s <span style="font-size: 20px; color: #8a71c5;">GetAxis</span> se koristi za unos koji postavljamo unutar unity postavki za input.</p>
+        <p>Koristi ga se tako da se unutar <span style="font-size: 20px; color: #8a71c5;">()</span> napiše pod nazivnicima točan naziv unusa.</p>
+        <p>U sljedećem primjeru pokazati ćemo kako radi <span style="font-size: 20px; color: #8a71c5;">Horizontal</span> i <span style="font-size: 20px; color: #8a71c5;">Vertical</span>. One su automatski postavljene unutar Unityja.</p>
+        <p><span style="font-size: 20px; color: #8a71c5;">Horizontal</span> radi tako kad držimo stisnutu tipku <span style="font-size: 20px; color: #8a71c5;">D</span>, <span style="font-size: 20px; color: #8a71c5;">float x</span> će poprimiti vrijednost 1. Ako držimo stisnutu tipku <span style="font-size: 20px; color: #8a71c5;">A</span> poprimiti će vrijednost -1. Ako ne držimo stisnuto ništa onda će poprimiti vrijednost 0.</p>
+        <p><span style="font-size: 20px; color: #8a71c5;">Vertical</span> radi tako kad držimo stisnutu tipku <span style="font-size: 20px; color: #8a71c5;">W</span>, <span style="font-size: 20px; color: #8a71c5;">float z</span> će poprimiti vrijednost 1. Ako držimo stisnutu tipku <span style="font-size: 20px; color: #8a71c5;">S</span> poprimiti će vrijednost -1. Ako ne držimo stisnuto ništa onda će poprimiti vrijednost 0.</p>
+        <p>U ovom primjeru varijable <span style="font-size: 20px; color: #8a71c5;">x</span> i <span style="font-size: 20px; color: #8a71c5;">z</span> su <span style="font-size: 20px; color: #8a71c5;">float</span> iz razloga što vrijednost neće odmah otići s <span style="font-size: 20px; color: #8a71c5;">0</span> na <span style="font-size: 20px; color: #8a71c5;">1</span> već će postepeno ići s jednog na drugi broj(0, 0.01, 0.02...1) samo što se to desi iznimno brzo.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+void Update()
+{
+    float x = Input.GetAxis("Horizontal");
+    float z = Input.GetAxis("Vertical");
+
+    Debug.Log(x);
+    Debug.Log(z);  
+}
+            </code></pre>
+          </div>
+          <br>
+    <script src="../prism.js"></script>
+    </div>
+
+    <div class="drzac-gumba">
+        <a class="donji-gumbi" href="mathf.html"><h1 class="naslovni-gumb">Prijašnje</h1></a>
+        <a class="donji-gumbi" href="SceneManager.html"><h1 class="naslovni-gumb">Sljedeće</h1></a>
+    </div>
+    <script src="../pojavljivanje.js"></script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C# Switch</title>
+    <link rel="icon" href="../slike/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../stil.css">
+    <link rel="stylesheet" href="../prism.css">
+</head>
+<body onload="promjenaSvjetline()"><!--Promjena svjetline radi samo kada je stranica objavljena na serveru-->
+    <button id="treba" onclick="svjetlina()" class = "tema-gumb"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm40-83q119-15 199.5-104.5T800-480q0-123-80.5-212.5T520-797v634Z"/></svg></button>
+    <div class="gornja-navigacija">
+        <a class="gornji-gumbi"  id = "odabrano" href="intro.html">C#</a>
+        <a class="gornji-gumbi" href="../UnityUI/intro.html">Unity UI</a>
+        <a class="gornji-gumbi" href="../UnityCSharp/intro.html">Unity C#</a>
+    </div>
+
+    <br>
+
+    <div class="lijeva-navigacija">
+        <a class="lijevi-gumbi" href="../home.html">Početna stranica</a><br>  
+        <a class="lijevi-gumbi" href = "intro.html">Polazna lekcija</a><br>
+        <a class="lijevi-gumbi" href="instalacija.html">Instalacija</a><br>
+        <a class="lijevi-gumbi" href="ispisivanjeIsintaksa.html">Sintaksa i ispisivanje</a><br>
+        <a class="lijevi-gumbi" href="komentari.html">Komentari</a><br>
+        <a class="lijevi-gumbi" href="varijable.html">Varijable i vrste podataka</a><br>
+        <a class="lijevi-gumbi" href="pretvaranjePodataka.html">Pretvaranje vrsta podataka</a><br>
+        <a class="lijevi-gumbi" href="unosPodataka.html">Unošenje podataka</a><br>
+        <a class="lijevi-gumbi" href="operatori.html">Operatori</a><br>
+        <a class="lijevi-gumbi" href="math.html">Math</a><br>
+        <a class="lijevi-gumbi" href="string.html">String</a><br>
+        <a class="lijevi-gumbi" href="booleans.html">Booleans</a><br>
+        <a class="lijevi-gumbi" href="if.html">If i else</a><br>
+        <a class="lijevi-gumbi" id = "odabrano" href="switch.html">Switch</a><br>
+        <a class="lijevi-gumbi" href="while.html">While</a><br>
+        <a class="lijevi-gumbi" href="for.html">For</a><br>
+        <a class="lijevi-gumbi" href="breakandcontinue.html">Break i Continue</a><br>
+        <a class="lijevi-gumbi" href="array.html">Niz</a><br>
+        <a class="lijevi-gumbi" href="metoda.html">Metoda</a><br>
+        <a class="lijevi-gumbi" href="klasa.html">Klasa</a><br>
+        <a class="lijevi-gumbi" href="enum.html">Enum</a><br>
+        <a class="lijevi-gumbi" href="iznimka.html">Iznimka</a><br>
+        <a class="lijevi-gumbi" href="datoteke.html">Datoteke</a><br>
+    </div>
+
+    <div class="tekstualna-kutija">
+        <h1>Switch</h1>
+        <p>Pomoću naredbe <span style="font-size: 20px; color: #8a71c5;">switch</span> možete odabrati jedan od mnogih blokova koda koje treba izvršiti.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Sintaksa:</h1>
+            <pre><code class="language-csharp">
+switch(ekspresija) 
+{
+    case x:
+        // blok koda se izvršava ako je ekspresija tocna za x
+        break;
+
+    case y:
+        // blok koda se izvršava ako je ekspresija tocna za y
+        break;
+
+    default:
+        // blok koda se izvrsava ako ekspresija nije tocna za niti jedan slucaj
+        break;
+}
+            </code></pre>
+        </div>
+
+        <br>
+
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+int dan = 5;
+switch (dan) 
+{
+    case 1:
+        Console.WriteLine("Ponedjeljak");
+        break;
+    case 2:
+        Console.WriteLine("Utorak");
+        break;
+
+    case 3:
+        Console.WriteLine("Srijeda");
+        break;
+    
+    case 4:
+        Console.WriteLine("Cetvrtak");
+        break;
+    
+    case 5:
+        Console.WriteLine("Petak"); // u ovom primjeru ispisuje ovaj blok koda
+        break;
+    
+    case 6:
+        Console.WriteLine("Subota");
+        break;
+    
+    case 7:
+        Console.WriteLine("Nedjelja");
+        break;
+}
+
+            </code></pre>
+        </div>
+
+        <br>
+
+        <p>U slučaju da nema podudaranja kod <span style="font-size: 20px; color: #8a71c5;">case</span>-a koristimo se <span style="font-size: 20px; color: #8a71c5;">default</span>-om. <span style="font-size: 20px; color: #8a71c5;">Default</span> možemo gledati kao i <span style="font-size: 20px; color: #8a71c5;">else</span> o kojem smo učili u prijašnjoj lekciji.</p>
+        
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+int dan = 8;
+switch (dan) 
+{
+    case 1:
+        Console.WriteLine("Ponedjeljak");
+        break;
+    case 2:
+        Console.WriteLine("Utorak");
+        break;
+
+    case 3:
+        Console.WriteLine("Srijeda");
+        break;
+    
+    case 4:
+        Console.WriteLine("Cetvrtak");
+        break;
+    
+    case 5:
+        Console.WriteLine("Petak");
+        break;
+    
+    case 6:
+        Console.WriteLine("Subota");
+        break;
+    
+    case 7:
+        Console.WriteLine("Nedjelja");
+        break;
+
+    default:
+        Console.WriteLine("Ne postoji " + dan + " dana u tjednu."); // u ovom slučaju će se ovaj blok koda izvršiti
+        break;
+}
+
+            </code></pre>
+        </div>
+
+        <br>
+
+        <script src="../prism.js"></script>
+    </div>
+
+    <div class="drzac-gumba">
+        <a class="donji-gumbi" href="if.html"><h1 class="naslovni-gumb">Prijašnje</h1></a>
+        <a class="donji-gumbi" href="while.html"><h1 class="naslovni-gumb">Sljedeće</h1></a>
+    </div>
+
+    <script src="../pojavljivanje.js"></script>
+</body>
+</html>

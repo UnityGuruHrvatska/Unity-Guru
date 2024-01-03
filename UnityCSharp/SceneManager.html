@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unity C# SceneManagement</title>
+    <link rel="icon" href="../slike/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../stil.css">
+    <link rel="stylesheet" href="../prism.css">
+</head>
+<body onload="promjenaSvjetline()"><!--Promjena svjetline radi samo kada je stranica objavljena na serveru-->
+    <button id="treba" onclick="svjetlina()" class = "tema-gumb"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm40-83q119-15 199.5-104.5T800-480q0-123-80.5-212.5T520-797v634Z"/></svg></button>
+  
+    <div class="gornja-navigacija">
+        <a class="gornji-gumbi" href = "../CSharpTutorial/intro.html">C#</a>
+        <a class="gornji-gumbi" href = "../UnityUI/intro.html">Unity UI</a>
+        <a class="gornji-gumbi" id = "odabrano" href = "../UnityCSharp/intro.html">Unity C#</a>
+    </div> 
+
+    <div class="lijeva-navigacija">
+        <a class="lijevi-gumbi" href="../home.html">Početna stranica</a><br>  
+        <a class="lijevi-gumbi" href = "intro.html">Polazna lekcija</a><br>
+        <a class="lijevi-gumbi" href = "pravaPristupa.html">Prava pristupa</a><br>
+        <a class="lijevi-gumbi" href = "time.html">Time</a><br>
+        <a class="lijevi-gumbi" href="GameObject.html">GameObject</a><br>  
+        <a class="lijevi-gumbi" href="destroyISectActive.html">Destroy i SetActive</a><br>  
+        <a class="lijevi-gumbi" href="mathf.html">Mathf</a><br>  
+        <a class="lijevi-gumbi" href="input.html">Input</a><br>
+        <a class="lijevi-gumbi" id = "odabrano" href="SceneManager.html">SceneManagement</a><br>  
+        <a class="lijevi-gumbi" href="UIlekcija.html">UI programiranje</a><br>
+        <a class="lijevi-gumbi" href="audioS.html">Audio source</a><br>
+        <a class="lijevi-gumbi" href="vektori.html">Vektori</a><br>
+        <a class="lijevi-gumbi" href="quaternion.html">Kvaternion</a><br>
+        <a class="lijevi-gumbi" href="transform.html">Transform</a><br>
+        <a class="lijevi-gumbi" href="RigidBody.html">RigidBody</a><br>
+        <a class="lijevi-gumbi" href="voidOnTrigger.html">OnTrigger</a><br>
+        <a class="lijevi-gumbi" href="voidOnCollision.html">OnCollision</a><br>
+        <a class="lijevi-gumbi" href="raycast.html">RayCast</a><br>
+        <a class="lijevi-gumbi" href="playerPref.html">PlayerPref</a><br>
+    </div>
+
+    <br>
+
+    <div class="tekstualna-kutija">
+        <h1>SceneManagement</h1>
+        <p><span style="font-size: 20px; color: #8a71c5;">SceneManagement</span> je posebna Unityjeva klasa koja se koristi za prijelaz iz jedne scene u drugu.</p>
+    </div>
+
+    <br>
+
+    <div class="tekstualna-kutija">
+        <h1>Pristupanje sceni</h1>
+        <p>Možemo pristupiti nekoj sceni tako da koristimo metodu <span style="font-size: 20px; color: #8a71c5;">Scene</span> iz klase <span style="font-size: 20px; color: #8a71c5;">SceneManagement</span>.</p>
+        <p>U sljedećem primjeru pokazat cemo kako pristupiti sceni uz pomoć imena i indeksa i kako pristupiti sceni u kojoj se nalazimo.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement; //ovdje definiramo klasu SceneManagement
+
+public class PrimjerScene : MonoBehaviour
+{
+    void Start()
+    {
+        Scene trenutnaScena = SceneManager.GetActiveScene(); //pristupamo sceni unutar koje se nalazimo 
+        Scene scenaImenaSuma = SceneManager.GetSceneByName("suma"); //pristupamo sceni pod nazivom "suma"
+        Scene scenaBr4 = SceneManager.GetSceneByBuildIndex(3); //pristupamo 4. sceni po redu
+
+        //ispisivanje naziva tih scena
+        Debug.Log(trenutnaScena.name);
+        Debug.Log(scenaImenaSuma.name);
+        Debug.Log(scenaBr4.name);
+
+        //ispisvanje rednog broja scene
+        Debug.Log(trenutnaScena.buildIndex);
+        Debug.Log(scenaImenaSuma.buildIndex);
+        Debug.Log(scenaBr4.buildIndex);
+    }
+}
+                
+            </code></pre>
+          </div>
+
+          <br>
+    <script src="../prism.js"></script>
+    </div>
+
+    <br>
+
+    <div class="tekstualna-kutija">
+        <h1>LoadScene</h1>
+        <p><span style="font-size: 20px; color: #8a71c5;">LoadScene</span> je metoda klase <span style="font-size: 20px; color: #8a71c5;">SceneManagement</span> koju koristimo za prijelaz iz jedne scene u drugu.</p>
+        <p>Scenu možemo učitati uz pomoć broja ili imena.</p>
+        <p>Prva scena se označuje brojem <span style="font-size: 20px; color: #8a71c5;">0</span>.</p>
+        <p>U sljedećem primjeru učitavamo 4. scenu u <span style="font-size: 20px; color: #8a71c5;">Build Settings</span>  ako pritisnemo tipku <span style="font-size: 20px; color: #8a71c5;">Space</span>.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement; //ovdje definiramo klasu SceneManagement
+
+public class PrimjerScene : MonoBehaviour
+{
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SceneManager.LoadScene(3); //učitavanje 4. scene u Build Settings
+        }
+    }
+}
+                
+            </code></pre>
+          </div>
+
+          <br>
+
+          
+          <p>U sljedećem primjeru učitavamo scenu koju smo nazvali <span style="font-size: 20px; color: #8a71c5;">LVLSuma</span> kada pritisnemo tipku <span style="font-size: 20px; color: #8a71c5;">Space</span>.</p>
+          <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement; //ovdje definiramo klasu SceneManagement
+
+public class PrimjerScene : MonoBehaviour
+{
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SceneManager.LoadScene("LVLSuma"); //učitavanje scene pod nazivom "LVLSuma"
+        }
+    }
+}
+                
+            </code></pre>
+          </div>
+
+          <br>
+
+    <script src="../prism.js"></script>
+
+    </div>
+
+    <br>
+
+    <div class="tekstualna-kutija">
+        <h1>UnloadScene</h1>
+        <p><span style="font-size: 20px; color: #8a71c5;">UnloadScene</span> briše određenu scenu iz memorije. To znači da se uništavaju resursi poput objekata, skripti, tekstura, modela i drugih elemenata koji pripadaju toj sceni.</p>
+        <p>U sljedećem primjeru brišemo scenu pod nazivom <span style="font-size: 20px; color: #8a71c5;">LVLSuma</span>.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement; //ovdje definiramo klasu SceneManagement
+
+public class PrimjerScene : MonoBehaviour
+{
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SceneManager.UnloadScene("LVLSuma");
+        }
+    }
+}
+                
+            </code></pre>
+          </div>
+
+          <br>
+
+    <script src="../prism.js"></script>
+    </div>
+
+    <br>
+
+    <div class="drzac-gumba">
+        <a class="donji-gumbi" href="input.html"><h1 class="naslovni-gumb">Prijašnje</h1></a>
+        <a class="donji-gumbi" href="UIlekcija.html"><h1 class="naslovni-gumb">Sljedeće</h1></a>
+    </div>
+    <script src="../pojavljivanje.js"></script>
+</body>
+</html>

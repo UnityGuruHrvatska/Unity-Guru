@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unity C# Mathff</title>
+    <link rel="icon" href="../slike/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../stil.css">
+    <link rel="stylesheet" href="../prism.css">
+</head>
+<body onload="promjenaSvjetline()"><!--Promjena svjetline radi samo kada je stranica objavljena na serveru-->
+    <button id="treba" onclick="svjetlina()" class = "tema-gumb"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm40-83q119-15 199.5-104.5T800-480q0-123-80.5-212.5T520-797v634Z"/></svg></button>
+  
+    <div class="gornja-navigacija">
+        <a class="gornji-gumbi" href = "../CSharpTutorial/intro.html">C#</a>
+        <a class="gornji-gumbi" href = "../UnityUI/intro.html">Unity UI</a>
+        <a class="gornji-gumbi" id = "odabrano" href = "../UnityCSharp/intro.html">Unity C#</a>
+    </div> 
+
+    <div class="lijeva-navigacija">
+        <a class="lijevi-gumbi" href="../home.html">Početna stranica</a><br>  
+        <a class="lijevi-gumbi" href = "intro.html">Polazna lekcija</a><br>
+        <a class="lijevi-gumbi" href = "pravaPristupa.html">Prava pristupa</a><br>
+        <a class="lijevi-gumbi" href = "time.html">Time</a><br>
+        <a class="lijevi-gumbi" href="GameObject.html">GameObject</a><br>  
+        <a class="lijevi-gumbi" href="destroyISectActive.html">Destroy i SetActive</a><br>  
+        <a class="lijevi-gumbi" id = "odabrano" href="Mathff.html">Mathff</a><br>  
+        <a class="lijevi-gumbi" href="input.html">Input</a><br>  
+        <a class="lijevi-gumbi" href="SceneManager.html">SceneManagement</a><br>
+        <a class="lijevi-gumbi" href="UIlekcija.html">UI programiranje</a><br>
+        <a class="lijevi-gumbi" href="audioS.html">Audio source</a><br>
+        <a class="lijevi-gumbi" href="vektori.html">Vektori</a><br>
+        <a class="lijevi-gumbi" href="quaternion.html">Kvaternion</a><br>
+        <a class="lijevi-gumbi" href="transform.html">Transform</a><br>
+        <a class="lijevi-gumbi" href="RigidBody.html">RigidBody</a><br>
+        <a class="lijevi-gumbi" href="voidOnTrigger.html">OnTrigger</a><br>
+        <a class="lijevi-gumbi" href="voidOnCollision.html">OnCollision</a><br>
+        <a class="lijevi-gumbi" href="raycast.html">RayCast</a><br>
+        <a class="lijevi-gumbi" href="playerPref.html">PlayerPref</a><br>
+    </div>
+
+    <br>
+
+    <div class="tekstualna-kutija">
+        <h1>Mathf</h1>
+        <p><span style="font-size: 20px; color: #8a71c5;">Mathf</span> je pomoćna klasa u Unityjevom C# programskom jeziku koja pruža matematičke funkcije.</p>
+        <p>Ona ima sva svojstva kao i običan <span style="font-size: 20px; color: #8a71c5;">Mathf</span> s kojim ste se upoznali u lekciji <a href="../CSharpTutorial/intro.html" style="color: #a288e0; text-decoration: none;">C#</a>.</p>
+        <p>Razlog postojanja <span style="font-size: 20px; color: #8a71c5;">Mathf</span> je zato što je opimirizaniji od <span style="font-size: 20px; color: #8a71c5;">Mathf</span> za rad u 3d okruženju.</p>
+    </div>
+
+    <br>
+
+    <div class="tekstualna-kutija">
+        <h1>Konstante</h1>
+        <p>Klasa <span style="font-size: 20px; color: #8a71c5;">Mathf</span> sadrži dvije konstante: <span style="font-size: 20px; color: #8a71c5;">e</span> (Eulerov broj), <span style="font-size: 20px; color: #8a71c5;">π</span> (pi)</p>
+        <p>e = 2.71828182845905...</p>
+        <p>π = 3.14159265358979...</p>
+        <br>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+void Start()
+{
+    double e = Mathf.E; // Nalazi vrijednost konstante e
+
+    Console.WriteLine("Mathf.E = " + e); // Ispisuje: "2.71828182845905"
+
+    double pi_value = Mathf.PI; // Nalazi vrijednost konstante pi
+
+    Console.WriteLine("Mathf.PI = " + pi_value); // Ispisuje: "3.14159265358979"
+}
+            </code></pre>
+        </div>
+        <script src="../prism.js"></script>
+        <br>
+    </div>
+
+    <br>
+
+    <div class="tekstualna-kutija">
+        <h1>Metode</h1>
+        <table class="tablica">
+            <tr>
+                <th>Metoda</th>
+                <th>Opis</th>
+                <th>Primjer</th>
+                <th>Rezulat primjera</th>
+            </tr>
+            <tr>
+                <th>Abs()</th>
+                <th>Vraća apsolutnu vrijednost navedenog broja.</th>
+                <th>Mathf.Abs(-3);</th>
+                <th>3</th>
+            </tr>
+            <tr>
+                <th>Acos()</th>
+                <th>Vraća kut čiji je kosinus navedeni broj.</th>
+                <th>Mathf.Acos(0.5);</th>
+                <th>1.0471975511966</th>
+            </tr>
+            <tr>
+                <th>Acosh()</th>
+                <th>Vraća kut čiji je hiperbolički kosinus navedenoi broj.</th>
+                <th>Mathf.Acos(5);</th>
+                <th>2.29243166956118</th>
+            </tr>
+            <tr>
+                <th>Asin()</th>
+                <th>Vraća kut čiji je sinus navedeni broj.</th>
+                <th>Mathf.Asin(0.5);</th>
+                <th>0.523598775598299</th>
+            </tr>
+            <tr>
+                <th>Asinh()</th>
+                <th>Vraća kut čiji je hiperbolički sinus navedenoi broj.</th>
+                <th>Asinh(5);</th>
+                <th>2.31243834127275</th>
+            </tr>
+            <tr>
+                <th>Atan()</th>
+                <th>Vraća kut čiji je tangens navedeni broj.</th>
+                <th>Mathf.Atan(0.5);</th>
+                <th>0.463647609000806</th>
+            </tr>
+            <tr>
+                <th>Atan2()</th>
+                <th>Vraća kut čiji je tangens kvocijent dva navedena broja.</th>
+                <th>Mathff.Atan2(0.5, 1.5);</th>
+                <th>0.321750554396642</th>
+            </tr>
+            <tr>
+                <th>Atanh()</th>
+                <th>Vraća inverzni hiperbolički tangens navedenog broja.</th>
+                <th>Mathf.Atanh(0.5);</th>
+                <th>0.549306144334055</th>
+            </tr>
+            <tr>
+                <th>BigMul()</th>
+                <th>Proizvodi puni umnožak dva 32-bitna broja.</th>
+                <th>Mathf.BigMul(123456789, 987654321)</th>
+                <th>121932631112635269</th>
+            </tr>
+            <tr>
+                <th>Cbrt()</th>
+                <th>Vraća kubni korijen navedene vrijednosti.</th>
+                <th>Mathf.Cbrt(27);</th>
+                <th>3</th>
+            </tr>
+            <tr>
+                <th>Ceiling()</th>
+                <th>Vraća najmanju integralnu vrijednost veću ili jednaku navedenom broju.</th>
+                <th>Mathf.Ceiling(5.3);</th>
+                <th>6</th>
+            </tr>
+            <tr>
+                <th>Clamp()</th>
+                <th>Koristi se za ograničavanje vrijednosti na zadani raspon.</th>
+                <th>double rezultat = Mathf.Clamp(13, 10, 20)</th>
+                <th>Rezultat može biti između 10 i 20</th>
+            </tr>
+            <tr>
+                <th>DivRem()</th>
+                <th>Izračunava kvocijent dvaju brojeva te također vraća ostatak u izlaznom parametru.</th>
+                <th>Mathf.DivRem(17, 5, out rezultat, out ostatak);</th>
+                <th>3 i 2</th>
+            </tr>
+            <tr>
+                <th>Exp()</th>
+                <th>Vraća e podignuto na navedenu snagu.</th>
+                <th>Mathf.Exp(2);</th>
+                <th>7.3890560989306495</th>
+            </tr>
+            <tr>
+                <th>Floor()</th>
+                <th>Vraća najveću cijelu vrijednost manju ili jednaku navedenom broju.</th>
+                <th>Mathf.Floor(5.8);</th>
+                <th>5</th>
+            </tr>
+            <tr>
+                <th>IEEERemainder()</th>
+                <th>Vraća ostatak koji je rezultat dijeljenja određenog broja drugim navedenim brojem.</th>
+                <th>Mathf.IEEERemainder(17, 5);</th>
+                <th>2</th>
+            </tr>
+            <tr>
+                <th>Log()</th>
+                <th>Vraća logaritam navedenog broja. U primjeru prva vrijednost je broj, a druga baza.</th>
+                <th>Mathf.Log(100, 10);</th>
+                <th>2</th>
+            </tr>
+            <tr>
+                <th>Log10()</th>
+                <th>Vraća logaritam baze 10 navedenog broja.</th>
+                <th>Mathf.Log10(1000);</th>
+                <th>3</th>
+            </tr>
+            <tr>
+                <th>Max()</th>
+                <th>Vraća veći od dva navedena broja.</th>
+                <th>Mathf.Max(25, 50);</th>
+                <th>50</th>
+            </tr>
+            <tr>
+                <th>Min()</th>
+                <th>Vraća manji od dva broja.</th>
+                <th>Mathf.Min(25, 50);</th>
+                <th>25</th>
+            </tr>
+            <tr>
+                <th>Pow()</th>
+                <th>Vraća navedeni broj podignut na navedenu potenciju.</th>
+                <th> Mathf.Pow(2, 3)</th>
+                <th>8</th>
+            </tr>
+            <tr>
+                <th>Round()</th>
+                <th>Zaokružuje vrijednost na najbliži cijeli broj ili na navedeni broj razlomaka.</th>
+                <th>Mathf.Round(3.5); Mathf.Round(5.6789, 2); </th>
+                <th>4, 5.68</th>
+            </tr>
+            <tr>
+                <th>Sign()</th>
+                <th>Vraća cijeli broj koji označava predznak broja.</th>
+                <th>Mathf.Sign(-42);</th>
+                <th>-1</th>
+            </tr>
+            <tr>
+                <th>Cos()</th>
+                <th>Vraća kosinus navedenog kuta.</th>
+                <th>Mathf.Cos(Mathf.PI);</th>
+                <th>-1</th>
+            </tr>
+            <tr>
+                <th>Cosh()</th>
+                <th>Vraća hiperbolički kosinus navedenog kuta.</th>
+                <th>Mathf.Cosh(2);</th>
+                <th>3.7621956910836314</th>
+            </tr>
+            <tr>
+                <th>Sin()</th>
+                <th>Vraća sinus navedenog kuta.</th>
+                <th>Mathf.Sin(Mathf.PI)</th>
+                <th>0</th>
+            </tr>
+            <tr>
+                <th>Sinh()</th>
+                <th>Vraća hiperbolički sinus navedenog kuta.</th>
+                <th>Mathf.Sinh(2);</th>
+                <th>3.6268604078470186</th>
+            </tr>
+            <tr>
+                <th>Sqrt()</th>
+                <th>Vraća kvadratni ili drugi korijen navedenog broja.</th>
+                <th>Mathf.Sqrt(25);</th>
+                <th>5</th>
+            </tr>
+            <tr>
+                <th>Tan()</th>
+                <th>Vraća tangens navedenog kuta.</th>
+                <th>Mathf.Tan(Mathf.PI);</th>
+                <th>0</th>
+            </tr>
+            <tr>
+                <th>Tanh()</th>
+                <th>Vraća hiperbolički tangens navedenog kuta.</th>
+                <th>Mathf.Tanh(1);</th>
+                <th>0.7615941559557649</th>
+            </tr>
+            <tr>
+                <th>Truncate()</th>
+                <th>Vraća najbližu nižu vrijednost broja.</th>
+                <th>Mathf.Truncate(5.67);</th>
+                <th>5</th>
+            </tr>
+        </table>
+    </div>
+    <div class="drzac-gumba">
+        <a class="donji-gumbi" href="destroyISectActive.html"><h1 class="naslovni-gumb">Prijašnje</h1></a>
+        <a class="donji-gumbi" href="input.html"><h1 class="naslovni-gumb">Sljedeće</h1></a>
+    </div>
+    <script src="../pojavljivanje.js"></script>
+</body>
+</html>

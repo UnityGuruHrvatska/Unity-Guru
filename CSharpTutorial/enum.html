@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C# Enum</title>
+    <link rel="icon" href="../slike/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../stil.css">
+    <link rel="stylesheet" href="../prism.css">
+</head>
+<body onload="promjenaSvjetline()"><!--Promjena svjetline radi samo kada je stranica objavljena na serveru-->
+    <button id="treba" onclick="svjetlina()" class = "tema-gumb"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm40-83q119-15 199.5-104.5T800-480q0-123-80.5-212.5T520-797v634Z"/></svg></button>
+    <div class="gornja-navigacija">
+        <a class="gornji-gumbi"  id = "odabrano" href="intro.html">C#</a>
+        <a class="gornji-gumbi" href="../UnityUI/intro.html">Unity UI</a>
+        <a class="gornji-gumbi" href="../UnityCSharp/intro.html">Unity C#</a>
+    </div>
+
+    <div class="lijeva-navigacija">
+        <a class="lijevi-gumbi" href="../home.html">Početna stranica</a><br>  
+        <a class="lijevi-gumbi" href = "intro.html">Polazna lekcija</a><br>
+        <a class="lijevi-gumbi" href="instalacija.html">Instalacija</a><br>
+        <a class="lijevi-gumbi" href="ispisivanjeIsintaksa.html">Sintaksa i ispisivanje</a><br>
+        <a class="lijevi-gumbi" href="komentari.html">Komentari</a><br>
+        <a class="lijevi-gumbi" href="varijable.html">Varijable i vrste podataka</a><br>
+        <a class="lijevi-gumbi" href="pretvaranjePodataka.html">Pretvaranje vrsta podataka</a><br>
+        <a class="lijevi-gumbi" href="unosPodataka.html">Unošenje podataka</a><br>
+        <a class="lijevi-gumbi" href="operatori.html">Operatori</a><br>
+        <a class="lijevi-gumbi" href="math.html">Math</a><br>
+        <a class="lijevi-gumbi" href="string.html">String</a><br>
+        <a class="lijevi-gumbi" href="booleans.html">Booleans</a><br>
+        <a class="lijevi-gumbi" href="if.html">If i else</a><br>
+        <a class="lijevi-gumbi" href="switch.html">Switch</a><br>
+        <a class="lijevi-gumbi" href="while.html">While</a><br>
+        <a class="lijevi-gumbi" href="for.html">For</a><br>
+        <a class="lijevi-gumbi" href="breakandcontinue.html">Break i Continue</a><br>
+        <a class="lijevi-gumbi" href="array.html">Niz</a><br>
+        <a class="lijevi-gumbi" href="metoda.html">Metoda</a><br>
+        <a class="lijevi-gumbi" href="klasa.html">Klasa</a><br>
+        <a class="lijevi-gumbi" id = "odabrano" href="enum.html">Enum</a><br>
+        <a class="lijevi-gumbi" href="iznimka.html">Iznimka</a><br>
+        <a class="lijevi-gumbi" href="datoteke.html">Datoteke</a><br>
+    </div>
+
+    <br>
+
+    <div class = "tekstualna-kutija">
+        <h1>Enum</h1>
+        <p><span style="color: #8a71c5;">Enum</span> je posebna klasa koja predstavlja grupu konstanti(nepromjenjive varijable).</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+enum Level 
+{
+    Slabo,
+    Srednje,
+    Tesko
+}
+
+class Program
+{
+  static void Main(string[] args)
+    {
+        Level lvl = Level.Tesko;
+        Console.WriteLine(lvl); 
+    }
+}
+ 
+            </code></pre>
+        </div>
+        <br>
+
+        <p>U sljedećem primjeru ćemo vam pokazati kako se koristi <span style="color: #8a71c5;">enum</span> unutar klase.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+class Program
+{
+    enum Level
+    {
+        Slabo,
+        Srednje,
+        Tesko
+    }
+    static void Main(string[] args)
+    {
+        Level lvl = Level.Srednje;
+        Console.WriteLine(lvl); // Ispisuje Srednje
+    }
+}
+
+ 
+            </code></pre>
+        </div>
+        <br>
+
+        <p>U sljedećem primjeru ćemo vam pokazati kako možete provjerit redni broj konstante unutar klase enum.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+enum DaniUTjednu
+{
+    Ponedjeljak,
+    Utorak,
+    Srijeda,
+    Cetvrtak,
+    Petak,
+    Subota,
+    Nedjelja
+}
+
+static void Main(string[] args)
+{
+    int danUT = (int) DaniUTjednu.Utorak;
+    Console.WriteLine(danUT); //Ispisuje jedan jer se druga konstanta oznacuje brojem 1
+}
+            </code></pre>
+        </div>
+        <br>
+        <script src="../prism.js"></script>
+    </div>
+
+    <br>
+
+    <div class = "tekstualna-kutija">
+        <h1>Switch + enum</h1>
+        <p>Enums se ćesto koriste uz switch izjave za provjeru vrijednosti.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+enum DaniUTjednu
+{
+    Ponedjeljak,
+    Utorak,
+    Srijeda,
+    Cetvrtak,
+    Petak,
+    Subota,
+    Nedjelja
+}
+
+static void Main(string[] args) 
+{
+    DaniUTjednu dan = DaniUTjednu.Srijeda;
+    switch(dan) 
+    {
+        case DaniUTjednu.Ponedjeljak:
+            Console.WriteLine("Danas je ponedjeljak.");
+            break;
+
+        case DaniUTjednu.Utorak:
+            Console.WriteLine("Danas je utorak.");
+            break;
+
+        case DaniUTjednu.Srijeda:
+            Console.WriteLine("Danas je srijeda."); // Vrši se ova linija koda
+            break;
+
+        case DaniUTjednu.Cetvrtak:
+            Console.WriteLine("Danas je cetvrtak.");
+            break;
+
+        case DaniUTjednu.Petak:
+            Console.WriteLine("Danas je petak.");
+            break;
+
+        case DaniUTjednu.Subota:
+            Console.WriteLine("Danas je subota.");
+            break;
+
+        case DaniUTjednu.Nedjelja:
+            Console.WriteLine("Danas je nedjelja.");
+            break;    
+    }
+}
+            </code></pre>
+        </div>
+        <br>
+        <script src="../prism.js"></script>
+    </div>
+    </div>
+
+  
+    <div class="drzac-gumba">
+        <a class="donji-gumbi" href="klasa.html"><h1 class="naslovni-gumb">Prijašnje</h1></a>
+        <a class="donji-gumbi" href="iznimka.html"><h1 class="naslovni-gumb">Sljedeće</h1></a>
+    </div>
+    <script src="../pojavljivanje.js"></script>
+</body>
+</html>

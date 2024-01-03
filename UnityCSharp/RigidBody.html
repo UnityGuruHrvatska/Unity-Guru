@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unity C# RigidBody</title>
+    <link rel="icon" href="../slike/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../stil.css">
+    <link rel="stylesheet" href="../prism.css">
+</head>
+<body onload="promjenaSvjetline()"><!--Promjena svjetline radi samo kada je stranica objavljena na serveru-->
+    <button id="treba" onclick="svjetlina()" class = "tema-gumb"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm40-83q119-15 199.5-104.5T800-480q0-123-80.5-212.5T520-797v634Z"/></svg></button>
+  
+    <div class="gornja-navigacija">
+        <a class="gornji-gumbi" href = "../CSharpTutorial/intro.html">C#</a>
+        <a class="gornji-gumbi" href = "../UnityUI/intro.html">Unity UI</a>
+        <a class="gornji-gumbi" id = "odabrano" href = "../UnityCSharp/intro.html">Unity C#</a>
+    </div> 
+
+    <div class="lijeva-navigacija">
+        <a class="lijevi-gumbi" href="../home.html">Početna stranica</a><br>  
+        <a class="lijevi-gumbi" href = "intro.html">Polazna lekcija</a><br>
+        <a class="lijevi-gumbi" href = "pravaPristupa.html">Prava pristupa</a><br>
+        <a class="lijevi-gumbi" href = "time.html">Time</a><br>
+        <a class="lijevi-gumbi" href="GameObject.html">GameObject</a><br>  
+        <a class="lijevi-gumbi" href="destroyISectActive.html">Destroy i SetActive</a><br>  
+        <a class="lijevi-gumbi" href="mathf.html">Mathf</a><br>  
+        <a class="lijevi-gumbi" href="input.html">Input</a><br>
+        <a class="lijevi-gumbi" href="SceneManager.html">SceneManagement</a><br>  
+        <a class="lijevi-gumbi" href="UIlekcija.html">UI programiranje</a><br>  
+        <a class="lijevi-gumbi" href="audioS.html">Audio source</a><br>
+        <a class="lijevi-gumbi" href="vektori.html">Vektori</a><br>
+        <a class="lijevi-gumbi" href="quaternion.html">Kvaternion</a><br>
+        <a class="lijevi-gumbi" href="transform.html">Transform</a><br>
+        <a class="lijevi-gumbi" id = "odabrano" href="RigidBody.html">RigidBody</a><br>
+        <a class="lijevi-gumbi" href="voidOnTrigger.html">OnTrigger</a><br>
+        <a class="lijevi-gumbi" href="voidOnCollision.html">OnCollision</a><br>
+        <a class="lijevi-gumbi" href="raycast.html">RayCast</a><br>
+        <a class="lijevi-gumbi" href="playerPref.html">PlayerPref</a><br>
+    </div>
+
+    <br>
+    
+    <div class = "tekstualna-kutija">
+        <h1>RigidBody</h1>
+        <p><span style="font-size: 20px; color: #8a71c5;">RigidBody</span> možemo opisati kao komponentu koja daje fiziku nekom objektu (<span style="font-size: 20px; color: #8a71c5;">gravitaciju</span>,<span style="font-size: 20px; color: #8a71c5;"> brzinu</span>, <span style="font-size: 20px; color: #8a71c5;">kinematiku</span>, <span style="font-size: 20px; color: #8a71c5;">masu</span>...). Iz takvog razloga koristimo ga unutar <span style="font-size: 20px; color: #8a71c5;">void FixedUpdate</span>.</p>
+    </div>
+
+    <br>
+
+    <div class="tekstualna-kutija">
+        <h1>Masa</h1>
+        <p>U sljedećem primjeru ćemo postaviti <span style="font-size: 20px; color: #8a71c5;">masu</span> zadanom objektu.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+public GameObject objekt1;
+private Rigidbody rb;
+
+void Start()
+{
+    rb = objekt1.GetComponent&lt;Rigidbody&gt;();
+    rb.mass = 2; //izrazena je u kilogramima
+}       
+            </code></pre>
+          </div>
+          <br>
+    <script src="../prism.js"></script>
+    </div>
+
+    <br>
+
+    <div class="tekstualna-kutija">
+        <h1>Gravitacija i kinematika</h1>
+        <p>Uz pomoć <span style="font-size: 20px; color: #8a71c5;">RigidBody</span>-a možemo uključiti i isključiti gravitaciju.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+public GameObject objekt1;
+private Rigidbody rb;
+
+void Start()
+{
+    rb = objekt1.GetComponent&lt;Rigidbody&gt;();
+    rb.useGravity = false; //gravitacija je isključena
+}    
+            </code></pre>
+          </div>
+
+          <br>
+
+          <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+public GameObject objekt1;
+private Rigidbody rb;
+
+void Start()
+{
+    rb = objekt1.GetComponent&lt;Rigidbody&gt;();
+    rb.useGravity = true; //gravitacija je uključena
+}    
+            </code></pre>
+          </div>
+
+          <br>
+
+          <p>Na isti način možemo uključiti i isključiti <span style="font-size: 20px; color: #8a71c5;">isKinematic</span>.</p>
+          <p>Ako ga uključimo onda na <span style="font-size: 20px; color: #8a71c5;">RigidBody</span> neće utjecati <span style="font-size: 20px; color: #8a71c5;">brzina</span>, <span style="font-size: 20px; color: #8a71c5;">slia</span>, <span style="font-size: 20px; color: #8a71c5;">collisions</span>.</p>
+          <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+public GameObject objekt1;
+private Rigidbody rb;
+
+void Start()
+{
+    rb = objekt1.GetComponent&lt;Rigidbody&gt;();
+    rb.isKinematic = false; //isKinematic je isključen
+}    
+            </code></pre>
+          </div>
+
+          <br>
+
+          <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+public GameObject objekt1;
+private Rigidbody rb;
+
+void Start()
+{
+    rb = objekt1.GetComponent&lt;Rigidbody&gt;();
+    rb.isKinematic = true; //isKinematic je uključen
+}    
+            </code></pre>
+          </div>
+
+          <br>
+
+
+    <script src="../prism.js"></script>
+    </div>
+
+    <br>
+
+    <div class="tekstualna-kutija">
+        <h1>Brzina</h1>
+        <p><span style="font-size: 20px; color: #8a71c5;">Brzina</span> je vektor koji predstavlja trenutnu brzinu objekta koji koristi <span style="font-size: 20px; color: #8a71c5;">RigidBody</span>.</p>
+        <p>Njoj pristupamo tako što napišemo <span style="font-size: 20px; color: #8a71c5;">RigidBody.velocity</span>.</p>
+        <p>U sljedećem primjeru objekt će se micati <span style="font-size: 20px; color: #8a71c5;">naprijed</span> po njegovoj <span style="font-size: 20px; color: #8a71c5;">lokalnoj</span> poziciji</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+public GameObject objekt1;
+private Rigidbody rb;
+
+void Start()
+{
+    rb = objekt1.GetComponent&lt;Rigidbody&gt;();
+}    
+
+void FixedUpdate()
+{
+    rb.velocity = transform.forward * 2 * Time.fixedDeltaTime;
+}  
+            </code></pre>
+          </div>
+
+          <br>
+
+          <p>Ako želimo da se miće za <span style="font-size: 20px; color: #8a71c5;">unatrag</span> vrijednost trebamo pomnožiti s negativnim brojem.</p>
+          <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+public GameObject objekt1;
+private Rigidbody rb;
+
+void Start()
+{
+    rb = objekt1.GetComponent&lt;Rigidbody&gt;();
+}    
+
+void FixedUpdate()
+{
+    rb.velocity = transform.forward * -2 * Time.fixedDeltaTime;
+}  
+            </code></pre>
+          </div>
+
+          <br>
+
+          <p>Ako želimo da se objket miće <span style="font-size: 20px; color: #8a71c5;">desno</span> po svojoj <span style="font-size: 20px; color: #8a71c5;">lokalnoj</span> poziciji onda se koristimo s <span style="font-size: 20px; color: #8a71c5;">transfrom.right</span>.</p>
+          <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+public GameObject objekt1;
+private Rigidbody rb;
+
+void Start()
+{
+    rb = objekt1.GetComponent&lt;Rigidbody&gt;();
+}    
+
+void FixedUpdate()
+{
+    rb.velocity = transform.right * 2 * Time.fixedDeltaTime;
+}  
+            </code></pre>
+          </div>
+
+          <br>
+
+          <p>Ako želimo da se miće <span style="font-size: 20px; color: #8a71c5;">lijevo</span> onda onda samo tu vrijednost pomnožimo s nekim negativnim brojem.</p>
+          <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+public GameObject objekt1;
+private Rigidbody rb;
+
+void Start()
+{
+    rb = objekt1.GetComponent&lt;Rigidbody&gt;();
+}    
+
+void FixedUpdate()
+{
+    rb.velocity = transform.right * -2 * Time.fixedDeltaTime;
+}  
+            </code></pre>
+          </div>
+
+          <br>
+
+          <p>Ako želimo da se naš objekt kreće prema <span style="font-size: 20px; color: #8a71c5;">gore</span> po svojem <span style="font-size: 20px; color: #8a71c5;">lokalnom</span> vektoru onda se koristimo s <span style="font-size: 20px; color: #8a71c5;">transfrom.up</span>.</p>
+          <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+public GameObject objekt1;
+private Rigidbody rb;
+
+void Start()
+{
+    rb = objekt1.GetComponent&lt;Rigidbody&gt;();
+}    
+
+void FixedUpdate()
+{
+    rb.velocity = transform.up * 2 * Time.fixedDeltaTime;
+}  
+            </code></pre>
+          </div>
+
+          <br>
+          <p>Ako želimo da se kreće prema <span style="font-size: 20px; color: #8a71c5;">dolje</span> onda tu vrijednost pomnožimo s nekim negativnim brojem.</p>
+          <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+public GameObject objekt1;
+private Rigidbody rb;
+
+void Start()
+{
+    rb = objekt1.GetComponent&lt;Rigidbody&gt;();
+}    
+
+void FixedUpdate()
+{
+    rb.velocity = transform.up * -2 * Time.fixedDeltaTime;
+}  
+            </code></pre>
+          </div>
+
+          <br>
+          <p>Ako želimo da se neki objetk kreće <span style="font-size: 20px; color: #8a71c5;">naprijed</span>, <span style="font-size: 20px; color: #8a71c5;">unatrag</span>, <span style="font-size: 20px; color: #8a71c5;">lijevo</span>, <span style="font-size: 20px; color: #8a71c5;">desno</span>, <span style="font-size: 20px; color: #8a71c5;">gore</span> ili <span style="font-size: 20px; color: #8a71c5;">dolje</span> po svojim <span style="font-size: 20px; color: #8a71c5;">globalnim</span> vektorima onda se koristimo s <span style="font-size: 20px; color: #8a71c5;">Vector3.forward</span>, <span style="font-size: 20px; color: #8a71c5;">Vector3.right</span>...</p>
+          <p>Za razliku kod <span style="font-size: 20px; color: #8a71c5;">transform</span>-a kako bi se micali <span style="font-size: 20px; color: #8a71c5;">lijevo</span>, <span style="font-size: 20px; color: #8a71c5;">unatrag</span> ili za <span style="font-size: 20px; color: #8a71c5;">dolje</span> vrijednost ne moramo množiti s negativnim brojem već samo napišemo <span style="font-size: 20px; color: #8a71c5;">Vector3.left</span>...</p>
+          <p>S obzirom da su vrijednost za svaki smijer jednake u sljedećem primjeru objekt bi trebao ostati na istom mijestu.</p>
+          <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+public GameObject objekt1;
+private Rigidbody rb;
+
+void Start()
+{
+    rb = objekt1.GetComponent&lt;Rigidbody&gt;();
+}    
+
+void FixedUpdate()
+{
+    rb.velocity = Vector3.forward * 2 * Time.fixedDeltaTime;
+    rb.velocity = Vector3.back * 2 * Time.fixedDeltaTime;
+    rb.velocity = Vector3.right * 2 * Time.fixedDeltaTime;
+    rb.velocity = Vector3.left * 2 * Time.fixedDeltaTime;
+    rb.velocity = Vector3.up * 2 * Time.fixedDeltaTime;
+    rb.velocity = Vector3.down * 2 * Time.fixedDeltaTime;
+}  
+            </code></pre>
+          </div>
+          <br>
+
+          <p>Ako želimo da se igrač miče <span style="font-size: 20px; color: #8a71c5;">okomito</span> prema <span style="font-size: 20px; color: #8a71c5;">desno</span> za <span style="font-size: 20px; color: #8a71c5;">napriejd</span> samo trebamo zbrojiti dva vektora odnosno u ovom slučaju <span style="font-size: 20px; color: #8a71c5;">transfrom.forward</span> i <span style="font-size: 20px; color: #8a71c5;">transfrom.right</span> ili <span style="font-size: 20px; color: #8a71c5;">Vector3.forward</span> i <span style="font-size: 20px; color: #8a71c5;">Vector3.right</span>.</p>
+          <p>Istom logikom možemo napraviti da se igrač miče i <span style="font-size: 20px; color: #8a71c5;">okomito</span> prema lijevo.</p>
+          <p>U sljedećem primjeru će se <span style="font-size: 20px; color: #8a71c5;">objekt1</span> micati <span style="font-size: 20px; color: #8a71c5;">okomito</span> za <span style="font-size: 20px; color: #8a71c5;">desno</span> prema <span style="font-size: 20px; color: #8a71c5;">naprijed</span>.</p>
+          <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+public GameObject objekt1;
+private Rigidbody rb;
+
+void Start()
+{
+    rb = objekt1.GetComponent&lt;Rigidbody&gt;();
+}    
+
+void FixedUpdate()
+{
+    rb.velocity = transfrom.forward * 2 * Time.fixedDeltaTime + transform.right * 2 * Tim.fixedDeltaTime;
+}  
+            </code></pre>
+          </div>
+          <script src="../prism.js"></script>
+    </div>
+
+    <br>
+
+    <div class="tekstualna-kutija">
+        <h1>Sila</h1>
+        <p><span style="font-size: 20px; color: #8a71c5;">Sila</span> je akcija koja primjenjuje silu na Rigidbody objekt kako bi se promijenila njegova brzina i kretanje.</p>
+        <p>Kako bi je koristili samo napišemo <span style="font-size: 20px; color: #8a71c5;">AddForce</span>.</p>
+        <p>Na prvo mijesto napišemo u <span style="font-size: 20px; color: #8a71c5;">kojem smijeru</span> želimo da se sila primijeni, a nakon toga <span style="font-size: 20px; color: #8a71c5;">vrstu sile</span>.</p>
+        <p>U sljedećem primjeru ćemo primijeniti silu za gore prema <span style="font-size: 20px; color: #8a71c5;">globalnom</span> vektoru pri pokretanju igre i koristi ćemo kao vrstu sile <span style="font-size: 20px; color: #8a71c5;">Impulse</span>.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+public GameObject objekt1;
+private Rigidbody rb;
+
+void Start()
+{
+    rb = objekt1.GetComponent&lt;Rigidbody&gt;();
+}    
+
+void FixedUpdate()
+{
+    rb.AddForce(Vector3.up * 2, ForceMode.Impulse);
+} 
+            </code></pre>
+          </div>
+          <br>
+
+          <p>Kao vrstu sile imamo  <span style="font-size: 20px; color: #8a71c5;">Impulse</span>,  <span style="font-size: 20px; color: #8a71c5;">Force</span>,  <span style="font-size: 20px; color: #8a71c5;">Acceleration</span> i  <span style="font-size: 20px; color: #8a71c5;">VelocityChange</span>.</p>
+          <p><span style="font-size: 20px; color: #8a71c5;">Impulse</span> primjenjuje silu samo tijekom jednog koraka simulacije. Iz takvog se razloga ćesto koristi za skakanje.</p>
+          <p><span style="font-size: 20px; color: #8a71c5;">Force</span>  primjenjuje silu na objekt kao konstantna sila tijekom jednog koraka simulacije.</p>
+          <p><span style="font-size: 20px; color: #8a71c5;">Acceleration</span> primjenjuje silu tako da ubrzava ili usporava objekt, uz postupno mijenjanje ubrzanja objekta. Sila se primjenjuje tijekom svakog koraka simulacije i može se nakupljati kako bi postupno utjecala na brzinu objekta.</p>
+          <p><span style="font-size: 20px; color: #8a71c5;">VelocityChange</span> primjenjuje silu kako bi izravno promijenila brzinu objekta, bez obzira na trenutno ubrzanje ili brzinu</p>
+          <script src="../prism.js"></script>
+
+    </div>
+
+    <br>
+    
+    <div class="drzac-gumba">
+        <a class="donji-gumbi" href="transform.html"><h1 class="naslovni-gumb">Prijašnje</h1></a>
+        <a class="donji-gumbi" href="voidOnTrigger.html"><h1 class="naslovni-gumb">Sljedeće</h1></a>
+    </div>
+    <script src="../pojavljivanje.js"></script>
+</body>
+</html>

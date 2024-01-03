@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C# Varijable i vrste podataka</title>
+    <link rel="icon" href="../slike/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../stil.css">
+    <link rel="stylesheet" href="../prism.css">
+</head>
+<body onload="promjenaSvjetline()"><!--Promjena svjetline radi samo kada je stranica objavljena na serveru-->
+    <button id="treba" onclick="svjetlina()" class = "tema-gumb"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm40-83q119-15 199.5-104.5T800-480q0-123-80.5-212.5T520-797v634Z"/></svg></button>
+    <div class="gornja-navigacija">
+        <a class="gornji-gumbi"  id = "odabrano" href="intro.html">C#</a>
+        <a class="gornji-gumbi" href="../UnityUI/intro.html">Unity UI</a>
+        <a class="gornji-gumbi" href="../UnityCSharp/intro.html">Unity C#</a>
+    </div>
+
+    <div class="lijeva-navigacija">
+        <a class="lijevi-gumbi" href="../home.html">Početna stranica</a><br>  
+        <a class="lijevi-gumbi" href = "intro.html">Polazna lekcija</a><br>
+        <a class="lijevi-gumbi" href="instalacija.html">Instalacija</a><br>
+        <a class="lijevi-gumbi" href="ispisivanjeIsintaksa.html">Sintaksa i ispisivanje</a><br>
+        <a class="lijevi-gumbi" href="komentari.html">Komentari</a><br>
+        <a class="lijevi-gumbi" id = "odabrano" href="varijable.html">Varijable i vrste podataka</a><br>
+        <a class="lijevi-gumbi" href="pretvaranjePodataka.html">Pretvaranje vrsta podataka</a><br>
+        <a class="lijevi-gumbi" href="unosPodataka.html">Unošenje podataka</a><br>
+        <a class="lijevi-gumbi" href="operatori.html">Operatori</a><br>
+        <a class="lijevi-gumbi" href="math.html">Math</a><br>
+        <a class="lijevi-gumbi" href="string.html">String</a><br>
+        <a class="lijevi-gumbi" href="booleans.html">Booleans</a><br>
+        <a class="lijevi-gumbi" href="if.html">If i else</a><br>
+        <a class="lijevi-gumbi" href="switch.html">Switch</a><br>
+        <a class="lijevi-gumbi" href="while.html">While</a><br>
+        <a class="lijevi-gumbi" href="for.html">For</a><br>
+        <a class="lijevi-gumbi" href="breakandcontinue.html">Break i Continue</a><br>
+        <a class="lijevi-gumbi" href="array.html">Niz</a><br>
+        <a class="lijevi-gumbi" href="metoda.html">Metoda</a><br>
+        <a class="lijevi-gumbi" href="klasa.html">Klasa</a><br>
+        <a class="lijevi-gumbi" href="enum.html">Enum</a><br>
+        <a class="lijevi-gumbi" href="iznimka.html">Iznimka</a><br>
+        <a class="lijevi-gumbi" href="datoteke.html">Datoteke</a><br>
+    </div>
+
+    <br>
+    
+    <div class="tekstualna-kutija">
+        <h1>Varijable i vrste podataka</h1>
+        <p>Varijable su imenovane memorijske lokacije koje sadrže neku vrstu podataka.</p>
+        <p>U C#-u postoji 7 različitih vrsta podataka:</p>
+        <table class="tablica">
+            <tr>
+                <th>Vrsta podatka</th>
+                <th>Opis</th>
+                <th>Veličina</th>
+            </tr>
+            <tr>
+                <th>int</th>
+                <th>Pohranjuje cijele brojeve od -2,147,483,648 do 2,147,483,647</th>
+                <th>4 bajta</th>
+            </tr>
+            <tr>
+                <th>long</th>
+                <th>Pohranjuje cijele brojeve od -9,223,372,036,854,775,808 do 9,223,372,036,854,775,807</th>
+                <th>8 bajtova</th>
+            </tr>
+            <tr>
+                <th>float</th>
+                <th>Pohranjuje decimalne brojeve. Dovoljno za pohranjivanje 6 do 7 decimalnih znamenki</th>
+                <th>4 bajta</th>
+            </tr>
+            <tr>
+                <th>double</th>
+                <th>Pohranjuje decimalne brojeve. Dovoljno za pohranjivanje 15 decimalnih znamenki</th>
+                <th>8 bajtova</th>
+            </tr>
+            <tr>
+                <th>bool</th>
+                <th>Pohranjuje istinite ili neistinite vrijednosti</th>
+                <th>1 bit</th>
+            </tr>
+            <tr>
+                <th>char</th>
+                <th>Pohranjuje jedan znak/slovo</th>
+                <th>2 bajta</th>
+            </tr>
+            <tr>
+                <th>string</th>
+                <th>Pohranjuje niz znakova/slova</th>
+                <th>2 bajta po znaku</th>
+            </tr>
+        </table>
+    </div>
+
+    <br>
+
+    <div class="tekstualna-kutija">
+        <h1>Deklariranje (stvaranje) varijabli</h1>
+        <p>Da se varijabla deklarira potrebno je specificirati vrstu podataka koju će držati i njeno ime.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Sintaksa:</h1>
+            <pre><code class="language-csharp">
+vrsta imeVarijable;
+            </code></pre>
+        </div>
+
+        <br>
+
+        <p>Za deklariranje više varijabli iste vrste koristi se zarez (<span style="font-size: 20px; color: #8a71c5;">,</span>) između imena varijabli.</p>
+        
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Sintaksa:</h1>
+            <pre><code class="language-csharp">
+vrsta imeVarijable1, imeVarijable2, imeVarijable3;
+            </code></pre>
+        </div>
+        <script src="../prism.js"></script>
+        <br>
+    </div style="p">
+
+    <br>
+
+    <div class="tekstualna-kutija">
+        <h1>Podatci u varijablama</h1>
+        <p>Podatci se u varijable mogu stavljati pri deklariranju ili naknadno u kodu.</p>
+        
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+int x = 123; //primjer spremanja podataka pri deklariranju
+
+int y;
+y = 123; //primjer naknadnog spremanja podataka 
+            </code></pre>
+        </div>
+
+        <br>
+
+        <p>Podatci se u varijable mogu stavljati i prilikom deklariranja više varijabli iste vrste.</p>
+
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+int x = 123, y = 345, z = 567; //primjer spremanja podataka pri deklariranju više varijabli iste vrste
+            </code></pre>
+        </div>
+        <br>
+
+        <p>Te isti podatak možemo staviti i u više varijabli iste vrste u jednoj liniji.</p>
+
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+int x, y, z;
+x = y = z = 567; //primjer stavljanja istog podatka u više varijabli iste vrste
+            </code></pre>
+        </div>
+
+        <script src="../prism.js"></script>
+        <br>
+    </div style="p">
+
+    <br>
+
+    <div class="tekstualna-kutija">
+        <h1>Konstante</h1>
+        <p>Ako ne želite da drugi ili vi mijenjate vrijednost već postojeće varijable, prije vrste varijable se dodaje riječ <span style="font-size: 20px; color: #8a71c5;">const</span>.</p>
+        <p>Dodavanjem riječi <span style="font-size: 20px; color: #8a71c5;">const</span> ispred varijabe, ta varijabla postaje konstanta te se onda iz nje mogu samo čitati podaci.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+const int broj = 123;
+broj = 20; //error
+            </code></pre>
+        </div>
+        <script src="../prism.js"></script>
+        <br>
+    </div style="p">
+
+    <br>
+
+    <div class="tekstualna-kutija">
+        <h1>Ispisivanje varijabli</h1>
+        <p>Varijable se mogu ispisivati koristeći funkciju <span style="font-size: 20px; color: #8a71c5;">Write()</span> ili <span style="font-size: 20px; color: #8a71c5;">WriteLine()</span>.</p>
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+int broj = 123;
+Console.Write(broj); //ispisivanje varijabli metodom Write()
+Console.WriteLine(broj); //ispisivanje varijabli metodom WriteLine()
+            </code></pre>
+        </div>
+        <br>
+
+        <p>Tijekom ispisa, tekst i varijable se mogu spajati koristeći plus(<span style="font-size: 20px; color: #8a71c5;">+</span>).</p>
+        
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+string Ime = "Pero";
+Console.WriteLine("Pozdrav" + Ime);
+            </code></pre>
+        </div>
+        <br>
+
+        <p>Koristeći plus (<span style="font-size: 20px; color: #8a71c5;">+</span>), tekstualne se varijable mogu dodati jedna na drugu.</p>
+
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+string Ime = "Pero";
+string Prezime = "Perić";
+Console.WriteLine(Ime + Prezime); //ispisuje: "Pero Perić"
+            </code></pre>
+        </div>
+        <br>
+
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+string x = "5";
+string y = "2";
+Console.WriteLine(x + y); //ispisuje: "52"
+            </code></pre>
+        </div>
+        <br>
+
+        <p>Koristeći plus i minus (<span style="font-size: 20px; color: #8a71c5;">+</span>, <span style="font-size: 20px; color: #8a71c5;">-</span>), varijable koje sadrže brojeve se mogu zbrajati i oduzimati.</p>
+
+        <div>
+            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <pre><code class="language-csharp">
+int x = 10, y = 15;
+Console.WriteLine(x + y); //ispisuje: "25"
+Console.WriteLine(x - y); //ispisuje: "-5"
+            </code></pre>
+        </div>
+        <br>
+
+        <script src="../prism.js"></script>
+        <br>
+    </div style="p">
+
+
+    <div class="drzac-gumba">
+        <a class="donji-gumbi" href="komentari.html"><h1 class="naslovni-gumb">Prijašnje</h1></a>
+        <a class="donji-gumbi" href="pretvaranjePodataka.html"><h1 class="naslovni-gumb">Sljedeće</h1></a>
+    </div>
+    <script src="../pojavljivanje.js"></script>
+</body>
+</html>
