@@ -43,7 +43,7 @@
 
     <div class="tekstualna-kutija">
         <h1>Time</h1>
-        <p><span style="font-size: 20px; color: #8a71c5;">Time</span> je Unityjeva klasa koja omogućuje praćenje i kontroliranje vremena.</p>
+        <p><span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Time</span> je Unityjeva klasa koja omogućuje praćenje i kontroliranje vremena.</p>
         
     </div>
 
@@ -51,10 +51,10 @@
 
     <div class="tekstualna-kutija">
         <h1>Time.deltaTime</h1>
-        <p><span style="font-size: 20px; color: #8a71c5;">Time.deltaTime</span> predstavlja vremenski interval između trenutnog i prethodnog frejma.</p>
-        <p>Njega se uglavnom koristi u <span style="font-size: 20px; color: #8a71c5;">void Update</span>.</p>
+        <p><span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Time.deltaTime</span> predstavlja vremenski interval između trenutnog i prethodnog frejma.</p>
+        <p>Njega se uglavnom koristi u <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">void Update</span>.</p>
         <p>Možemo ga koristiti za glatko kretanje objekta.</p>
-        <p>Baš iz razloga što je ovisan o <span style="font-size: 20px; color: #8a71c5;">SPS-u</span> (sličicama po sekundi) nije ga preporučivo koristiti kod fizike.</p>
+        <p>Baš iz razloga što je ovisan o <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">SPS-u</span> (sličicama po sekundi) nije ga preporučivo koristiti kod fizike.</p>
         <p>U donjem primjeru koristimo ga kao štopericu.</p>
         <div>
             <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
@@ -77,9 +77,9 @@ void Update()
 
     <div class="tekstualna-kutija">
         <h1>Time.fixedDeltaTime</h1>
-        <p>Za razliku od <span style="font-size: 20px; color: #8a71c5;">Time.deltaTime</span> vrijednost <span style="font-size: 20px; color: #8a71c5;">Time.fixedDeltaTime</span> je konstanta jer ne ovisi o <span style="font-size: 20px; color: #8a71c5;">SPS-u</span> (sličicama po sekundi).</p>
+        <p>Za razliku od <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Time.deltaTime</span> vrijednost <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Time.fixedDeltaTime</span> je konstanta jer ne ovisi o <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">SPS-u</span> (sličicama po sekundi).</p>
         <p>S obzirom da mu je vrijednost konstanta koristimo ga za glatko kretanje objekata prilikom korištenja fizike.</p>
-        <p>Njega se koristi u <span style="font-size: 20px; color: #8a71c5;">void FixedUpdate</span>.</p>
+        <p>Njega se koristi u <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">void FixedUpdate</span>.</p>
         <div>
             <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
             <pre><code class="language-csharp">
@@ -101,9 +101,9 @@ void FixedUpdate()
 
     <div class = "tekstualna-kutija">
         <h1>Time.timeScale</h1>
-        <p><span style="font-size: 20px; color: #8a71c5;">Time.timeScale</span> se koristi za usporvanje ili ubrzavanje vremena.</p>
-        <p>Ako mu je vrijednost stavljena na nulu onda će sve u igrci što koristi <span style="font-size: 20px; color: #8a71c5;">Time.deltaTime</span> ili <span style="font-size: 20px; color: #8a71c5;">Time.fixedDeltaTime</span> stati.</p>
-        <p>U sljedećem primjeru mijenjamo vrijednost za <span style="font-size: 20px; color: #8a71c5;">Time.timeScale</span> ovisno o tome koliki je <span style="font-size: 20px; color: #8a71c5;">x</span>.</p>
+        <p><span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Time.timeScale</span> se koristi za usporvanje ili ubrzavanje vremena.</p>
+        <p>Ako mu je vrijednost stavljena na nulu onda će sve u igrci što koristi <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Time.deltaTime</span> ili <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Time.fixedDeltaTime</span> stati.</p>
+        <p>U sljedećem primjeru mijenjamo vrijednost za <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Time.timeScale</span> ovisno o tome koliki je <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">x</span>.</p>
         <div>
             <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
             <pre><code class="language-csharp">

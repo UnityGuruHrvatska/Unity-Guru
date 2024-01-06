@@ -43,14 +43,14 @@
     
     <div class = "tekstualna-kutija">
         <h1>RigidBody</h1>
-        <p><span style="font-size: 20px; color: #8a71c5;">RigidBody</span> možemo opisati kao komponentu koja daje fiziku nekom objektu (<span style="font-size: 20px; color: #8a71c5;">gravitaciju</span>,<span style="font-size: 20px; color: #8a71c5;"> brzinu</span>, <span style="font-size: 20px; color: #8a71c5;">kinematiku</span>, <span style="font-size: 20px; color: #8a71c5;">masu</span>...). Iz takvog razloga koristimo ga unutar <span style="font-size: 20px; color: #8a71c5;">void FixedUpdate</span>.</p>
+        <p><span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">RigidBody</span> možemo opisati kao komponentu koja daje fiziku nekom objektu (<span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">gravitaciju</span>,<span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;"> brzinu</span>, <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">kinematiku</span>, <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">masu</span>...). Iz takvog razloga koristimo ga unutar <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">void FixedUpdate</span>.</p>
     </div>
 
     <br>
 
     <div class="tekstualna-kutija">
         <h1>Masa</h1>
-        <p>U sljedećem primjeru ćemo postaviti <span style="font-size: 20px; color: #8a71c5;">masu</span> zadanom objektu.</p>
+        <p>U sljedećem primjeru ćemo postaviti <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">masu</span> zadanom objektu.</p>
         <div>
             <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
             <pre><code class="language-csharp">
@@ -72,7 +72,7 @@ void Start()
 
     <div class="tekstualna-kutija">
         <h1>Gravitacija i kinematika</h1>
-        <p>Uz pomoć <span style="font-size: 20px; color: #8a71c5;">RigidBody</span>-a možemo uključiti i isključiti gravitaciju.</p>
+        <p>Uz pomoć <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">RigidBody</span>-a možemo uključiti i isključiti gravitaciju.</p>
         <div>
             <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
             <pre><code class="language-csharp">
@@ -105,8 +105,8 @@ void Start()
 
           <br>
 
-          <p>Na isti način možemo uključiti i isključiti <span style="font-size: 20px; color: #8a71c5;">isKinematic</span>.</p>
-          <p>Ako ga uključimo onda na <span style="font-size: 20px; color: #8a71c5;">RigidBody</span> neće utjecati <span style="font-size: 20px; color: #8a71c5;">brzina</span>, <span style="font-size: 20px; color: #8a71c5;">slia</span>, <span style="font-size: 20px; color: #8a71c5;">collisions</span>.</p>
+          <p>Na isti način možemo uključiti i isključiti <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">isKinematic</span>.</p>
+          <p>Ako ga uključimo onda na <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">RigidBody</span> neće utjecati <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">brzina</span>, <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">slia</span>, <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">collisions</span>.</p>
           <div>
             <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
             <pre><code class="language-csharp">
@@ -147,9 +147,9 @@ void Start()
 
     <div class="tekstualna-kutija">
         <h1>Brzina</h1>
-        <p><span style="font-size: 20px; color: #8a71c5;">Brzina</span> je vektor koji predstavlja trenutnu brzinu objekta koji koristi <span style="font-size: 20px; color: #8a71c5;">RigidBody</span>.</p>
-        <p>Njoj pristupamo tako što napišemo <span style="font-size: 20px; color: #8a71c5;">RigidBody.velocity</span>.</p>
-        <p>U sljedećem primjeru objekt će se micati <span style="font-size: 20px; color: #8a71c5;">naprijed</span> po njegovoj <span style="font-size: 20px; color: #8a71c5;">lokalnoj</span> poziciji</p>
+        <p><span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Brzina</span> je vektor koji predstavlja trenutnu brzinu objekta koji koristi <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">RigidBody</span>.</p>
+        <p>Njoj pristupamo tako što napišemo <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">RigidBody.velocity</span>.</p>
+        <p>U sljedećem primjeru objekt će se micati <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">naprijed</span> po njegovoj <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">lokalnoj</span> poziciji</p>
         <div>
             <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
             <pre><code class="language-csharp">
@@ -170,7 +170,7 @@ void FixedUpdate()
 
           <br>
 
-          <p>Ako želimo da se miće za <span style="font-size: 20px; color: #8a71c5;">unatrag</span> vrijednost trebamo pomnožiti s negativnim brojem.</p>
+          <p>Ako želimo da se miće za <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">unatrag</span> vrijednost trebamo pomnožiti s negativnim brojem.</p>
           <div>
             <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
             <pre><code class="language-csharp">
@@ -191,7 +191,7 @@ void FixedUpdate()
 
           <br>
 
-          <p>Ako želimo da se objket miće <span style="font-size: 20px; color: #8a71c5;">desno</span> po svojoj <span style="font-size: 20px; color: #8a71c5;">lokalnoj</span> poziciji onda se koristimo s <span style="font-size: 20px; color: #8a71c5;">transfrom.right</span>.</p>
+          <p>Ako želimo da se objket miće <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">desno</span> po svojoj <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">lokalnoj</span> poziciji onda se koristimo s <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">transfrom.right</span>.</p>
           <div>
             <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
             <pre><code class="language-csharp">
@@ -212,7 +212,7 @@ void FixedUpdate()
 
           <br>
 
-          <p>Ako želimo da se miće <span style="font-size: 20px; color: #8a71c5;">lijevo</span> onda onda samo tu vrijednost pomnožimo s nekim negativnim brojem.</p>
+          <p>Ako želimo da se miće <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">lijevo</span> onda onda samo tu vrijednost pomnožimo s nekim negativnim brojem.</p>
           <div>
             <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
             <pre><code class="language-csharp">
@@ -233,7 +233,7 @@ void FixedUpdate()
 
           <br>
 
-          <p>Ako želimo da se naš objekt kreće prema <span style="font-size: 20px; color: #8a71c5;">gore</span> po svojem <span style="font-size: 20px; color: #8a71c5;">lokalnom</span> vektoru onda se koristimo s <span style="font-size: 20px; color: #8a71c5;">transfrom.up</span>.</p>
+          <p>Ako želimo da se naš objekt kreće prema <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">gore</span> po svojem <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">lokalnom</span> vektoru onda se koristimo s <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">transfrom.up</span>.</p>
           <div>
             <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
             <pre><code class="language-csharp">
@@ -253,7 +253,7 @@ void FixedUpdate()
           </div>
 
           <br>
-          <p>Ako želimo da se kreće prema <span style="font-size: 20px; color: #8a71c5;">dolje</span> onda tu vrijednost pomnožimo s nekim negativnim brojem.</p>
+          <p>Ako želimo da se kreće prema <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">dolje</span> onda tu vrijednost pomnožimo s nekim negativnim brojem.</p>
           <div>
             <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
             <pre><code class="language-csharp">
@@ -273,8 +273,8 @@ void FixedUpdate()
           </div>
 
           <br>
-          <p>Ako želimo da se neki objetk kreće <span style="font-size: 20px; color: #8a71c5;">naprijed</span>, <span style="font-size: 20px; color: #8a71c5;">unatrag</span>, <span style="font-size: 20px; color: #8a71c5;">lijevo</span>, <span style="font-size: 20px; color: #8a71c5;">desno</span>, <span style="font-size: 20px; color: #8a71c5;">gore</span> ili <span style="font-size: 20px; color: #8a71c5;">dolje</span> po svojim <span style="font-size: 20px; color: #8a71c5;">globalnim</span> vektorima onda se koristimo s <span style="font-size: 20px; color: #8a71c5;">Vector3.forward</span>, <span style="font-size: 20px; color: #8a71c5;">Vector3.right</span>...</p>
-          <p>Za razliku kod <span style="font-size: 20px; color: #8a71c5;">transform</span>-a kako bi se micali <span style="font-size: 20px; color: #8a71c5;">lijevo</span>, <span style="font-size: 20px; color: #8a71c5;">unatrag</span> ili za <span style="font-size: 20px; color: #8a71c5;">dolje</span> vrijednost ne moramo množiti s negativnim brojem već samo napišemo <span style="font-size: 20px; color: #8a71c5;">Vector3.left</span>...</p>
+          <p>Ako želimo da se neki objetk kreće <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">naprijed</span>, <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">unatrag</span>, <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">lijevo</span>, <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">desno</span>, <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">gore</span> ili <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">dolje</span> po svojim <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">globalnim</span> vektorima onda se koristimo s <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Vector3.forward</span>, <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Vector3.right</span>...</p>
+          <p>Za razliku kod <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">transform</span>-a kako bi se micali <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">lijevo</span>, <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">unatrag</span> ili za <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">dolje</span> vrijednost ne moramo množiti s negativnim brojem već samo napišemo <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Vector3.left</span>...</p>
           <p>S obzirom da su vrijednost za svaki smijer jednake u sljedećem primjeru objekt bi trebao ostati na istom mijestu.</p>
           <div>
             <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
@@ -300,9 +300,9 @@ void FixedUpdate()
           </div>
           <br>
 
-          <p>Ako želimo da se igrač miče <span style="font-size: 20px; color: #8a71c5;">okomito</span> prema <span style="font-size: 20px; color: #8a71c5;">desno</span> za <span style="font-size: 20px; color: #8a71c5;">napriejd</span> samo trebamo zbrojiti dva vektora odnosno u ovom slučaju <span style="font-size: 20px; color: #8a71c5;">transfrom.forward</span> i <span style="font-size: 20px; color: #8a71c5;">transfrom.right</span> ili <span style="font-size: 20px; color: #8a71c5;">Vector3.forward</span> i <span style="font-size: 20px; color: #8a71c5;">Vector3.right</span>.</p>
-          <p>Istom logikom možemo napraviti da se igrač miče i <span style="font-size: 20px; color: #8a71c5;">okomito</span> prema lijevo.</p>
-          <p>U sljedećem primjeru će se <span style="font-size: 20px; color: #8a71c5;">objekt1</span> micati <span style="font-size: 20px; color: #8a71c5;">okomito</span> za <span style="font-size: 20px; color: #8a71c5;">desno</span> prema <span style="font-size: 20px; color: #8a71c5;">naprijed</span>.</p>
+          <p>Ako želimo da se igrač miče <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">okomito</span> prema <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">desno</span> za <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">napriejd</span> samo trebamo zbrojiti dva vektora odnosno u ovom slučaju <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">transfrom.forward</span> i <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">transfrom.right</span> ili <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Vector3.forward</span> i <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Vector3.right</span>.</p>
+          <p>Istom logikom možemo napraviti da se igrač miče i <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">okomito</span> prema lijevo.</p>
+          <p>U sljedećem primjeru će se <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">objekt1</span> micati <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">okomito</span> za <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">desno</span> prema <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">naprijed</span>.</p>
           <div>
             <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
             <pre><code class="language-csharp">
@@ -327,10 +327,10 @@ void FixedUpdate()
 
     <div class="tekstualna-kutija">
         <h1>Sila</h1>
-        <p><span style="font-size: 20px; color: #8a71c5;">Sila</span> je akcija koja primjenjuje silu na Rigidbody objekt kako bi se promijenila njegova brzina i kretanje.</p>
-        <p>Kako bi je koristili samo napišemo <span style="font-size: 20px; color: #8a71c5;">AddForce</span>.</p>
-        <p>Na prvo mijesto napišemo u <span style="font-size: 20px; color: #8a71c5;">kojem smijeru</span> želimo da se sila primijeni, a nakon toga <span style="font-size: 20px; color: #8a71c5;">vrstu sile</span>.</p>
-        <p>U sljedećem primjeru ćemo primijeniti silu za gore prema <span style="font-size: 20px; color: #8a71c5;">globalnom</span> vektoru pri pokretanju igre i koristi ćemo kao vrstu sile <span style="font-size: 20px; color: #8a71c5;">Impulse</span>.</p>
+        <p><span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Sila</span> je akcija koja primjenjuje silu na Rigidbody objekt kako bi se promijenila njegova brzina i kretanje.</p>
+        <p>Kako bi je koristili samo napišemo <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">AddForce</span>.</p>
+        <p>Na prvo mijesto napišemo u <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">kojem smijeru</span> želimo da se sila primijeni, a nakon toga <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">vrstu sile</span>.</p>
+        <p>U sljedećem primjeru ćemo primijeniti silu za gore prema <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">globalnom</span> vektoru pri pokretanju igre i koristi ćemo kao vrstu sile <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Impulse</span>.</p>
         <div>
             <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
             <pre><code class="language-csharp">
@@ -350,11 +350,11 @@ void FixedUpdate()
           </div>
           <br>
 
-          <p>Kao vrstu sile imamo  <span style="font-size: 20px; color: #8a71c5;">Impulse</span>,  <span style="font-size: 20px; color: #8a71c5;">Force</span>,  <span style="font-size: 20px; color: #8a71c5;">Acceleration</span> i  <span style="font-size: 20px; color: #8a71c5;">VelocityChange</span>.</p>
-          <p><span style="font-size: 20px; color: #8a71c5;">Impulse</span> primjenjuje silu samo tijekom jednog koraka simulacije. Iz takvog se razloga ćesto koristi za skakanje.</p>
-          <p><span style="font-size: 20px; color: #8a71c5;">Force</span>  primjenjuje silu na objekt kao konstantna sila tijekom jednog koraka simulacije.</p>
-          <p><span style="font-size: 20px; color: #8a71c5;">Acceleration</span> primjenjuje silu tako da ubrzava ili usporava objekt, uz postupno mijenjanje ubrzanja objekta. Sila se primjenjuje tijekom svakog koraka simulacije i može se nakupljati kako bi postupno utjecala na brzinu objekta.</p>
-          <p><span style="font-size: 20px; color: #8a71c5;">VelocityChange</span> primjenjuje silu kako bi izravno promijenila brzinu objekta, bez obzira na trenutno ubrzanje ili brzinu</p>
+          <p>Kao vrstu sile imamo  <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Impulse</span>,  <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Force</span>,  <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Acceleration</span> i  <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">VelocityChange</span>.</p>
+          <p><span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Impulse</span> primjenjuje silu samo tijekom jednog koraka simulacije. Iz takvog se razloga ćesto koristi za skakanje.</p>
+          <p><span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Force</span>  primjenjuje silu na objekt kao konstantna sila tijekom jednog koraka simulacije.</p>
+          <p><span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Acceleration</span> primjenjuje silu tako da ubrzava ili usporava objekt, uz postupno mijenjanje ubrzanja objekta. Sila se primjenjuje tijekom svakog koraka simulacije i može se nakupljati kako bi postupno utjecala na brzinu objekta.</p>
+          <p><span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">VelocityChange</span> primjenjuje silu kako bi izravno promijenila brzinu objekta, bez obzira na trenutno ubrzanje ili brzinu</p>
           <script src="../prism.js"></script>
 
     </div>

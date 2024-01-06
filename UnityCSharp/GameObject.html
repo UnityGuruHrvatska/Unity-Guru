@@ -43,7 +43,7 @@
 
     <div class = "tekstualna-kutija">
         <h1>GameObject</h1>
-        <p><span style="font-size: 20px; color: #8a71c5;">GameObject</span> je glavna Unity klasa za sve objekte/entitete u unity sceni.</p>
+        <p><span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">GameObject</span> je glavna Unity klasa za sve objekte/entitete u unity sceni.</p>
         <p>Primjeri GameObject su: kamera, kocka, svjetla...</p>
         <p>Svaki GameObject sadrži određene komponente (transform, collider...) kojima možemo pristupiti i putem koda.</p>
     </div>
@@ -52,7 +52,7 @@
 
     <div class="tekstualna-kutija">
         <h1>Traženje objekta</h1>
-        <p>Objekt stvaramo unutar skripte tako što prvo definiramo pravo pristupa (<span style="font-size: 20px; color: #8a71c5;">private</span> ili <span style="font-size: 20px; color: #8a71c5;">public</span>) zatim napišemo <span style="font-size: 20px; color: #8a71c5;">GameObject</span> te ga nazovemo po želji.</p>
+        <p>Objekt stvaramo unutar skripte tako što prvo definiramo pravo pristupa (<span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">private</span> ili <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">public</span>) zatim napišemo <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">GameObject</span> te ga nazovemo po želji.</p>
         <div>
             <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
             <pre><code class="language-csharp">
@@ -63,8 +63,8 @@ public GameObject objekt2;
 
         <br>
 
-        <p>Ako smo objekt označili s <span style="font-size: 20px; color: #8a71c5;">public</span> ili <span style="font-size: 20px; color: #8a71c5;">[SerializeField]</span> dovoljno je otići u Unity te povući željeni objekt iz <span style="font-size: 20px; color: #8a71c5;">hierarchya</span> na predviđeno mjesto u skripti koja se nalazi pod  <span style="font-size: 20px; color: #8a71c5;">Inspectorom</span> na objektu na kojem je skripta. Na taj način će  <span style="font-size: 20px; color: #8a71c5;">C#</span> znati o kojem se objektu radi kada mu mjenjamo svojstva unutar skripte.</p>
-        <p>Ako smo objekt označili s <span style="font-size: 20px; color: #8a71c5;">private</span> onda nam objekt nije vidljiv unutar <span style="font-size: 20px; color: #8a71c5;">Inspectora</span> te ga je potrebno naći unutar skripte uz pomoć imena ili taga. Pronalaženje obično pišemo unutar <span style="font-size: 20px; color: #8a71c5;">void Start()</span> jer je to metoda koja se poziva prilikom pokretanja scene nakon što je objekt stvoren. Iz tog razloga se ne koristimo metodom <span style="font-size: 20px; color: #8a71c5;">OnAwake() za pronalaženje objekta putem <span style="font-size: 20px; color: #8a71c5;">taga</span> ili <span style="font-size: 20px; color: #8a71c5;">imena</span>.</p>
+        <p>Ako smo objekt označili s <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">public</span> ili <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">[SerializeField]</span> dovoljno je otići u Unity te povući željeni objekt iz <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">hierarchya</span> na predviđeno mjesto u skripti koja se nalazi pod  <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Inspectorom</span> na objektu na kojem je skripta. Na taj način će  <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">C#</span> znati o kojem se objektu radi kada mu mjenjamo svojstva unutar skripte.</p>
+        <p>Ako smo objekt označili s <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">private</span> onda nam objekt nije vidljiv unutar <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Inspectora</span> te ga je potrebno naći unutar skripte uz pomoć imena ili taga. Pronalaženje obično pišemo unutar <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">void Start()</span> jer je to metoda koja se poziva prilikom pokretanja scene nakon što je objekt stvoren. Iz tog razloga se ne koristimo metodom <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">OnAwake() za pronalaženje objekta putem <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">taga</span> ili <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">imena</span>.</p>
         <div>
             <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
             <pre><code class="language-csharp">
@@ -86,7 +86,7 @@ void Start()
        
     <div class = "tekstualna-kutija">
         <h1>Pristupanje koponentama</h1>
-        <p>Kada pristupamo komponenti nekog objekta prvo napišemo naziv objekta čijim komponentama želimo pristupiti, a zatim dohvatimo tu komponentu uz pomoć <span style="font-size: 20px; color: #8a71c5;">GetComponent&lt;imeKomponente&gt;()</span>.</p>
+        <p>Kada pristupamo komponenti nekog objekta prvo napišemo naziv objekta čijim komponentama želimo pristupiti, a zatim dohvatimo tu komponentu uz pomoć <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">GetComponent&lt;imeKomponente&gt;()</span>.</p>
         <div>
             <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Sintaksa:</h1>
             <pre><code class="language-csharp">
@@ -96,7 +96,7 @@ objekt1.GetComponent&lt;imeKomponente&gt;().svojstvoKomponente = promjena;
 
         <br>
 
-        <p>U sljedećem primjeru pristupit ćemo komponenti <span style="font-size: 20px; color: #8a71c5;">MeshRenderer</span> te ćemo je uz pomoć koda isključiti pa odmah nakon toga uključiti.</p>
+        <p>U sljedećem primjeru pristupit ćemo komponenti <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">MeshRenderer</span> te ćemo je uz pomoć koda isključiti pa odmah nakon toga uključiti.</p>
         <div>
             <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
             <pre><code class="language-csharp">
@@ -112,7 +112,7 @@ void Start()
 
         <br>
 
-        <p>U sljedećem primjeru pristupit ćemo komponeti  <span style="font-size: 20px; color: #8a71c5;">Rigidbody</span> te ćemo joj promjeniti brzinu za naprijed.</p>
+        <p>U sljedećem primjeru pristupit ćemo komponeti  <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Rigidbody</span> te ćemo joj promjeniti brzinu za naprijed.</p>
         <p>O ovoj komponenti ćemo posebno učiti u jednoj od nadolazećih lekcija.</p>
         <div>
             <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
@@ -128,7 +128,7 @@ void Start()
 
         <br>
 
-        <p>Ako se skripta nalazi na objektu čijim komponentama želimo pristupiti umjesto nazaiva objekta napišemo <span style="font-size: 20px; color: #8a71c5;">this</span>.</p>
+        <p>Ako se skripta nalazi na objektu čijim komponentama želimo pristupiti umjesto nazaiva objekta napišemo <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">this</span>.</p>
         <div>
             <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
             <pre><code class="language-csharp">
@@ -143,16 +143,16 @@ void Start()
         <script src="../prism.js"></script>
         <br>
 
-        <p>Isto bi bilo i da smo napiasli samo <span style="font-size: 20px; color: #8a71c5;">GetComponent&lt;MeshRenderer&gt;().enabled = false;</span> bez <span style="font-size: 20px; color: #8a71c5;">this</span>.</p>
+        <p>Isto bi bilo i da smo napiasli samo <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">GetComponent&lt;MeshRenderer&gt;().enabled = false;</span> bez <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">this</span>.</p>
     </div>
 
     <br>
 
     <div class = "tekstualna-kutija">
         <h1>Referenca</h1>
-        <p>Kontinuirano korištenje <span style="font-size: 20px; color: #8a71c5;">GetComponent&lt;ImeKomponente&gt;()</span> za svaki put kada želimo izmjeniti svojstva komponente određenog objekta je procesorski zahtjevno.</p>
+        <p>Kontinuirano korištenje <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">GetComponent&lt;ImeKomponente&gt;()</span> za svaki put kada želimo izmjeniti svojstva komponente određenog objekta je procesorski zahtjevno.</p>
         <p>Iz takvog razloga komponentu određenog objekta spremamo pod referencu.</p>
-        <p>U sljedećem primjeru imamo privatnu komponentu <span style="font-size: 20px; color: #8a71c5;">MeshRenderer</span>. Unutar <span style="font-size: 20px; color: #8a71c5;">void Start</span> stavljamo da se ta komponenta <span style="font-size: 20px; color: #8a71c5;">MeshRenderer</span> odnosi na <span style="font-size: 20px; color: #8a71c5;">MeshRenderer</span> objekta kojeg smo unutar skripte nazvali <span style="font-size: 20px; color: #8a71c5;">objekt1</span>. Nakon toga isključujemo <span style="font-size: 20px; color: #8a71c5;">MeshRenderer</span> tog objekta.</p>
+        <p>U sljedećem primjeru imamo privatnu komponentu <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">MeshRenderer</span>. Unutar <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">void Start</span> stavljamo da se ta komponenta <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">MeshRenderer</span> odnosi na <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">MeshRenderer</span> objekta kojeg smo unutar skripte nazvali <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">objekt1</span>. Nakon toga isključujemo <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">MeshRenderer</span> tog objekta.</p>
         <p>Objekt1 pronalazimo putem imena u ovom primjeru.</p>
         <div>
             <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
@@ -177,7 +177,7 @@ void Start()
 
     <div class = "tekstualna-kutija">
         <h1>Iznimka</h1>
-        <p>Jedina komponenta kojoj možemo pristupiti bez korištenja <span style="font-size: 20px; color: #8a71c5;">GetComponent&lt;imeKomponente&gt;()</span> je <span style="font-size: 20px; color: #8a71c5;">transform</span>.</p>
+        <p>Jedina komponenta kojoj možemo pristupiti bez korištenja <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">GetComponent&lt;imeKomponente&gt;()</span> je <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">transform</span>.</p>
         <p>O njoj ćemo detaljnije učiti u jednoj od sljedećih lekcija.</p>
     </div>
 

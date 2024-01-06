@@ -82,46 +82,30 @@ function razdvojiKlase(unos) {
 }
 
 function nadodajLetDeklariranojVarijabli(csharpKod) {
-  let varijablePrvogDometa = new Set();
+    // Definiraj regex izraz za globalno pronalaženje deklaracija varijabli
+    const regexUzorak = /(\w+)\s+(\w+)\s*(?:=\s*([^;]+))?;/g;
 
-  // Regex za podudaranje deklaracija i referenci varijabli u C# kodu
-  const varijableDekRegex = /\b(\w+)\s+(\w+)\s*(?:=\s*([^;]+);|;)/g;
+    // Zamijeni sve pojave uzorka s izmijenjenom deklaracijom.
+    const rezultatStringa = csharpKod.replace(regexUzorak, (podudaranje, vrsta, naziv, vrijednost, indeks) => {
+      let scopeValue = 0;
   
-  // Brojač za vitičaste zagrade zbog određivanja opsega/raspona
-  let brZagrada = 0;
-  
-  // Zamjenjuje deklaracije i reference varijabli dodavanjem 'let'
-  const rezultat = csharpKod.replace(
-    varijableDekRegex,
-    (podudaranje, vrsta, imeVarijable, vrijednost, pomak) => {
-      // Ažurira brZagrada na temelju znakova '{' i '}
-      for (let i = 0; i < pomak; i++) {
-        if (csharpKod[i] === '{') {
-          brZagrada++;
-        } 
-        else if (csharpKod[i] === '}') {
-          brZagrada--;
-        }
+      const substringBeforeMatch = csharpKod.substring(0, indeks);
+      for (let i = 0; i < substringBeforeMatch.length; i++)
+      {
+        if (substringBeforeMatch[i] === '{')
+          scopeValue++;
+        else if (substringBeforeMatch[i] === '}')
+          scopeValue--;
       }
   
-      // Provjerite je li varijabla u prvom opsegu
-      const jeUPrvomDometu = brZagrada === 1;
-  
-      if (jeUPrvomDometu) {
-        varijablePrvogDometa.add(imeVarijable);
+      if (scopeValue > 1)
+        return vrijednost ? `let ${vrsta} ${naziv} = ${vrijednost};` : `let ${vrsta} ${naziv};`;
+      else
         return podudaranje;
-      } 
-      else if (!varijablePrvogDometa.has(imeVarijable)) {
-        return `let ${vrsta} ${imeVarijable}${vrijednost !== undefined ? ` = ${vrijednost}` : ''};`;
-      } 
-      else {
-        return podudaranje;
-      }
-    }
-  );
+    });
   
-  return rezultat;
-}
+    return rezultatStringa;
+  }
 
 function pretvrotiCsharp2DNizUJs(unos) {
   // Korištenje replace s funkcijom povratnog poziva za izvođenje zamjena
@@ -337,6 +321,88 @@ function pretvoriForeach(unos) {
   return unos.replace(regex, zamjena);
 }
 
+function pretvoriDupluUTrostrukuJednakost(jsKod) {
+  let jsKodDulj = jsKod.length;
+  let rezultat = "";
+  let otvoreniNavodnici = [];
+  
+  for(let i = 0; i < jsKodDulj; i++){
+    rezultat += jsKod[i];
+
+    if(jsKod[i]==="=" && jsKod[i+1]==="=" && otvoreniNavodnici.length===0){
+      let NemaNavodnika1 = true;
+      let NemaNavodnika2 = true;
+      let j = 0;
+      while(NemaNavodnika1){
+        if(jsKod[i-j]!=" " && jsKod[i-j]!="="){
+          if(jsKod[i-j] === "'" || jsKod[i-j] === '"'){
+            NemaNavodnika1=false;
+            break;
+          }
+          else{
+            break;
+          }
+        }
+        j+=1
+      }
+
+      let k = 0;
+      while(NemaNavodnika2){
+        if(jsKod[i+k]!=" " && jsKod[i+k]!="="){
+          if(jsKod[i+k] === "'" || jsKod[i+k] === '"'){
+            NemaNavodnika2=false;
+            break;
+          }
+          else{
+            break;
+          }
+        }
+        k+=1
+      }
+      if(NemaNavodnika1 != NemaNavodnika2){
+        rezultat += "Ne mogu se uspoređivati int i str;"
+      }
+      rezultat += jsKod[i]
+    }
+    else if(jsKod[i] === '"'){
+      if(otvoreniNavodnici[0]==='"'){
+        otvoreniNavodnici=[];
+      }
+      else{
+        otvoreniNavodnici.push('"');
+      }
+    }
+    else if(jsKod[i] === "'"){
+      if(otvoreniNavodnici[0]==="'"){
+        otvoreniNavodnici=[];
+      }
+      else{
+        otvoreniNavodnici.push("'");
+      }
+    }
+  }
+  
+  return(rezultat);
+}
+
+//pretvara hrvatska slova s u ona bez "kvacica"
+function pretvorbaHrSlova(unos) {
+  const specijalci = {
+      'č': 'c',
+      'ć': 'c',
+      'ž': 'z',
+      'š': 's',
+      'đ': 'd',
+  };
+
+  const uzorak = new RegExp(`[${Object.keys(specijalci).join('')}]`, 'g');
+
+  const rezultat = unos.replace(uzorak, podudaranje => specijalci[podudaranje]);
+
+  return rezultat;
+}
+
+
 function pretvoriCsharpUJs(csharpKod) {
   const enums = [];
 
@@ -407,6 +473,8 @@ function pretvoriCsharpUJs(csharpKod) {
   jsKod = pretvrotiCsharp2DNizUJs(jsKod);
   jsKod = nadodajLetDeklariranojVarijabli(jsKod);
   jsKod = pretvoriForeach(jsKod);
+  jsKod = pretvoriDupluUTrostrukuJednakost(jsKod);
+  
 
   // Ukloni tipove iz varijabli i funkcija
   jsKod = jsKod.replace(/\b(\w+)\s+(\w+)\s*=\s*(.+?);/g, '$2 = $3;');
@@ -424,19 +492,17 @@ function pretvoriCsharpUJs(csharpKod) {
     }
   });
 
-  jsKod = jsKod.replace(/\b(?<!\=)\s+(\w+)\s+(\w+)\s*\((.*?)\)/g, ' $2($3)');
 
-  // Ukloni vrste iz argumenata funkcije
-  jsKod = jsKod.replace(/("[^"]*"|'\S*')|\b(\w+(\s*\[\s*\])?)\s+(\w+)\s*(?=[),])/g, function(podudaranje, stringUNavodnicima, vrstaVarijable, _, imeVarijable) {
-    if (stringUNavodnicima) {
-      return stringUNavodnicima;
-    } 
-    else {
-      return imeVarijable;
-    }
+  jsKod = jsKod.replace(/\b(\w+)\s+(\w+)\s*\((.*?)\)\s*\{/g, ' $2($3) {');
+
+  // Makni typse iz argumenata funkcije
+  jsKod = jsKod.replace(/(\w+)\s*\(([^)]*)\)\s*\{/g, function(podudaranje, imeFunkcije, args) {
+    let ocisceniArgumenti = args.replace(/(\b\w+\b(?:\s*\[\s*\])?)\s+(\w+)/g, '$2');
+    return `${imeFunkcije}(${ocisceniArgumenti}) {`;
   });
 
   jsKod = pretvoriFunkcijeNiza(jsKod);
+
 
   // Doda naziv klase statičkim varijabla pristupima
   for (const varijabla in staticVarijable) {
@@ -449,6 +515,14 @@ function pretvoriCsharpUJs(csharpKod) {
   jsKod = jsKod.replace(/(\w+)\s+\(/g, (podudaranje, word) => {
     return `${word}(`;
   });
+
+  jsKod = jsKod.replace(/Convert\.ToString(?=(?:(?:[^"]*"){2})*[^"]*$)/g, 'String');
+  jsKod = jsKod.replace(/Convert\.ToBoolean(?=(?:(?:[^"]*"){2})*[^"]*$)/g, 'Boolean');
+  jsKod = jsKod.replace(/Convert\.ToDouble(?=(?:(?:[^"]*"){2})*[^"]*$)/g, 'Number');
+  jsKod = jsKod.replace(/Convert\.ToInt64(?=(?:(?:[^"]*"){2})*[^"]*$)/g, 'Number');
+  jsKod = jsKod.replace(/Convert\.ToInt32(?=(?:(?:[^"]*"){2})*[^"]*$)/g, 'Number');
+  jsKod = jsKod.replace(/Convert\.ToInt16(?=(?:(?:[^"]*"){2})*[^"]*$)/g, 'Number');
+  jsKod = jsKod.replace(/Convert\.ToInt8(?=(?:(?:[^"]*"){2})*[^"]*$)/g, 'Number');
 
   // Ovdje se mož koristiti jsKod za svaku klasu prema potrebi
   rezultat += `\n\n${jsKod}`;
@@ -493,7 +567,7 @@ function pretvoriCsharpUJs(csharpKod) {
 function izvrsiCsharpkKod() {
   console.clear();
   const code = document.getElementById("drzac-koda-textarea").value;
-  const output = pretvoriCsharpUJs(code);
+  const output = pretvorbaHrSlova(pretvoriCsharpUJs(code));
   //console.log(output); 
   const F = new Function(output);
   F();

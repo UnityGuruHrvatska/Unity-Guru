@@ -31,7 +31,7 @@ sliders.forEach(slider => {
     pojavaTijekomSkrolanja.observe(slider);
 });
 
-// js za crno\bijelu temu
+// js za crno\bijelu temu, radi samo kada je stranica objavljena na serveru
 const sve = document.getElementsByTagName("*");
 const logo = document.getElementById("logo");
 
@@ -54,6 +54,8 @@ function promjenaSvjetline () {
     {
         for (const nes of sve) 
         {
+            nes.style.transition = '0.3s';
+            
             //mjenja boju pozadine
             let boja = "rgb(255, 255, 255)";
             
@@ -90,6 +92,7 @@ function promjenaSvjetline () {
             //slovaa varijabli u prism.css
             if(window.getComputedStyle(nes).color === "rgb(138, 113, 197)")
             {
+                nes.style.transition = '0.3s';
                 nes.style.color = "rgb(8, 193, 255)";
             }
 
@@ -104,6 +107,7 @@ function promjenaSvjetline () {
 
             //mjenja boju pozadine kod svg 
             if(nes.tagName == "svg") {
+                nes.style.transition = '0.3s';
                 const pathElement = nes.querySelector("#wavepath");
                 if (pathElement) {
                     pathElement.setAttribute("fill", boja);
@@ -112,6 +116,7 @@ function promjenaSvjetline () {
             
             //mjenja boju slova
             if(window.getComputedStyle(nes).color === "rgb(239, 239, 239)"){
+                nes.style.transition = '0.3s';
                 if (nes.id == "treba") {
                     continue;
                 }
@@ -136,6 +141,8 @@ function promjenaSvjetline () {
     {
         for (const nes of sve) 
         {
+            nes.style.transition = '0.3s';
+
             let boja = "rgb(35, 37, 41)";
             
             switch (window.getComputedStyle(nes).backgroundColor) {
@@ -170,6 +177,7 @@ function promjenaSvjetline () {
             //slovaa varijabli u prism.css
             if(window.getComputedStyle(nes).color === "rgb(8, 193, 255)")
             {
+                nes.style.transition = '0.3s';
                 nes.style.color = "rgb(138, 113, 197)";
             }
 
@@ -184,8 +192,8 @@ function promjenaSvjetline () {
 
             //mjenja boju pozadine kod svg
             if(nes.tagName == "svg") {
+                nes.style.transition = '0.3s';
                 const pathElement = nes.querySelector("#wavepath");
-
                 if (pathElement) {
                     pathElement.setAttribute("fill", boja);
                 }
@@ -193,6 +201,7 @@ function promjenaSvjetline () {
             
             //mjenja boju slova
             if(window.getComputedStyle(nes).color === "rgb(0, 0, 0)"){
+                nes.style.transition = '0.3s';
                 nes.style.color = "rgb(239, 239, 239)";
             }
 
@@ -207,20 +216,19 @@ function promjenaSvjetline () {
     }
 };
 
-//mijenja kolačić prilikom promjene teme
-function svjetlina () {
+
+function svjetlina(gumb) {
     //mijenja stanje kolačića
     let svjetlo = dohvatiKolačić("svjetlina");
-    if (svjetlo == "false"){
+    if (svjetlo == "false") {
         svjetlo = "true";
-    }
-    else {
-        svjetlo = "false"
+    } else {
+        svjetlo = "false";
     }
     postaviKolačić("svjetlina", svjetlo, 1000000000);
     promjenaSvjetline();
-    
 };
+
 
 //stvara ili mijenja kolačić s rokom trajanja
 function postaviKolačić(kolačićIme, kolačićVrijednot, vrijemeTrajanja) {

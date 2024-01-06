@@ -43,17 +43,17 @@
 
     <div class = "tekstualna-kutija">
         <h1>Razlika između Destroy i SetActive</h1>
-        <p><span style="font-size: 20px; color: #8a71c5;">Destroy</span> uništava objekt i oslobađa resurse koje zauzima.</p>
-        <p><span style="font-size: 20px; color: #8a71c5;">SetActive</span> isključuje i uključuje vidljivost i aktivnost objekta.</p>
+        <p><span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Destroy</span> uništava objekt i oslobađa resurse koje zauzima.</p>
+        <p><span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">SetActive</span> isključuje i uključuje vidljivost i aktivnost objekta.</p>
     </div>
 
     <br>
 
     <div class = "tekstualna-kutija">
         <h1>Destroy</h1>
-        <p><span style="font-size: 20px; color: #8a71c5;">Destroy</span> je funkcija kojom uništavamo objekt i time oslođamo resurse koje zauzima. Nakon što je objekt uništen nije ga moguće vratiti u scenu.</p>
-        <p>Koristimo ga tako što unutar <span style="font-size: 20px; color: #8a71c5;">Destroy</span>-a stavimo objekt koji želimo uništiti.</p>
-        <p>U sljedećem primjeru ćemo uništiti <span style="font-size: 20px; color: #8a71c5;">objekt1</span>.</p>
+        <p><span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Destroy</span> je funkcija kojom uništavamo objekt i time oslođamo resurse koje zauzima. Nakon što je objekt uništen nije ga moguće vratiti u scenu.</p>
+        <p>Koristimo ga tako što unutar <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Destroy</span>-a stavimo objekt koji želimo uništiti.</p>
+        <p>U sljedećem primjeru ćemo uništiti <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">objekt1</span>.</p>
         <div>
             <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
             <pre><code class="language-csharp">
@@ -94,7 +94,7 @@ void Start()
 
     <div class="tekstualna-kutija">
         <h1>OnDestroy</h1>
-        <p>Metoda <span style="font-size: 20px; color: #8a71c5;">OnDestroy</span> poziva se prije nego li je objekt uništen.</p>
+        <p>Metoda <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">OnDestroy</span> poziva se prije nego li je objekt uništen.</p>
         <p>U sljedećem primjeru ćemo ispisati da je objekt uništen i navesti naziv tog objekta.</p>
         <div>
             <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
@@ -120,9 +120,9 @@ void OnDestroy()
 
     <div class = "tekstualna-kutija">
         <h1>SetActive</h1>
-        <p><span style="font-size: 20px; color: #8a71c5;">SetActive</span> je funkcija uz pomoć koje možemo uključiti i isključiti vidljivost i aktivnost nekog objekta. <span style="font-size: 20px; color: #8a71c5;">MeshRenderer</span> isključuje samo vidljivost objekta.</p>
-        <p>Funkciju <span style="font-size: 20px; color: #8a71c5;">SetActive</span> možemo koristiti kako bi naprimjer optimizirali igru na način da isključimo neki objekt kada je previše udaljen od igrača.</p>
-        <p>U sljedećem primjeru ćemo isključiti te ponovno uključiti <span style="font-size: 20px; color: #8a71c5;">objekt1</span>.</p>
+        <p><span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">SetActive</span> je funkcija uz pomoć koje možemo uključiti i isključiti vidljivost i aktivnost nekog objekta. <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">MeshRenderer</span> isključuje samo vidljivost objekta.</p>
+        <p>Funkciju <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">SetActive</span> možemo koristiti kako bi naprimjer optimizirali igru na način da isključimo neki objekt kada je previše udaljen od igrača.</p>
+        <p>U sljedećem primjeru ćemo isključiti te ponovno uključiti <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">objekt1</span>.</p>
         <div>
             <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
             <pre><code class="language-csharp">
@@ -143,8 +143,8 @@ void Start()
 
     <div class = "tekstualna-kutija">
         <h1>OnEnable</h1>
-        <p><span style="font-size: 20px; color: #8a71c5;">OnEnable</span> je metoda koja se poziva kada je neki objekt aktiviran.</p>
-        <p>U sljedećem primjeru pozivamo metodu <span style="font-size: 20px; color: #8a71c5;">OnEnable</span> kada uključimo objekt1.</p>
+        <p><span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">OnEnable</span> je metoda koja se poziva kada je neki objekt aktiviran.</p>
+        <p>U sljedećem primjeru pozivamo metodu <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">OnEnable</span> kada uključimo objekt1.</p>
         <div>
             <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
             <pre><code class="language-csharp">
@@ -169,8 +169,8 @@ void OnEnable()
 
     <div class="tekstualna-kutija">
         <h1>OnDisable</h1>
-        <p><span style="font-size: 20px; color: #8a71c5;">OnDisable</span> je metoda koja se poziva kada je neki objekt isključen.</p>
-        <p>U sljedećem primjeru pozivamo metodu <span style="font-size: 20px; color: #8a71c5;">OnDisable</span> kada isključimo objekt1.</p>
+        <p><span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">OnDisable</span> je metoda koja se poziva kada je neki objekt isključen.</p>
+        <p>U sljedećem primjeru pozivamo metodu <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">OnDisable</span> kada isključimo objekt1.</p>
         <div>
             <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
             <pre><code class="language-csharp">
