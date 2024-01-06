@@ -316,7 +316,7 @@ function pretvoriFunkcijeNiza(unos) {
 
 function pretvoriForeach(unos) {
   const regex = /foreach\s*\((\w+)\s+(\w+)\s+in\s+(\w+)\)\s*{/g;
-  const zamjena = 'for (let $2 in in $3) { $2 = $3[$2];'; // Dodatak 'in' jer će kasnije jedan biti uklonjen arg uzorkom
+  const zamjena = 'for (let $2 in $3) { $2 = $3[$2];'; 
   
   return unos.replace(regex, zamjena);
 }
@@ -496,7 +496,7 @@ function pretvoriCsharpUJs(csharpKod) {
   jsKod = jsKod.replace(/\b(\w+)\s+(\w+)\s*\((.*?)\)\s*\{/g, ' $2($3) {');
 
   // Makni typse iz argumenata funkcije
-  jsKod = jsKod.replace(/(\w+)\s*\(([^)]*)\)\s*\{/g, function(podudaranje, imeFunkcije, args) {
+  jsKod = jsKod.replace(/(\b(?!for|if|switch|while|else|try|catch)\w+)\s*\(([^)]*)\)\s*\{/g, function(podudaranje, imeFunkcije, args) {
     let ocisceniArgumenti = args.replace(/(\b\w+\b(?:\s*\[\s*\])?)\s+(\w+)/g, '$2');
     return `${imeFunkcije}(${ocisceniArgumenti}) {`;
   });
@@ -568,7 +568,7 @@ function izvrsiCsharpkKod() {
   console.clear();
   const code = document.getElementById("drzac-koda-textarea").value;
   const output = pretvorbaHrSlova(pretvoriCsharpUJs(code));
-  //console.log(output); 
+  console.log(output); 
   const F = new Function(output);
   F();
 }

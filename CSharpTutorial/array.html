@@ -221,21 +221,17 @@ foreach (int j in brojevi)
 using System;
 using System.Linq;
 
-namespace UnityGuru
+class Program
 {
-    class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            int[] brojevi = {40, 30, 50, 20};
-            
-            Console.WriteLine(brojevi.Max());  // vraća najveću vrijednost a to je u ovom slučaju 50
-            Console.WriteLine(brojevi.Min());  // vraća najmanju vrijednost a to je u ovom slučaju 20
-            Console.WriteLine(brojevi.Sum());  // vraća zbroj svih elemenata a to je u ovom slučaju 140
-        }
+        int[] brojevi = {40, 30, 50, 20};
+        
+        Console.WriteLine(brojevi.Max());  // vraća najveću vrijednost a to je u ovom slučaju 50
+        Console.WriteLine(brojevi.Min());  // vraća najmanju vrijednost a to je u ovom slučaju 20
+        Console.WriteLine(brojevi.Sum());  // vraća zbroj svih elemenata a to je u ovom slučaju 140
     }
 }
-
             </code></pre>
           </div>
         <br>
