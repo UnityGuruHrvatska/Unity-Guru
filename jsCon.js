@@ -316,27 +316,37 @@ function pretvoriFunkcijeNiza(unos) {
 
 function pretvoriForeach(unos) {
   const regex = /foreach\s*\((\w+)\s+(\w+)\s+in\s+(\w+)\)\s*{/g;
-  const zamjena = 'for (let $2 in $3) { $2 = $3[$2];'; 
+  const zamjena = 'for (let $2 in in $3) { $2 = $3[$2];'; // Dodatak 'in' jer će kasnije jedan biti uklonjen arg uzorkom
   
   return unos.replace(regex, zamjena);
 }
 
+//pretvara dvostruku u trostruku jednakost, provjerava smije li se jednakost provesti u C#-u
 function pretvoriDupluUTrostrukuJednakost(jsKod) {
   let jsKodDulj = jsKod.length;
   let rezultat = "";
   let otvoreniNavodnici = [];
+  let pon = 0; //pozicija početnih navodnika
+  let pok = 0; //pozicija krajnjih navodnika
   
+  //Prolazi kroz kod
   for(let i = 0; i < jsKodDulj; i++){
     rezultat += jsKod[i];
-
+    
+    
     if(jsKod[i]==="=" && jsKod[i+1]==="=" && otvoreniNavodnici.length===0){
-      let NemaNavodnika1 = true;
-      let NemaNavodnika2 = true;
+      let NemaNavodnika1 = true; //varijabla koja prati ima li navodnika s lijeve strane
+      let NemaNavodnika2 = true; //varijabla koja prati ima li navodnika s desne strane
+      let KojiNavodnik1 = "";
+      let KojiNavodnik2 = "";
+      
+      //kod koji provjerava ima li navodnika s lijeve strane
       let j = 0;
       while(NemaNavodnika1){
         if(jsKod[i-j]!=" " && jsKod[i-j]!="="){
           if(jsKod[i-j] === "'" || jsKod[i-j] === '"'){
             NemaNavodnika1=false;
+            KojiNavodnik1 = jsKod[i-j];
             break;
           }
           else{
@@ -345,12 +355,14 @@ function pretvoriDupluUTrostrukuJednakost(jsKod) {
         }
         j+=1
       }
-
+      
+      //kod koji provjerava ima li navodnika s desne strane
       let k = 0;
       while(NemaNavodnika2){
         if(jsKod[i+k]!=" " && jsKod[i+k]!="="){
           if(jsKod[i+k] === "'" || jsKod[i+k] === '"'){
             NemaNavodnika2=false;
+            KojiNavodnik2 = jsKod[i+k];
             break;
           }
           else{
@@ -359,44 +371,72 @@ function pretvoriDupluUTrostrukuJednakost(jsKod) {
         }
         k+=1
       }
-      if(NemaNavodnika1 != NemaNavodnika2){
-        rezultat += "Ne mogu se uspoređivati int i str;"
+      //izbacuje pogrešku ako je su s jedne strane navodnici a s druge nisu ili ako je jedna strana char a druga string
+      if(NemaNavodnika1 != NemaNavodnika2 || KojiNavodnik1 != KojiNavodnik2){
+        console.log("error")
+        break
       }
+
       rezultat += jsKod[i]
     }
-    else if(jsKod[i] === '"'){
+
+
+    //Provjrava rade li navodnici kao u C#-u
+    else if(jsKod[i] === '"' && jsKod[i-1] != "\\"){
+      
       if(otvoreniNavodnici[0]==='"'){
         otvoreniNavodnici=[];
+        pok = i;
       }
       else{
         otvoreniNavodnici.push('"');
+        if(otvoreniNavodnici.length <= 1){
+          pon = i;
+        }
       }
     }
-    else if(jsKod[i] === "'"){
+    else if(jsKod[i] === "'" && jsKod[i-1] != "\\"){
       if(otvoreniNavodnici[0]==="'"){
         otvoreniNavodnici=[];
+        pok = i;
+        //Gleda ima li više od 1 znaka u charu
+        if(pok-pon > 2){
+          break;
+        }
       }
       else{
         otvoreniNavodnici.push("'");
+        if(otvoreniNavodnici.length <= 1){
+          pon = i;
+        }
       }
     }
+
+    //izbacuje pogrešku ako ne radi kako spada
+    if((jsKod[i]==="'" && jsKod[i-1]==="'" && (jsKod[i-2]!=='\\' && i-1 !== pon)) || (jsKod[i]==='"' && jsKod[i-1]==='"' && (jsKod[i-2]!=='\\' && i-1 !== pon))){
+      console.log(error);
+      break;
+    }
+    
   }
   
   return(rezultat);
 }
 
-//pretvara hrvatska slova s u ona bez "kvacica"
-function pretvorbaHrSlova(unos) {
+function pretvoriSpecijalce(unos) {
   const specijalci = {
       'č': 'c',
       'ć': 'c',
       'ž': 'z',
       'š': 's',
       'đ': 'd',
+      // Add more mappings as needed
   };
 
+  // Create a regular expression pattern that matches any special character
   const uzorak = new RegExp(`[${Object.keys(specijalci).join('')}]`, 'g');
 
+  // Replace each special character with its ASCII counterpart
   const rezultat = unos.replace(uzorak, podudaranje => specijalci[podudaranje]);
 
   return rezultat;
@@ -496,7 +536,7 @@ function pretvoriCsharpUJs(csharpKod) {
   jsKod = jsKod.replace(/\b(\w+)\s+(\w+)\s*\((.*?)\)\s*\{/g, ' $2($3) {');
 
   // Makni typse iz argumenata funkcije
-  jsKod = jsKod.replace(/(\b(?!for|if|switch|while|else|try|catch)\w+)\s*\(([^)]*)\)\s*\{/g, function(podudaranje, imeFunkcije, args) {
+  jsKod = jsKod.replace(/(\w+)\s*\(([^)]*)\)\s*\{/g, function(podudaranje, imeFunkcije, args) {
     let ocisceniArgumenti = args.replace(/(\b\w+\b(?:\s*\[\s*\])?)\s+(\w+)/g, '$2');
     return `${imeFunkcije}(${ocisceniArgumenti}) {`;
   });
@@ -539,6 +579,10 @@ function pretvoriCsharpUJs(csharpKod) {
 
   return rezultat;
 }
+//kasnije će trebati, služit će za provjeravanje jesu li kompatibilne vrste varijabli kod ==
+function jednako(){
+  console.log("aaaaaaaaaaaaaaaaaaaa")
+}
 
 (function () {
   var oldLog = console.log;
@@ -567,8 +611,8 @@ function pretvoriCsharpUJs(csharpKod) {
 function izvrsiCsharpkKod() {
   console.clear();
   const code = document.getElementById("drzac-koda-textarea").value;
-  const output = pretvorbaHrSlova(pretvoriCsharpUJs(code));
-  //console.log(output); 
+  const output = pretvoriSpecijalce(pretvoriCsharpUJs(code));
+  console.log(output); 
   const F = new Function(output);
   F();
 }
