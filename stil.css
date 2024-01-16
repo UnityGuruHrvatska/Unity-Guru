@@ -42,13 +42,6 @@ p{
   border-radius: 5px;
 }
 
-.lijevi-gumbi:hover {
-  background-color: rgb(83, 91, 127);
-}
-.lijevi-gumbi.svijetlo:hover {
-  background-color: rgb(175, 229, 230);
-}
-
 /*CSS za gornje gumbe kod cjelina(C#, Unity UI, Unity C#)*/
 .gornji-gumbi {
   display: inline-block;
@@ -64,13 +57,6 @@ p{
   background-color: transparent;
   text-align: center;
   border-radius: 5px;
-}
-
-.gornji-gumbi:hover {
-  background-color: rgb(83, 91, 127);
-}
-.gornji-gumbi.svijetlo:hover {
-  background-color: rgb(175, 229, 230);
 }
 
 /*CSS za gumbe "Početno" i "Sljedeće"*/
@@ -89,6 +75,7 @@ p{
   margin-top: 100px;
   margin-bottom: 10px;
   background-color: rgb(40, 42, 54);
+  outline: none;
 }
 
 
@@ -267,6 +254,7 @@ td, th {
   margin-right: 20px;
   transition-duration: 0.3s;
   transform: scale(1.5);
+  outline: none;
 }
 
 .tema-gumb:hover{
@@ -290,6 +278,7 @@ td, th {
   background-color: rgb(40, 42, 54);
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); 
   transition-duration: 0.3s;
+  outline: none;
 }
 
 .link-gumba:hover{

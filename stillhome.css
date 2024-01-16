@@ -64,6 +64,10 @@
     text-align: center;
     margin: 0;
     padding: 0;
+    outline: none;
+  }
+  .drzac-cjelina.mob {
+    flex-direction: column;
   }
   
   /*Posebna boja pozadine za svaku od cjelina*/
@@ -72,6 +76,7 @@
     padding: 10px; 
     margin-top: -10px;
   }
+  
   
   .unityUI{
     background-color: rgb(35, 37, 41);
@@ -97,6 +102,7 @@
     transition-duration: 0.3s;
     background-color: rgb(40, 42, 54);
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    outline: none;
   }
 
   .gumb-cjelina:hover{ 
@@ -108,6 +114,9 @@
     margin-left: 80px; 
     width: 520px;
     z-index: 3;
+  }
+  .jednakost.mob{
+    margin-left: 0px; 
   }
 
   /*Utječe na širinu gumba i da je tekst unutar njega centriran*/
@@ -259,6 +268,7 @@
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     transition-duration: 0.25s;
     border-radius: 15px;
+    outline: none;
   }
 
   .jbGumb:hover{
@@ -331,16 +341,12 @@
     background-color: #393d59; 
     border-radius: 5px; 
   }
-  ::-webkit-scrollbar-thumb.svjetlo {
-    background-color: aliceblue;
-  }
-  
   
   ::-webkit-scrollbar-thumb:hover {
     background-color: rgba(55, 58, 74, 0.7); 
   }
 
-  svg.svjetlo {
+  svg.svijetlaTema {
     background-color: aliceblue;
   }
 
@@ -368,6 +374,7 @@
     margin-right: 20px;
     transition-duration: 0.3s;
     transform: scale(1.5);
+    outline: none;
   }
 
   .tema-gumb:hover{

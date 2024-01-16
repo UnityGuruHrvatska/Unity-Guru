@@ -46,12 +46,28 @@ function promjenaSvjetline () {
     }
 
     //dohvaća gumbe
-    const lijevigumbiElements = document.querySelectorAll(".lijevigumbi");
-    const gornjigumbiElements = document.querySelectorAll(".gornjigumbi");
+    const lijevigumbiElementi = document.querySelectorAll(".lijevi-gumbi, .gornji-gumbi");
 
     //ako je svijetla tema
     if (svjetlina == "false") 
     {
+        //mjenja boju za kada mis prekriva gumbove lekcije
+        lijevigumbiElementi.forEach(element => {
+            element.addEventListener("mouseover", function() {
+                //ako ne prekriva id odabrano onda ce mu promjeniti boju pod uvjetom da je to kalasa .lijevi-gumbi
+                if (this.id != "odabrano") {
+                    this.style.backgroundColor = "rgb(146, 223, 224)";
+                }
+            });
+            
+            element.addEventListener("mouseout", function() {
+                //ako ne prekriva id odabrano onda ce mu promjeniti boju pod uvjetom da je to kalasa .lijevi-gumbi
+                if (this.id != "odabrano") {
+                    this.style.backgroundColor = "transparent";
+                }
+            });
+        });
+
         for (const nes of sve) 
         {
             nes.style.transition = '0.3s';
@@ -86,7 +102,6 @@ function promjenaSvjetline () {
                 case "rgb(63, 67, 88)":
                     nes.style.backgroundColor = "rgb(155, 200, 201)";
                     break;
-                        
             }
 
             //slovaa varijabli u prism.css
@@ -97,13 +112,11 @@ function promjenaSvjetline () {
             }
 
             //lijevigumbi i gornjigumbi
-            lijevigumbiElements.forEach(lijevigumbi => {
+            lijevigumbiElementi.forEach(lijevigumbi => {
                 lijevigumbi.classList.add("svijetlo");
             });
 
-            gornjigumbiElements.forEach( gornjigumbi => {
-                gornjigumbi.classList.add("svijetlo");
-            });
+            
 
             //mjenja boju pozadine kod svg 
             if(nes.tagName == "svg") {
@@ -124,8 +137,6 @@ function promjenaSvjetline () {
                     nes.style.color = "rgb(0, 0, 0)";
                 }
             }
-
-            
         }
                     
         //mijenja logo ovisno o temi
@@ -139,6 +150,23 @@ function promjenaSvjetline () {
     //ako je tamna tema
     else if (svjetlina == "true")
     {
+        //mjenja boju za kada mis prekriva gumbove lekcije
+        lijevigumbiElementi.forEach(element => {
+            element.addEventListener("mouseover", function() {
+                //ako ne prekriva id odabrano onda ce mu promjeniti boju pod uvjetom da je to kalasa .lijevi-gumbi
+                if (this.id != "odabrano") {
+                    this.style.backgroundColor = "rgb(83, 91, 127)";
+                }
+            });
+            
+            element.addEventListener("mouseout", function() {
+                //ako ne prekriva id odabrano onda ce mu promjeniti boju pod uvjetom da je to kalasa .lijevi-gumbi
+                if (this.id != "odabrano") {
+                    this.style.backgroundColor = "transparent";
+                }
+            });
+        });
+
         for (const nes of sve) 
         {
             nes.style.transition = '0.3s';
@@ -182,12 +210,8 @@ function promjenaSvjetline () {
             }
 
             //lijevigumbi i gornjigumbi
-            lijevigumbiElements.forEach(lijevigumbi => {
+            lijevigumbiElementi.forEach(lijevigumbi => {
                 lijevigumbi.classList.remove("svijetlo");
-            });
-            
-            gornjigumbiElements.forEach( gornjigumbi => {
-                gornjigumbi.classList.remove("svijetlo");
             });
 
             //mjenja boju pozadine kod svg
@@ -204,7 +228,6 @@ function promjenaSvjetline () {
                 nes.style.transition = '0.3s';
                 nes.style.color = "rgb(239, 239, 239)";
             }
-
         }
         //mijenja logo
         try {
@@ -216,18 +239,57 @@ function promjenaSvjetline () {
     }
 };
 
+let gumbSeMožeStisnuti = true;
 
 function svjetlina(gumb) {
     //mijenja stanje kolačića
-    let svjetlo = dohvatiKolačić("svjetlina");
-    if (svjetlo == "false") {
-        svjetlo = "true";
-    } else {
-        svjetlo = "false";
+    if (gumbSeMožeStisnuti) {
+        let svjetlo = dohvatiKolačić("svjetlina");
+        if (svjetlo == "false") {
+            svjetlo = "true";
+        } else {
+            svjetlo = "false";
+        }
+        postaviKolačić("svjetlina", svjetlo, 1000000000);
+        promjenaSvjetline();
+
+        setTimeout(function() {
+            gumbSeMožeStisnuti = true;
+        }, 200);
+
+        // Onemoguci pritisak gumba tijekom cekanja
+        gumbSeMožeStisnuti = false;
+
     }
-    postaviKolačić("svjetlina", svjetlo, 1000000000);
-    promjenaSvjetline();
 };
+
+
+const sveq = document.querySelectorAll("*");
+function stilUOdnosuNaEkran() {
+    var tijeloStranice = document.body;
+
+    // Nabavlja širinu i visinu prozora
+    var širinaProzora = window.innerWidth;
+    var visinaProzora = window.innerHeight;
+    var zumiranje = window.devicePixelRatio || 1;
+
+    let AR = visinaProzora/širinaProzora;
+
+    // Update styles based on the width
+    if (širinaProzora <= 750) {
+        sveq.forEach(element => {
+            element.classList.add('mob');
+            element.classList.remove('komp');
+        });
+    } 
+    else if (širinaProzora > 750) {
+        sveq.forEach(element => {
+            element.classList.add('komp');
+            element.classList.remove('mob');
+        });
+    } 
+}
+window.addEventListener('resize', stilUOdnosuNaEkran);
 
 
 //stvara ili mijenja kolačić s rokom trajanja
@@ -260,16 +322,15 @@ document.getElementById("drzac-koda-textarea").addEventListener("keydown", funct
     if (e.key === "Tab") {
         e.preventDefault();
 
-        // Get the current selection information
+        // Informacije o odabiru
         var pocetak = this.selectionStart;
         var kraj = this.selectionEnd;
 
-        // Insert a tab at the caret position
+        // Umetni tab na trenutacnu poziciju pointera
         var tab = "\t";
         this.value = this.value.substring(0, pocetak) + tab + this.value.substring(kraj);
 
-        // Move the caret position after the inserted tab
+        // Pomakni poziciju pointera nakon umetnutog taba
         this.selectionStart = this.selectionEnd = pocetak + tab.length;
     }
 });
-

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="stillhome.css">
     <link href="prism.css" rel="stylesheet">
 </head>
-<body onload="promjenaSvjetline()"><!--Promjena svjetline radi samo kada je stranica objavljena na serveru-->
+<body onload="stilUOdnosuNaEkran(), promjenaSvjetline()"><!--Promjena svjetline radi samo kada je stranica objavljena na serveru-->
   <button onclick="svjetlina()" class = "tema-gumb"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm40-83q119-15 199.5-104.5T800-480q0-123-80.5-212.5T520-797v634Z"/></svg></button>
   
   <!--naslov stranice-->
@@ -18,7 +18,7 @@
   </div>
   <!--crtica-->
   <svg style="background-color: rgb(41, 44, 49); transition-duration: 0.3s;" width="100%" height="70" viewBox="0 0 100 100" preserveAspectRatio="none">
-    <path id="wavepath" d="M0,0  L110,0 C35,150 35,0 0,100 z" fill="rgb(35, 37, 41)" style="transition-duration: 0.3s;"></path>
+    <path id="wavepath" d="M0,0  L110,0 C35,150 35,0 0,100 z" fill="rgb(35, 37, 41)" ></path>
   </svg>
   <!--Gumbi za lekcije-->
   <div class="drzac-cjelina cSharp">
@@ -55,7 +55,7 @@ namespace Tutorial
   </div style="p">
   <!--crtica-->
   <svg style="background-color: rgb(41, 44, 49); transition-duration: 0.3s;" width="100%" height="70" viewBox="0 0 100 100" preserveAspectRatio="none">
-    <path id="wavepath" d="M 110,100 C35,-50 35,100 0,0 L0,100z" fill="rgb(35, 37, 41)" style="transition-duration: 0.3s;"></path>
+    <path id="wavepath" d="M 110,100 C35,-50 35,100 0,0 L0,100z" fill="rgb(35, 37, 41)" ></path>
   </svg>
 
   <!--Gumbi za lekcije-->
@@ -79,7 +79,7 @@ namespace Tutorial
   </div style="p">
   <!--crtica-->
   <svg style="background-color: rgb(41, 44, 49); transition-duration: 0.3s;" width="100%" height="70" viewBox="0 0 100 100" preserveAspectRatio="none">
-    <path id="wavepath" d="M0,0  L110,0 C35,150 35,0 0,100 z" fill="rgb(35, 37, 41)" style="transition-duration: 0.3s;"></path>
+    <path id="wavepath" d="M0,0  L110,0 C35,150 35,0 0,100 z" fill="rgb(35, 37, 41)" ></path>
   </svg>
 
   <!--Gumbi za lekcije-->
@@ -124,7 +124,7 @@ namespace Tutorial
   </div style="p">
 
   <svg style="background-color: rgb(41, 44, 49); transition-duration: 0.3s;" width="100%" height="70" viewBox="0 0 100 100" preserveAspectRatio="none">
-    <path id="wavepath" d="M 110,100 C35,-50 35,100 0,0 L0,100z" fill="rgb(35, 37, 41)" style="transition-duration: 0.3s;"></path>
+    <path id="wavepath" d="M 110,100 C35,-50 35,100 0,0 L0,100z" fill="rgb(35, 37, 41)" ></path>
   </svg>
 
     <!--Gumbi za lekcije-->
@@ -163,7 +163,7 @@ internal class Program
     
     <!--Crtica-->
     <svg style="background-color: transparent;" width="100%" height="70" viewBox="0 0 100 100" preserveAspectRatio="none">
-      <path id="wavepath" d="M0,0  L110,0 C35,150 35,0 0,100 z" fill="rgb(35, 37, 41)" style="transition-duration: 0.3s;"></path>
+      <path id="wavepath" d="M0,0  L110,0 C35,150 35,0 0,100 z" fill="rgb(35, 37, 41)" ></path>
     </svg>
 
     <div style="overflow-x: hidden; text-align: center; padding-bottom: 10px ; padding-top: 40px;">
