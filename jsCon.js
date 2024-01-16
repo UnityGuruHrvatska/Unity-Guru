@@ -316,7 +316,7 @@ function pretvoriFunkcijeNiza(unos) {
 
 function pretvoriForeach(unos) {
   const regex = /foreach\s*\((\w+)\s+(\w+)\s+in\s+(\w+)\)\s*{/g;
-  const zamjena = 'for (let $2 in in $3) { $2 = $3[$2];'; // Dodatak 'in' jer će kasnije jedan biti uklonjen arg uzorkom
+  const zamjena = 'for(let $2 in $3) { $2 = $3[$2];';
   
   return unos.replace(regex, zamjena);
 }
@@ -430,6 +430,11 @@ function pretvoriSpecijalce(unos) {
       'ž': 'z',
       'š': 's',
       'đ': 'd',
+      'Č': 'C',
+      'Ć': 'C',
+      'Ž': 'Z',
+      'Š': 'S',
+      'Đ': 'D',
   };
 
   const uzorak = new RegExp(`[${Object.keys(specijalci).join('')}]`, 'g');
@@ -533,7 +538,7 @@ function pretvoriCsharpUJs(csharpKod) {
   jsKod = jsKod.replace(/\b(\w+)\s+(\w+)\s*\((.*?)\)\s*\{/g, ' $2($3) {');
 
   // Makni typse iz argumenata funkcije
-  jsKod = jsKod.replace(/(\w+)\s*\(([^)]*)\)\s*\{/g, function(podudaranje, imeFunkcije, args) {
+  jsKod = jsKod.replace(/(\b(?!for|while)\w+)\s*\(([^)]*)\)\s*\{/g, function(podudaranje, imeFunkcije, args) {
     let ocisceniArgumenti = args.replace(/(\b\w+\b(?:\s*\[\s*\])?)\s+(\w+)/g, '$2');
     return `${imeFunkcije}(${ocisceniArgumenti}) {`;
   });
