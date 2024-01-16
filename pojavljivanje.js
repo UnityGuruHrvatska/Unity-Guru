@@ -255,7 +255,7 @@ function svjetlina(gumb) {
 
         setTimeout(function() {
             gumbSeMožeStisnuti = true;
-        }, 200);
+        }, 350);
 
         // Onemoguci pritisak gumba tijekom cekanja
         gumbSeMožeStisnuti = false;
