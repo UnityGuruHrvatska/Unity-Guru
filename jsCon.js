@@ -487,42 +487,42 @@ function pretvoriCsharpUJs(csharpKod) {
 
   // Ukloni modifikatore pristupa (public, private, protected)
   let jsKod = sadrzajKlase.replace(/\b(public|private|protected)\s+/g, '');
-
+  
   jsKod = jsKod.replace(/class\s+(\w+)\s+:\s+(\w+)\s+\{/, "class $1 extends $2\n{");
 
   jsKod = jsKod.replace(new RegExp(`${imeKlase}\\((.*?)\\)\\s*:\\s*base\\((.*?)\\)\\s*\\{`, 'gs'), 'constructor($1) { super($2);');
   jsKod = jsKod.replace(new RegExp(`${imeKlase}\\s*\\((.*?)\\)\\s*\\{`, 'gs'), 'constructor($1) {');
-
+  
   // Zamijeni statičnu ključnu riječ za varijable i zapamtite statičke varijable
   const staticVarijable = {};
-
+  
   jsKod = jsKod.replace(/\bstatic\s+(\w+)\s+(\w+)\s*\(/g, (podudaranje, vrsta, functionName) => {
     staticVarijable[functionName] = vrsta;
     return `static ${vrsta} ${functionName}(`;
   });
-
+  
   jsKod = jsKod.replace(/\bstatic\s+(\w+)\s+(\w+)(?:\s*=\s*\w+(?:\s*;|\s*[,]))?;/, (podudaranje, vrsta, varijabla) => {
     staticVarijable[varijabla] = vrsta;
     return `static ${vrsta} ${varijabla};`;
   });
-
+  
   jsKod = jsKod.replace(/\bstatic\s+(\w+)\s+(\w+)(?:\s*=\s*([^;]+))?\s*;/, (podudaranje, vrsta, varijabla, vrijednost) => {
     staticVarijable[varijabla] = { vrsta, vrijednost };
     return `static ${vrsta} ${varijabla}${vrijednost ? ` = ${vrijednost}` : ''};`;
   });
-
+  
   jsKod = pretvoriCsharpNizUJs(jsKod);
   jsKod = pretvrotiCsharp2DNizUJs(jsKod);
   jsKod = nadodajLetDeklariranojVarijabli(jsKod);
   jsKod = pretvoriForeach(jsKod);
   jsKod = pretvoriDupluUTrostrukuJednakost(jsKod);
   
-
+  
   // Ukloni tipove iz varijabli i funkcija
   jsKod = jsKod.replace(/\b(\w+)\s+(\w+)\s*=\s*(.+?);/g, '$2 = $3;');
   jsKod = jsKod.replace(/\b(\w+)\s+(\w+)\s*\[\]\s*;/g, '$2 = [];');
   // jsKod = jsKod.replace(/\b(\w+)\s+(\w+)\s*;/g, '$2 = null;'); staro
-
+  
   jsKod = jsKod.replace(/\b(\w+)\s+(\w+)\s*;/g, function (podudaranje, vrsta, varijabla) {
     // Provjeri je li tip varijable osnovni C# tip
     if (['bool', 'byte', 'sbyte', 'char', 'decimal', 'double', 'float', 'int', 'uint', 'nint', 'nuint', 'long', 'nlong', 'ulong', 'short', 'ushort', 'string'].includes(vrsta)) {
@@ -533,10 +533,17 @@ function pretvoriCsharpUJs(csharpKod) {
       return varijabla + ' = new ' + vrsta + '();';
     }
   });
+  
 
-
-  jsKod = jsKod.replace(/\b(\w+)\s+(\w+)\s*\((.*?)\)\s*\{/g, ' $2($3) {');
-
+  jsKod = jsKod.replace(/\b(\w+)\s+(\w+|\bif\b)\s*\((.*?)\)\s*{/g, function(match, p1, p2, p3) {
+    if (p1.toLowerCase() === 'else' && p2.toLowerCase() === 'if') {
+        return match; // zadržava else if zajedno
+    } else {
+        return ' ' + p2 + '(' + p3 + ') {';
+    }
+  });
+  
+  
   // Makni typse iz argumenata funkcije
   jsKod = jsKod.replace(/(\b(?!for|while)\w+)\s*\(([^)]*)\)\s*\{/g, function(podudaranje, imeFunkcije, args) {
     let ocisceniArgumenti = args.replace(/(\b\w+\b(?:\s*\[\s*\])?)\s+(\w+)/g, '$2');
@@ -614,7 +621,7 @@ function izvrsiCsharpkKod() {
   console.clear();
   const code = document.getElementById("drzac-koda-textarea").value;
   const output = pretvoriSpecijalce(pretvoriCsharpUJs(code));
-  //console.log(output); 
+  console.log(output); 
   const F = new Function(output);
   F();
 }
