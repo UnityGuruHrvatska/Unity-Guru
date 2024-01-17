@@ -621,7 +621,7 @@ function izvrsiCsharpkKod() {
   console.clear();
   const code = document.getElementById("drzac-koda-textarea").value;
   const output = pretvoriSpecijalce(pretvoriCsharpUJs(code));
-  console.log(output); 
+  //console.log(output); 
   const F = new Function(output);
   F();
 }
