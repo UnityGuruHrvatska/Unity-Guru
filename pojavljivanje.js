@@ -35,13 +35,23 @@ sliders.forEach(slider => {
 const sve = document.getElementsByTagName("*");
 const logo = document.getElementById("logo");
 
+//var za scrollbar
+var lNavigacija = document.querySelector('.lijeva-navigacija');
+var scrollBarUnosnogKoda = document.querySelector('textarea');
+var scrollBarIzlaznogKoda = document.getElementById('drzac-izlaznog-koda-podrucje');
+
+/*Stavljamo sve vrste scrollbara u niz tako da ne 
+moramo za svaki posebno pisati da mu se aktivira/deaktivira
+svijetla tema u funkciji promjenaSvjetline*/
+const elementiScrollbara = [lNavigacija, scrollBarUnosnogKoda, scrollBarIzlaznogKoda];
+
+
 function promjenaSvjetline () {
     //govori da se promjenila tema i dohvaća kolačić koji prati temu
     let svjetlina = dohvatiKolačić("svjetlina");
 
     //stvara novi kolačić ako nema postojećeg
-    if (svjetlina == "")
-    {
+    if (svjetlina == ""){
         postaviKolačić("svjetlina", "true", 1000000000);
     }
 
@@ -51,6 +61,16 @@ function promjenaSvjetline () {
     //ako je svijetla tema
     if (svjetlina == "false") 
     {
+        //mjeanja boju scrollbara
+        document.body.classList.add('svijetla-tema');
+
+        //prolazi kroz sve elemente koji imaju svoj poseban scroll bar i nadodaje im svijetlu temu
+        elementiScrollbara.forEach(element => {
+            if (element !== null) {
+                element.classList.add('svijetla-tema');
+            }
+        });
+
         //mjenja boju za kada mis prekriva gumbove lekcije
         lijevigumbiElementi.forEach(element => {
             element.addEventListener("mouseover", function() {
@@ -150,6 +170,16 @@ function promjenaSvjetline () {
     //ako je tamna tema
     else if (svjetlina == "true")
     {
+        //mjenja boju scrollbara bodya
+        document.body.classList.remove('svijetla-tema');
+
+        //prolazi kroz sve elemente koji imaju svoj poseban scroll bar i mice im svijetlu temu
+        elementiScrollbara.forEach(element => {
+            if (element !== null) {
+                element.classList.remove('svijetla-tema');
+            }
+        });
+
         //mjenja boju za kada mis prekriva gumbove lekcije
         lijevigumbiElementi.forEach(element => {
             element.addEventListener("mouseover", function() {

@@ -1,383 +1,394 @@
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: rgb(35, 37, 41); 
-  }
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(35, 37, 41); 
+}
 
-  .header {
-    text-align: center;
-    font-size: larger;
-    background-color: rgb(35, 37, 41);
-  }
+.header {
+  text-align: center;
+  font-size: larger;
+  background-color: rgb(35, 37, 41);
+}
 
-  /* CSS za logo */
-  .logo {
-    display: inline-block;
-    width: 250px;
-    height: 250px;
-    vertical-align: middle;
-  }
+/* CSS za logo */
+.logo {
+  display: inline-block;
+  width: 250px;
+  height: 250px;
+  vertical-align: middle;
+}
 
-  /* CSS naslova*/
-  .header-title {
-    padding-top: -100;
-    display: inline-block;
-    font-family: Georgia;
-    font-size: 72px;
-    vertical-align: middle;
-  }
+/* CSS naslova*/
+.header-title {
+  padding-top: -100;
+  display: inline-block;
+  font-family: Georgia;
+  font-size: 72px;
+  vertical-align: middle;
+}
 
-  /* boje teksta 
-  bez ovoga boja teksta će biti čista bijela što izgleda gore*/
-  h1{
-    color: rgb(239, 239, 239);
-  }
-  h2{
-    color: rgb(239, 239, 239);
-  }
-  p{
-    color: rgb(239, 239, 239);
-  }
+/* boje teksta 
+bez ovoga boja teksta će biti čista bijela što izgleda gore*/
+h1{
+  color: rgb(239, 239, 239);
+}
+h2{
+  color: rgb(239, 239, 239);
+}
+p{
+  color: rgb(239, 239, 239);
+}
 
 
-  /*CSS za naslove naših projekta(Drone Simulation, Escape The Nightmare i Jumpy Ball)*/
-  .aScale {
-    text-align: center; 
-    font-size: 48px; 
-    font-weight: bold;
-    color: rgb(239, 239, 239);
-    text-decoration: none;
-    display: inline-block;
-    transition-duration: 0.3s;
-  }
+/*CSS za naslove naših projekta(Drone Simulation, Escape The Nightmare i Jumpy Ball)*/
+.aScale {
+  text-align: center; 
+  font-size: 48px; 
+  font-weight: bold;
+  color: rgb(239, 239, 239);
+  text-decoration: none;
+  display: inline-block;
+  transition-duration: 0.3s;
+}
 
-  .aScale:hover {
-    transform: scale(1.1);
-  }
+.aScale:hover {
+  transform: scale(1.1);
+}
 
-  /*CSS koji utječe na položaj gumba za cjeline*/
+/*CSS koji utječe na položaj gumba za cjeline*/
+.drzac-cjelina {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+.drzac-cjelina.mob {
+  flex-direction: column;
+}
+
+/*Posebna boja pozadine za svaku od cjelina*/
+.cSharp {
+  background-color: rgb(41, 44, 49);
+  padding: 10px; 
+  margin-top: -10px;
+}
+
+
+.unityUI{
+  background-color: rgb(35, 37, 41);
+  padding: 10px; 
+  margin-top: -10px;
+}
+
+.cSharpUnity{
+  background-color: rgb(41, 44, 49);
+  padding: 10px; 
+  margin-top: -10px;
+}
+
+/*CSS za davanje izgleda gumbima za cjeline*/
+.gumb-cjelina{
+  display: inline-block;
+  width: 100%;
+  height: 20%;
+  background-size: cover;
+  color: rgb(239, 239, 239);
+  text-decoration: none;
+  border-radius: 20px;
+  transition-duration: 0.3s;
+  background-color: rgb(40, 42, 54);
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  outline: none;
+}
+
+.gumb-cjelina:hover{ 
+  transform: scale(1.1); 
+}
+
+/*Služi da dužina kutije bez obzira na dužinu koda bude jednaka*/
+.jednakost{
+  margin-left: 80px; 
+  width: 520px;
+  z-index: 3;
+}
+.jednakost.mob{
+  margin-left: 0px; 
+}
+
+/*Utječe na širinu gumba i da je tekst unutar njega centriran*/
+.gumb-teksti{
+  width: 300px; 
+  text-align: center;
+}
+
+
+/*CSS za kutiju unutar koje se nalazi kod*/
+.drzac-koda {
+  background-color: rgb(40, 42, 54);
+  padding: 10px;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  overflow-x: auto;
+  border-radius: 20px;
+  box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+/*CSS za Drone Simulation*/
+.ds {
+  margin: 0;
+  padding: 0;
+  background-image:
+  linear-gradient(to bottom, rgba(0, 0, 0, 0.258), rgba(0, 0, 0, 0.258)),
+  url('slike/DroneSimBackground.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 1000px;
+  background-attachment: fixed;
+}
+
+/*CSS za Escape The Nightmare*/
+.etn {
+  margin: 0;
+  padding: 0;
+  background-image:
+  linear-gradient(to bottom, rgba(0, 0, 0, 0.116), rgba(0, 0, 0, 0.116)),
+  url('slike/escape_the_nightmare5.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 1000px;
+  background-attachment: fixed;
+}
+
+/*CSS za Drone Jumpy Ball*/
+.jb {
+  margin: 0;
+  padding: 0;
+  background-image:
+  linear-gradient(to bottom, rgba(0, 0, 0, 0.316), rgba(0, 0, 0, 0.316)),
+  url('slike/jumpyball/logo.png');
+  background-size: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 1000px;
+  background-attachment: fixed;
+  overflow: hidden;
+}
+
+.item1 { grid-area: gumbi; }
+.item2 { grid-area: video; }
+.item3 { grid-area: tekst; }
+.jbgrid {
+  display: grid;
+  grid-template-areas: "tekst video" "gumbi video";
+}
+
+
+/*CSS za projekte*/
+.naši-projekti{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  grid-template-columns: auto auto;
+  column-gap: 50px;
+  row-gap: 50px;
+  overflow-x: hidden;
+}
+
+/*CSS za tekstualnu kutiju kod Jumpy Balla*/
+.držač-teksta{
+  background-color: #0b0c0e;
+  padding: 10px;
+  font-family: "Courier New", monospace;
+  font-size: 14px;;
+  line-height: 1.5;
+  overflow-x: auto;
+  border-radius: 20px;
+  text-align: justify;
+  width: 500px;
+  height: 281px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.držač-teksta2 {
+  height: 340px;
+}
+
+/*CSS za slike kod projekata*/
+.držač-slika {
+  background-color: #0b0c0e;
+  padding: 10px;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  border-radius: 20px;
+  width: 500px;
+  height: 281px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  transition-duration: 0.25s;
+}
+
+/*CSS koji posebno utječe samo na sliku kale držač-slika*/
+.držač-slika img {
+  width: 100%;
+  height: 280px;
+  border-radius: 10px;
+}
+/*CSS koji utječe na širinu i visinu gumba kod linkova za Jumpy Ball*/
+.držač-gumba {
+  width: 500px;
+  height: 320px;
+}
+
+/*CSS za video di se može pogledati kratki gameplay od JumpyBalla*/
+.držač-videozapisa {
+  position: relative;
+  background-color: rgb(40, 42, 54);
+  color: rgb(239, 239, 239);
+  padding: 10px;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  border-radius: 20px;
+  width: 329px;
+  height: 710px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/*CSS za izgled gumbiju kod JumpyBalla*/
+.jbGumb {
+  margin: 20px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  transition-duration: 0.25s;
+  border-radius: 15px;
+  outline: none;
+}
+
+.jbGumb:hover{
+  transform: scale(1.1);
+}
+
+/*CSS za izgled kutije unutar koje se nalazi kratki opis o nama*/
+.opis{
+  background-color: rgb(40, 42, 54);
+  border-radius: 10px;
+  padding: 10px;
+  position: relative;
+  margin-right: 120px;
+  margin-left: 120px;
+  margin-top: 10px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  color: rgb(239, 239, 239);
+  transform: scaleX(98%);
+  font-size: 18px;
+  text-align: center;
+}
+
+/*CSS za koliko brzo će se pojaviti ili nestati slike kod naših projekata*/
+.fade-in{
+  opacity: 0;
+  transition-duration: opacity 250ms !important;
+}
+.fade-in.pojava{
+  opacity: 1;
+  transition-duration: opacity 250ms !important;
+}
+
+.lijevo {
+  transform: translateX(-100%);
+}
+.desno {
+  transform: translateX(100%);
+}
+
+.lijevo,
+.desno {
+  opacity: 0;
+  transition: opacity 600ms ease-in, transform 600ms ease-out !important;
+}
+.lijevo.pojava,
+.desno.pojava {
+  transform: translateX(0%);
+  opacity: 1;
+  transition: opacity 600ms ease-in, transform 600ms ease-out !important; 
+}
+.desno.pojava.držač-videozapisa {
+  transform: translateX(-50%);
+}
+.desno.držač-videozapisa {
+  transform: translateX(75%);
+}
+
+
+/*CSS za izgled scrollbara*/
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+
+::-webkit-scrollbar-track { 
+  background: transparent;
+}
+
+/*Ovo je scrool bar za tamnu temu*/  
+::-webkit-scrollbar-thumb {
+  background-color: #393d59; 
+  border-radius: 5px; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(55, 58, 74, 0.7); 
+}
+
+/*Ovo je scrollbar za svijetlu temu*/
+.svijetla-tema::-webkit-scrollbar-thumb {
+  background-color: rgb(166, 219, 252); 
+  border-radius: 5px; 
+}
+
+.svijetla-tema::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(106, 171, 212); 
+}
+
+svg.svijetlaTema {
+  background-color: aliceblue;
+}
+
+
+@media (min-resolution: 1.501dppx) {
   .drzac-cjelina {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    outline: none;
+    display: grid; 
   }
-  .drzac-cjelina.mob {
-    flex-direction: column;
+  .jednakost {
+    margin-left: 0px;
   }
-  
-  /*Posebna boja pozadine za svaku od cjelina*/
-  .cSharp {
-    background-color: rgb(41, 44, 49);
-    padding: 10px; 
-    margin-top: -10px;
+  .gumb-teksti {
+    margin-left: 110px;
   }
-  
-  
-  .unityUI{
-    background-color: rgb(35, 37, 41);
-    padding: 10px; 
-    margin-top: -10px;
-  }
-  
-  .cSharpUnity{
-    background-color: rgb(41, 44, 49);
-    padding: 10px; 
-    margin-top: -10px;
-  }
+}
 
-  /*CSS za davanje izgleda gumbima za cjeline*/
-  .gumb-cjelina{
-    display: inline-block;
-    width: 100%;
-    height: 20%;
-    background-size: cover;
-    color: rgb(239, 239, 239);
-    text-decoration: none;
-    border-radius: 20px;
-    transition-duration: 0.3s;
-    background-color: rgb(40, 42, 54);
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-    outline: none;
-  }
+/*CSS za gumb s kojim mjenjamo light i dark mod*/
+.tema-gumb{
+  background-color: transparent;
+  border: transparent;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 20px;
+  margin-right: 20px;
+  transition-duration: 0.3s;
+  transform: scale(1.5);
+  outline: none;
+}
 
-  .gumb-cjelina:hover{ 
-    transform: scale(1.1); 
-  }
-  
-  /*Služi da dužina kutije bez obzira na dužinu koda bude jednaka*/
-  .jednakost{
-    margin-left: 80px; 
-    width: 520px;
-    z-index: 3;
-  }
-  .jednakost.mob{
-    margin-left: 0px; 
-  }
-
-  /*Utječe na širinu gumba i da je tekst unutar njega centriran*/
-  .gumb-teksti{
-    width: 300px; 
-    text-align: center;
-  }
-  
-  
-  /*CSS za kutiju unutar koje se nalazi kod*/
-  .drzac-koda {
-    background-color: rgb(40, 42, 54);
-    padding: 10px;
-    font-family: "Courier New", monospace;
-    font-size: 14px;
-    line-height: 1.5;
-    overflow-x: auto;
-    border-radius: 20px;
-    box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-  }
-  
-  /*CSS za Drone Simulation*/
-  .ds {
-    margin: 0;
-    padding: 0;
-    background-image:
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.258), rgba(0, 0, 0, 0.258)),
-    url('slike/DroneSimBackground.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 1000px;
-    background-attachment: fixed;
-  }
-
-  /*CSS za Escape The Nightmare*/
-  .etn {
-    margin: 0;
-    padding: 0;
-    background-image:
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.116), rgba(0, 0, 0, 0.116)),
-    url('slike/escape_the_nightmare5.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 1000px;
-    background-attachment: fixed;
-  }
-
-  /*CSS za Drone Jumpy Ball*/
-  .jb {
-    margin: 0;
-    padding: 0;
-    background-image:
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.316), rgba(0, 0, 0, 0.316)),
-    url('slike/jumpyball/logo.png');
-    background-size: auto;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 1000px;
-    background-attachment: fixed;
-    overflow: hidden;
-  }
-  
-  .item1 { grid-area: gumbi; }
-  .item2 { grid-area: video; }
-  .item3 { grid-area: tekst; }
-  .jbgrid {
-    display: grid;
-    grid-template-areas: "tekst video" "gumbi video";
-  }
-
-
-  /*CSS za projekte*/
-  .naši-projekti{
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    grid-template-columns: auto auto;
-    column-gap: 50px;
-    row-gap: 50px;
-    overflow-x: hidden;
-  }
-
-  /*CSS za tekstualnu kutiju kod Jumpy Balla*/
-  .držač-teksta{
-    background-color: #0b0c0e;
-    padding: 10px;
-    font-family: "Courier New", monospace;
-    font-size: 14px;;
-    line-height: 1.5;
-    overflow-x: auto;
-    border-radius: 20px;
-    text-align: justify;
-    width: 500px;
-    height: 281px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-  }
-
-  .držač-teksta2 {
-    height: 340px;
-  }
-  
-  /*CSS za slike kod projekata*/
-  .držač-slika {
-    background-color: #0b0c0e;
-    padding: 10px;
-    font-family: "Courier New", monospace;
-    font-size: 14px;
-    line-height: 1.5;
-    border-radius: 20px;
-    width: 500px;
-    height: 281px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-    transition-duration: 0.25s;
-  }
-
-  /*CSS koji posebno utječe samo na sliku kale držač-slika*/
-  .držač-slika img {
-    width: 100%;
-    height: 280px;
-    border-radius: 10px;
-  }
-  /*CSS koji utječe na širinu i visinu gumba kod linkova za Jumpy Ball*/
-  .držač-gumba {
-    width: 500px;
-    height: 320px;
-  }
-
-  /*CSS za video di se može pogledati kratki gameplay od JumpyBalla*/
-  .držač-videozapisa {
-    position: relative;
-    background-color: rgb(40, 42, 54);
-    color: rgb(239, 239, 239);
-    padding: 10px;
-    font-family: "Courier New", monospace;
-    font-size: 14px;
-    line-height: 1.5;
-    border-radius: 20px;
-    width: 329px;
-    height: 710px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  /*CSS za izgled gumbiju kod JumpyBalla*/
-  .jbGumb {
-    margin: 20px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-    transition-duration: 0.25s;
-    border-radius: 15px;
-    outline: none;
-  }
-
-  .jbGumb:hover{
-    transform: scale(1.1);
-  }
-  
-  /*CSS za izgled kutije unutar koje se nalazi kratki opis o nama*/
-  .opis{
-    background-color: rgb(40, 42, 54);
-    border-radius: 10px;
-    padding: 10px;
-    position: relative;
-    margin-right: 120px;
-    margin-left: 120px;
-    margin-top: 10px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-    color: rgb(239, 239, 239);
-    transform: scaleX(98%);
-    font-size: 18px;
-    text-align: center;
-  }
-
-  /*CSS za koliko brzo će se pojaviti ili nestati slike kod naših projekata*/
-  .fade-in{
-    opacity: 0;
-    transition-duration: opacity 250ms !important;
-  }
-  .fade-in.pojava{
-    opacity: 1;
-    transition-duration: opacity 250ms !important;
-  }
-
-  .lijevo {
-    transform: translateX(-100%);
-  }
-  .desno {
-    transform: translateX(100%);
-  }
-
-  .lijevo,
-  .desno {
-    opacity: 0;
-    transition: opacity 600ms ease-in, transform 600ms ease-out !important;
-  }
-  .lijevo.pojava,
-  .desno.pojava {
-    transform: translateX(0%);
-    opacity: 1;
-    transition: opacity 600ms ease-in, transform 600ms ease-out !important; 
-  }
-  .desno.pojava.držač-videozapisa {
-    transform: translateX(-50%);
-  }
-  .desno.držač-videozapisa {
-    transform: translateX(75%);
-  }
-
-
-  /*CSS za izgled scrollbara*/
-  ::-webkit-scrollbar {
-    width: 12px;
-  }
-  
-  
-  ::-webkit-scrollbar-track { 
-    background: transparent;
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    background-color: #393d59; 
-    border-radius: 5px; 
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(55, 58, 74, 0.7); 
-  }
-
-  svg.svijetlaTema {
-    background-color: aliceblue;
-  }
-
-
-  @media (min-resolution: 1.501dppx) {
-    .drzac-cjelina {
-      display: grid; 
-    }
-    .jednakost {
-      margin-left: 0px;
-    }
-    .gumb-teksti {
-      margin-left: 110px;
-    }
-  }
-
-  /*CSS za gumb s kojim mjenjamo light i dark mod*/
-  .tema-gumb{
-    background-color: transparent;
-    border: transparent;
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin-top: 20px;
-    margin-right: 20px;
-    transition-duration: 0.3s;
-    transform: scale(1.5);
-    outline: none;
-  }
-
-  .tema-gumb:hover{
-    transform: scale(1.8);
-    transition-duration: 0.3s;
-  }
+.tema-gumb:hover{
+  transform: scale(1.8);
+  transition-duration: 0.3s;
+}

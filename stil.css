@@ -156,6 +156,15 @@ neke cjeline*/
   background-color: rgba(55, 58, 74, 0.7);
 }
 
+.lijeva-navigacija.svijetla-tema::-webkit-scrollbar-thumb {
+  background-color: rgb(166, 219, 252); 
+}
+
+.lijeva-navigacija.svijetla-tema::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(106, 171, 212);
+}
+
+
 /*CSS za bar koji sadrzi cjeline kada smo unutar neke lekcije*/
 .gornja-navigacija {
   background-color: rgb(41, 44, 49);
@@ -198,14 +207,26 @@ sluzi da se odvoje podnaslovi unutar jedne lekcije*/
   background: transparent;
 }
 
+/*Ovo je scrool bar za tamnu temu*/  
 ::-webkit-scrollbar-thumb {
-  background-color: rgb(57, 61, 89);
-  border-radius: 5px;
+  background-color: #393d59; 
+  border-radius: 5px; 
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(55, 58, 74, 0.7);
+  background-color: rgba(55, 58, 74, 0.7); 
 }
+
+/*Ovo je scrollbar za svijetlu temu*/
+.svijetla-tema::-webkit-scrollbar-thumb {
+  background-color: rgb(166, 219, 252); 
+  border-radius: 5px; 
+}
+
+.svijetla-tema::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(106, 171, 212); 
+}
+
 
 .lijeva-navigacija ul,
 .lijeva-navigacija ol {

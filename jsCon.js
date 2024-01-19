@@ -82,29 +82,35 @@ function razdvojiKlase(unos) {
 }
 
 function nadodajLetDeklariranojVarijabli(csharpKod) {
-    // Definiraj regex izraz za globalno pronalaženje deklaracija varijabli
-    const regexUzorak = /(\w+)\s+(\w+)\s*(?:=\s*([^;]+))?;/g;
+  
+  const validneVrste = ['int', 'float', 'double', 'string', 'bool', 'char'];
+  
+  // Definiraj regex izraz za globalno pronalaženje deklaracija varijabli
+  const regexUzorak = /\b(\w+)\s+(\w+)\s*(?:=\s*([^;]+))?;/g;
 
-    // Zamijeni sve pojave uzorka s izmijenjenom deklaracijom.
-    const rezultatStringa = csharpKod.replace(regexUzorak, (podudaranje, vrsta, naziv, vrijednost, indeks) => {
+  // Zamijeni sve pojave uzorka s izmijenjenom deklaracijom.
+  const rezultatStringa = csharpKod.replace(regexUzorak, (podudaranje, vrsta, naziv, vrijednost, indeks) => {
+    //provjerava je li vrsta validna c# vrsta
+    if (validneVrste.includes(vrsta) || (vrijednost && (/\b\w+\.\w+\b/.test(vrijednost) || /^\s*new\s+\w+\s*\([^]*\)\s*$/i.test(vrijednost)))) {
       let scopeValue = 0;
   
       const substringBeforeMatch = csharpKod.substring(0, indeks);
-      for (let i = 0; i < substringBeforeMatch.length; i++)
-      {
-        if (substringBeforeMatch[i] === '{')
-          scopeValue++;
-        else if (substringBeforeMatch[i] === '}')
-          scopeValue--;
+      for (let i = 0; i < substringBeforeMatch.length; i++) {
+        if (substringBeforeMatch[i] === '{') scopeValue++;
+        else if (substringBeforeMatch[i] === '}') scopeValue--;
       }
   
       if (scopeValue > 1)
         return vrijednost ? `let ${vrsta} ${naziv} = ${vrijednost};` : `let ${vrsta} ${naziv};`;
       else
         return podudaranje;
-    });
-  
-    return rezultatStringa;
+    } else {
+      //ako nije validna varijabla vraća podudaranje
+      return podudaranje;
+    }
+  });
+
+  return rezultatStringa;
   }
 
 function pretvrotiCsharp2DNizUJs(unos) {
@@ -600,7 +606,8 @@ function jednako(){
     if (izlazniDiv) {
       for (var i = 0; i < arguments.length; i++) {
         var poruka = document.createElement('p');
-        poruka.textContent = arguments[i];
+        let izlaz = String(arguments[i]);
+        poruka.textContent = izlaz.replace(/ /g, "\u00A0");
         izlazniDiv.appendChild(poruka);
       }
     }
