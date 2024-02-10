@@ -6,6 +6,13 @@ body {
   background-color: rgb(35, 37, 41);
 }
 
+body.mob{
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(35, 37, 41);
+}
+
 .drzac-gumba {
   text-align: center;
   margin-bottom: 20px;
@@ -40,6 +47,12 @@ p{
   outline: none;
   background-color: transparent;
   border-radius: 5px;
+}
+
+.lijevi-gumbi.mob{
+  width: fit-content;
+  width: -moz-fit-content
+  
 }
 
 /*CSS za gornje gumbe kod cjelina(C#, Unity UI, Unity C#)*/
@@ -123,6 +136,7 @@ kada je prekrijemo mišem*/
 .lijeva-navigacija {
   background-color: rgb(41, 44, 49);
   width: fit-content;
+  width: -moz-fit-content;
   position: fixed;
   left: 0.7%;
   top: 1%;
@@ -133,9 +147,30 @@ kada je prekrijemo mišem*/
   overflow-y: auto;
   justify-content: center;
   border-radius: 5px;
-  scrollbar-width: thin;
-  scrollbar-color: rgb(57, 61, 89) rgb(70, 69, 69);
+  z-index: 1;
+  transform: scale(1);
 }
+
+/*nije potreban za mobilnu verziju pa ga se ovako makne*/
+.lijeva-navigacija.mobMaknuto{
+  transform: scale(0);
+  font-size: 1em;
+  scrollbar-width: thin; 
+  scrollbar-color: transparent transparent;
+}
+
+/*Omogucuje vidljivost tablice s lekcijama u mob verziji*/
+.lijeva-navigacija.mobVidljivo {
+  opacity: 1;
+  transform: translateX(-50%);
+  left: 50%;
+  width: 50%;
+  font-size: 1em;
+  text-align: center;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
 
 /*Scrollbar koji se koristi ako se ne mogu prikazati sve lekcije
 neke cjeline*/
@@ -180,6 +215,12 @@ neke cjeline*/
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 }
 
+/*nije potreban za mobilnu verziju pa ga se ovako makne*/
+.gornja-navigacija.mob{
+  opacity: 0;
+  transform: scale(0);
+}
+
 /*CSS koji stvori "kutiju" sa zaobljenim rubovima di se nalaze primjeri koda i opis
 sluzi da se odvoje podnaslovi unutar jedne lekcije*/
 .tekstualna-kutija{
@@ -192,6 +233,14 @@ sluzi da se odvoje podnaslovi unutar jedne lekcije*/
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
   color: rgb(239, 239, 239);
   transform: scaleX(98%);
+  overflow-x: scroll;
+}
+
+.tekstualna-kutija.mob{
+  background-color: rgb(41, 44, 49);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  color: rgb(239, 239, 239);
 }
 
 /*Mjenja boju pozadine gumba lekcije ako je ona odabrana*/
@@ -255,11 +304,60 @@ sluzi da se odvoje podnaslovi unutar jedne lekcije*/
 
 .tablica {
   border-collapse: collapse;
-  width: 100%;
+  width: auto;
+  overflow-x: hidden;
 }
+
+.tablica.mob {
+  display: none;
+}
+
+.tablica-za-mob {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: auto;
+}
+
+.tablica-za-mob.mob {
+  display: flex;
+}
+
+/*CSS za gumb koji otvara popup tablica u mob verziji*/
+.gumb-tab-za-mob {
+  background-color: transparent;
+  width: 150px;
+  height: 80px;
+  border-radius: 15px;
+  font-size: 22px;
+  background-color: rgb(35, 37, 41);
+  color: rgb(239, 239, 239);
+  border: 2px transparent;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2), 0 1.5px 5px 0 rgba(0,0,0,0.19);
+  
+}
+
+/*mjenja sijenu gumba talbice kada je pritisnuta
+ovi gumbi su samo vidljivi u mobilnoj verziji*/
+.gumb-tab-za-mob:active{
+  box-shadow: 0 2px 4px 0 rgba(151, 151, 151, 0.2), 0 1.5px 5px 0 rgba(0,0,0,0.19); 
+}
+
+.gumb-tab-za-mob.svijetla-tema:active{
+  box-shadow: 0 2px 4px 0 rgba(0, 255, 17, 0.2), 0 1.5px 5px 0 rgba(255, 0, 0, 0.19); 
+}
+
 
 td, th {
   border: 1px solid #393d59;
+  text-align: left;
+  padding: 8px;
+  overflow-x: hidden;
+}
+
+td.mob, th.mob {
+  border: none;
   text-align: left;
   padding: 8px;
 }
@@ -278,9 +376,30 @@ td, th {
   outline: none;
 }
 
-.tema-gumb:hover{
+.tema-gumb.komp:hover{
   transform: scale(1.8);
   transition-duration: 0.3s;
+}
+
+
+/*Ovaj se gumb pojavljuje samo u mobilnoj verziji 
+ili ako je stranica na pc previse zumirana*/
+
+.tema-gumba-meni.komp{
+  display: none;
+}
+
+.tema-gumba-meni.mob{
+  background-color: transparent;
+  border: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin-top: 20px;
+  margin-left: 20px;
+  transition-duration: 0.3s;
+  transform: scale(1.5);
+  outline: none;
 }
 
 /*CSS za gumb koji vodi na link*/
@@ -314,3 +433,25 @@ drugačiju nijansu od one kojima su istaknute ključne riječi u lekciji*/
   color: #8a71c5;
 }
 
+/*CSS za informacija tablica u mob verziji*/
+#popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  padding: 20px;
+  z-index: 1000;
+  transform: translate(-50%, -50%) scale(0);
+  background-color: #fff;
+  width: 50%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); 
+}
+
+#zatvoriGumb {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}

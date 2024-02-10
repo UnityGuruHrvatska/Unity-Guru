@@ -3,13 +3,204 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unity C# Mathff</title>
+    <title>Unity C# Mathf</title>
     <link rel="icon" href="../slike/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../stil.css">
     <link rel="stylesheet" href="../prism.css">
 </head>
-<body onload="promjenaSvjetline()"><!--Promjena svjetline radi samo kada je stranica objavljena na serveru-->
+<body onload="stilUOdnosuNaEkran(), promjenaSvjetline()"><!--Promjena svjetline radi samo kada je stranica objavljena na serveru-->
+
+    <div id="popup">
+        <div id="zatvoriGumb" onclick="zatvoriPopupTab()">X</div>
+        <div class="tppp Abs">
+            <p>Vraća apsolutnu vrijednost navedenog broja.</p>
+            <p>Primjer: Mathf.Abs(-3);</p>
+            <p>Rezultat: 3</p>
+        </div>
+
+        <div class="tppp Acos">
+            <p>Vraća kut čiji je kosinus navedeni broj.</p>
+            <p>Primjer: Mathf.Acos(0.5);</p>
+            <p>Rezultat: 1.0471975511966</p>
+        </div>
+
+        <div class="tppp Acosh">
+            <p>Vraća kut čiji je hiperbolički kosinus navedenoi broj.</p>
+            <p>Primjer: Mathf.Acosh(5);</p>
+            <p>Rezultat: 2.29243166956118</p>
+        </div>
+
+        <div class="tppp Asin">
+            <p>Vraća kut čiji je sinus navedeni broj.</p>
+            <p>Primjer: Mathf.Asin(0.5);</p>
+            <p>Rezultat: 0.523598775598299</p>
+        </div>
+
+        <div class="tppp Asinh">
+            <p>Vraća kut čiji je hiperbolički sinus navedenoi broj.</p>
+            <p>Primjer: Mathf.Asinh(5);</p>
+            <p>Rezultat: 2.31243834127275</p>
+        </div>
+
+        <div class="tppp Atan">
+            <p>Vraća kut čiji je tangens navedeni broj.</p>
+            <p>Primjer: Mathf.Atan(0.5);</p>
+            <p>Rezultat: 0.463647609000806</p>
+        </div>
+
+        <div class="tppp Atan2">
+            <p>Vraća kut čiji je tangens kvocijent dva navedena broja.</p>
+            <p>Primjer: Mathf.Atan2(0.5, 1.5);</p>
+            <p>Rezultat: 0.321750554396642</p>
+        </div>
+
+        <div class="tppp Atanh">
+            <p>Vraća inverzni hiperbolički tangens navedenog broja.</p>
+            <p>Primjer: Mathf.Atanh(0.5);</p>
+            <p>Rezultat: 0.549306144334055</p>
+        </div>
+
+        <div class="tppp BigMul">
+            <p>Proizvodi puni umnožak dva 32-bitna broja.</p>
+            <p>Primjer: Mathf.BigMul(123456789, 987654321)</p>
+            <p>Rezultat: 121932631112635269</p>
+        </div>
+
+        <div class="tppp Cbrt">
+            <p>Vraća kubni korijen navedene vrijednosti.</p>
+            <p>Primjer: Mathf.Cbrt(27);</p>
+            <p>Rezultat: 3</p>
+        </div>
+
+        <div class="tppp Ceiling">
+            <p>Vraća najmanju integralnu vrijednost veću ili jednaku navedenom broju.</p>
+            <p>Primjer: Mathf.Ceiling(5.3);</p>
+            <p>Rezultat: 6</p>
+        </div>
+
+        <div class="tppp Clamp">
+            <p>Koristi se za ograničavanje vrijednosti na zadani raspon.</p>
+            <p>Primjer: double vrijednost = Mathf.Clamp(vrijednost, 10, 20)</p>
+            <p>Rezultat: vrijednost može biti između 10 i 20</p>
+        </div>
+
+        <div class="tppp DivRem">
+            <p>Izračunava kvocijent dvaju brojeva te također vraća ostatak u izlaznom parametru.</p>
+            <p>Primjer: Mathf.DivRem(17, 5, out rezultat, out ostatak);</p>
+            <p>Rezultat: 3 i 2</p>
+        </div>
+
+        <div class="tppp Exp">
+            <p>Vraća e podignuto na navedenu snagu.</p>
+            <p>Primjer: Mathf.Exp(2);</p>
+            <p>Rezultat: 7.3890560989306495</p>
+        </div>
+
+        <div class="tppp Floor">
+            <p>Vraća najveću cijelu vrijednost manju ili jednaku navedenom broju.</p>
+            <p>Primjer: Mathf.Floor(5.8);</p>
+            <p>Rezultat: 5</p>
+        </div>
+
+        <div class="tppp IEEERemainder">
+            <p>Vraća ostatak koji je rezultat dijeljenja određenog broja drugim navedenim brojem.</p>
+            <p>Primjer: Mathf.IEEERemainder(17, 5);</p>
+            <p>Rezultat: 2</p>
+        </div>
+
+        <div class="tppp Log">
+            <p>Vraća logaritam navedenog broja. U primjeru prva vrijednost je broj, a druga baza.</p>
+            <p>Primjer: Mathf.Log(100, 10);</p>
+            <p>Rezultat: 2</p>
+        </div>
+
+        <div class="tppp Log10">
+            <p>Vraća logaritam baze 10 navedenog broja.</p>
+            <p>Primjer: Mathf.Log10(1000);</p>
+            <p>Rezultat: 3</p>
+        </div>
+
+        <div class="tppp Max">
+            <p>Vraća veći od dva navedena broja.</p>
+            <p>Primjer: Mathf.Max(25, 50);</p>
+            <p>Rezultat: 50</p>
+        </div>
+
+        <div class="tppp Min">
+            <p>Vraća manji od dva broja.</p>
+            <p>Primjer: Mathf.Min(25, 50);</p>
+            <p>Rezultat: 25</p>
+        </div>
+
+        <div class="tppp Pow">
+            <p>Vraća navedeni broj podignut na navedenu potenciju.</p>
+            <p>Primjer: Mathf.Pow(2, 3)</p>
+            <p>Rezultat: 8</p>
+        </div>
+
+        <div class="tppp Round">
+            <p>Zaokružuje vrijednost na najbliži cijeli broj ili na navedeni broj razlomaka.</p>
+            <p>Primjer: Mathf.Round(3.5); Mathf.Round(5.6789, 2);</p>
+            <p>Rezultat: 4, 5.68</p>
+        </div>
+
+        <div class="tppp Sign">
+            <p>Vraća cijeli broj koji označava predznak broja.</p>
+            <p>Primjer: Mathf.Sign(-42);</p>
+            <p>Rezultat: -1</p>
+        </div>
+
+        <div class="tppp Cos">
+            <p>Vraća kosinus navedenog kuta.</p>
+            <p>Primjer: Mathf.Cos(Mathf.PI);</p>
+            <p>Rezultat: -1</p>
+        </div>
+
+        <div class="tppp Cosh">
+            <p>Vraća hiperbolički kosinus navedenog kuta.</p>
+            <p>Primjer: Mathf.Cosh(2);</p>
+            <p>Rezultat: 3.7621956910836314</p>
+        </div>
+
+        <div class="tppp Sin">
+            <p>Vraća sinus navedenog kuta.</p>
+            <p>Primjer: Mathf.Sin(Mathf.PI)</p>
+            <p>Rezultat: 0</p>
+        </div>
+
+        <div class="tppp Sinh">
+            <p>Vraća hiperbolički sinus navedenog kuta.</p>
+            <p>Primjer: Mathf.Sinh(2);</p>
+            <p>Rezultat: 3.6268604078470186</p>
+        </div>      
+
+         <div class="tppp Sqrt">
+            <p>Vraća kvadratni ili drugi korijen navedenog broja.</p>
+            <p>Primjer: Mathf.Sqrt(25);</p>
+            <p>Rezultat: 5</p>
+        </div>
+
+        <div class="tppp Tan">
+            <p>Vraća tangens navedenog kuta.</p>
+            <p>Primjer: Mathf.Tan(Mathf.PI);</p>
+            <p>Rezultat: 0</p>
+        </div>
+
+        <div class="tppp Tanh">
+            <p>Vraća hiperbolički tangens navedenog kuta.</p>
+            <p>Primjer: Mathf.Tanh(1);</p>
+            <p>Rezultat: 0.7615941559557649</p>
+        </div>
+
+        <div class="tppp Truncate">
+            <p>Vraća najbližu nižu vrijednost broja.</p>
+            <p>Primjer: Mathf.Truncate(5.67);</p>
+            <p>Rezultat: 5</p>
+        </div>
+    </div>
+
     <button id="treba" onclick="svjetlina()" class = "tema-gumb"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm40-83q119-15 199.5-104.5T800-480q0-123-80.5-212.5T520-797v634Z"/></svg></button>
+    <button class = "tema-gumba-meni komp" onclick="pojavaLekcije()"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></button>   
   
     <div class="gornja-navigacija">
         <a class="gornji-gumbi" href = "../CSharpTutorial/intro.html">C#</a>
@@ -24,7 +215,7 @@
         <a class="lijevi-gumbi" href = "time.html">Time</a><br>
         <a class="lijevi-gumbi" href="GameObject.html">GameObject</a><br>  
         <a class="lijevi-gumbi" href="destroyISectActive.html">Destroy i SetActive</a><br>  
-        <a class="lijevi-gumbi" id = "odabrano" href="Mathff.html">Mathff</a><br>  
+        <a class="lijevi-gumbi" id = "odabrano" href="Mathf.html">Mathf</a><br>  
         <a class="lijevi-gumbi" href="input.html">Input</a><br>  
         <a class="lijevi-gumbi" href="SceneManager.html">SceneManagement</a><br>
         <a class="lijevi-gumbi" href="UIlekcija.html">UI programiranje</a><br>
@@ -44,8 +235,8 @@
     <div class="tekstualna-kutija">
         <h1>Mathf</h1>
         <p><span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Mathf</span> je pomoćna klasa u Unityjevom C# programskom jeziku koja pruža matematičke funkcije.</p>
-        <p>Ona ima sva svojstva kao i običan <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Mathf</span> s kojim ste se upoznali u lekciji <a href="../CSharpTutorial/intro.html" style="color: #a288e0; text-decoration: none;">C#</a>.</p>
-        <p>Razlog postojanja <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Mathf</span> je zato što je opimirizaniji od <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Mathf</span> za rad u 3d okruženju.</p>
+        <p>Ona ima sva svojstva kao i običan <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Math</span> s kojim ste se upoznali u lekciji <a href="../CSharpTutorial/intro.html" style="color: #a288e0; text-decoration: none;">C#</a>.</p>
+        <p>Razlog postojanja <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Mathf</span> je zato što je opimirizaniji od <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Math</span> za rad u 3d okruženju.</p>
     </div>
 
     <br>
@@ -113,7 +304,7 @@ void Start()
             <tr>
                 <th>Asinh()</th>
                 <th>Vraća kut čiji je hiperbolički sinus navedenoi broj.</th>
-                <th>Asinh(5);</th>
+                <th>Mathf.Asinh(5);</th>
                 <th>2.31243834127275</th>
             </tr>
             <tr>
@@ -125,7 +316,7 @@ void Start()
             <tr>
                 <th>Atan2()</th>
                 <th>Vraća kut čiji je tangens kvocijent dva navedena broja.</th>
-                <th>Mathff.Atan2(0.5, 1.5);</th>
+                <th>Mathf.Atan2(0.5, 1.5);</th>
                 <th>0.321750554396642</th>
             </tr>
             <tr>
@@ -271,6 +462,101 @@ void Start()
                 <th>Vraća najbližu nižu vrijednost broja.</th>
                 <th>Mathf.Truncate(5.67);</th>
                 <th>5</th>
+            </tr>
+        </table>
+        <table class="tablica-za-mob">
+            <tr>
+                <th><button onclick="otvoriPopupTab('Abs')" class="gumb-tab-za-mob">Abs()</button></th>
+            </tr>
+            <tr>
+                <th><button onclick="otvoriPopupTab('Acos')" class="gumb-tab-za-mob">Acos()</button></th>
+            </tr>
+            <tr>
+                <th><button onclick="otvoriPopupTab('Acosh')" class="gumb-tab-za-mob">Acosh()</button></th>
+            </tr>
+            <tr>
+                <th><button onclick="otvoriPopupTab('Asin')" class="gumb-tab-za-mob">Asin()</button></th>
+            </tr>
+            <tr>
+                <th><button onclick="otvoriPopupTab('Asinh')" class="gumb-tab-za-mob">Asinh()</button></th>
+            </tr>
+            <tr>
+                <th><button onclick="otvoriPopupTab('Atan')" class="gumb-tab-za-mob">Atan()</button></th>
+            </tr>
+            <tr>
+                <th><button onclick="otvoriPopupTab('Atan2')" class="gumb-tab-za-mob">Atan2()</button></th>
+            </tr>
+            <tr>
+                <th><button onclick="otvoriPopupTab('Atanh')" class="gumb-tab-za-mob">Atanh()</button></th>
+            </tr>
+            <tr>
+                <th><button onclick="otvoriPopupTab('BigMul')" class="gumb-tab-za-mob">BigMul()</button></th>
+            </tr>
+            <tr>
+                <th><button onclick="otvoriPopupTab('Cbrt')" class="gumb-tab-za-mob">Cbrt()</button></th>
+            </tr>
+            <tr>
+                <th><button onclick="otvoriPopupTab('Ceiling')" class="gumb-tab-za-mob">Ceiling()</button></th>
+            </tr>
+            <tr>
+                <th><button onclick="otvoriPopupTab('Clamp')" class="gumb-tab-za-mob">Clamp()</button></th>
+            </tr>
+            <tr>
+                <th><button onclick="otvoriPopupTab('DivRem')" class="gumb-tab-za-mob">DivRem()</button></th>
+            </tr>
+            <tr>
+                <th><button onclick="otvoriPopupTab('Exp')" class="gumb-tab-za-mob">Exp()</button></th>
+            </tr>
+            <tr>
+                <th><button onclick="otvoriPopupTab('Floor')" class="gumb-tab-za-mob">Floor()</button></th>
+            </tr>
+            <tr>
+                <th><button onclick="otvoriPopupTab('IEEERemainder')" class="gumb-tab-za-mob">IEEERemainder()</button></th>
+            </tr>
+            <tr>
+                <th><button onclick="otvoriPopupTab('Log')" class="gumb-tab-za-mob">Log()</button></th>
+            </tr>
+            <tr>
+                <th><button onclick="otvoriPopupTab('Log10')" class="gumb-tab-za-mob">Log10()</button></th>
+            </tr>
+            <tr>
+                <th><button onclick="otvoriPopupTab('Max')" class="gumb-tab-za-mob">Max()</button></th>
+            </tr>
+            <tr>
+                <th><button onclick="otvoriPopupTab('Min')" class="gumb-tab-za-mob">Min()</button></th>
+            </tr>
+            <tr>
+                <th><button onclick="otvoriPopupTab('Pow')" class="gumb-tab-za-mob">Pow()</button></th>
+            </tr>
+            <tr>
+                <th><button onclick="otvoriPopupTab('Round')" class="gumb-tab-za-mob">Round()</button></th>
+            </tr>
+            <tr>
+                <th><button onclick="otvoriPopupTab('Sign')" class="gumb-tab-za-mob">Sign()</button></th>
+            </tr>
+            <tr>
+                <th><button onclick="otvoriPopupTab('Cos')" class="gumb-tab-za-mob">Cos()</button></th>
+            </tr>
+            <tr>
+                <th><button onclick="otvoriPopupTab('Cosh')" class="gumb-tab-za-mob">Cosh()</button></th>
+            </tr>
+            <tr>
+                <th><button onclick="otvoriPopupTab('Sin')" class="gumb-tab-za-mob">Sin()</button></th>
+            </tr>
+            <tr>
+                <th><button onclick="otvoriPopupTab('Sinh')" class="gumb-tab-za-mob">Sinh()</button></th>
+            </tr>
+            <tr>
+                <th><button onclick="otvoriPopupTab('Sqrt')" class="gumb-tab-za-mob">Sqrt()</button></th>
+            </tr>
+            <tr>
+                <th><button onclick="otvoriPopupTab('Tan')" class="gumb-tab-za-mob">Tan()</button></th>
+            </tr>
+            <tr>
+                <th><button onclick="otvoriPopupTab('Tanh')" class="gumb-tab-za-mob">Tanh()</button></th>
+            </tr>
+            <tr>
+                <th><button onclick="otvoriPopupTab('Truncate')" class="gumb-tab-za-mob">Truncate()</button></th>
             </tr>
         </table>
     </div>

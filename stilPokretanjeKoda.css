@@ -40,6 +40,7 @@ textarea {
   scrollbar-width: thin;
   scrollbar-color: rgb(57, 61, 89) rgb(70, 69, 69);
   outline: none;
+  color: rgb(239, 239, 239);
 }
 
 /* Scrollbar za dio di se unosi kod*/
@@ -130,7 +131,7 @@ textarea.svijetla-tema::-webkit-scrollbar-thumb:hover {
     transform: scale(1.5);
   }
   
-.tema-gumb:hover{
+.tema-gumb.komp:hover{
     transform: scale(1.8);
     transition-duration: 0.2s;
   }
@@ -148,7 +149,7 @@ textarea.svijetla-tema::-webkit-scrollbar-thumb:hover {
   }
   
 
-  .tema-gumba-pokretanje:hover{
+  .tema-gumba-pokretanje.komp:hover{
     transform: translateX(50%) scale(1.8);
     transition-duration: 0.2s;
   }
@@ -167,7 +168,7 @@ textarea.svijetla-tema::-webkit-scrollbar-thumb:hover {
   }
   
 
-  .tema-gumba-home:hover{
+  .tema-gumba-home.komp:hover{
     transform: scale(1.8);
     transition-duration: 0.2s;
   }

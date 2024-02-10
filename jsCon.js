@@ -47,6 +47,11 @@ function pretvoriFloat(unos) {
   });
 }
 
+function provjeriMogućiEnum(csharpKod, enumNazivi) {
+  //kasnije napravi 
+  // ovo je otp logika Provjeri ako je vrijednost u formatu "(int) nešto.nešto" , "Convert.ToInt(nešto.nešto)" ili "nešto.nešto" tu je zbog enuma
+}
+
 function razdvojiKlase(unos) {
   const sadrzajiKlase = [];
   const imenaKlase = [];
@@ -81,7 +86,7 @@ function razdvojiKlase(unos) {
   return { sadrzajiKlase: sadrzajiKlase, imenaKlase: imenaKlase.filter(Boolean) };
 }
 
-function nadodajLetDeklariranojVarijabli(csharpKod) {
+function nadodajLetDeklariranojVarijabli(csharpKod, enumNazivi) {
   
   const validneVrste = ['int', 'float', 'double', 'string', 'bool', 'char'];
   
@@ -93,25 +98,66 @@ function nadodajLetDeklariranojVarijabli(csharpKod) {
     //provjerava je li vrsta validna c# vrsta
     if (validneVrste.includes(vrsta) || (vrijednost && (/\b\w+\.\w+\b/.test(vrijednost) || /^\s*new\s+\w+\s*\([^]*\)\s*$/i.test(vrijednost)))) {
       let scopeValue = 0;
-  
+
       const substringBeforeMatch = csharpKod.substring(0, indeks);
       for (let i = 0; i < substringBeforeMatch.length; i++) {
         if (substringBeforeMatch[i] === '{') scopeValue++;
         else if (substringBeforeMatch[i] === '}') scopeValue--;
       }
   
-      if (scopeValue > 1)
-        return vrijednost ? `let ${vrsta} ${naziv} = ${vrijednost};` : `let ${vrsta} ${naziv};`;
-      else
+      if (scopeValue > 1) {
+        if (vrijednost) {
+          // Provjeri ako je vrijednost u formatu "(int) nešto.nešto" , "Convert.ToInt(nešto.nešto)" ili "nešto.nešto" tu je zbog enuma
+          const intCastingRegex = /\(\s*int\s*\)\s*(\w+\.\w+)/;
+          const convertToIntRegex = /Convert\.ToInt\s*\(\s*(\w+\.\w+)\s*\)/;
+          const neštoTočkaNeštoRgx = /\b\w+\.\w+\b(?<!\))\s*$/;
+
+          if (intCastingRegex.test(vrijednost)) {
+            const podudaranje = intCastingRegex.exec(vrijednost);
+            const [prviDio] = podudaranje[1].split('.');
+            console.log(prviDio);
+            
+            if (enumNazivi.includes(prviDio)) {
+              return `let ${vrsta} ${naziv} = ${podudaranje[1]}[1];`;
+            }
+
+            return `let ${vrsta} ${naziv} = ${podudaranje[1]};`;
+          } else if (convertToIntRegex.test(vrijednost)) {
+            const podudaranje = convertToIntRegex.exec(vrijednost);
+            const [prviDio] = podudaranje[1].split('.');
+            
+            if (enumNazivi.includes(prviDio)) {
+              return `let ${vrsta} ${naziv} = ${podudaranje[1]}[1];`;
+            }
+            return `let ${vrsta} ${naziv} = ${podudaranje[1]};`;
+
+          } else if (neštoTočkaNeštoRgx.test(vrijednost)) {
+            const podudaranje = neštoTočkaNeštoRgx.exec(vrijednost);
+            const [prviDio] = podudaranje[0].split('.');
+            
+            if (enumNazivi.includes(prviDio)) {
+              return `let ${vrsta} ${naziv} = ${vrijednost}[0];`;
+            }
+
+            return `let ${vrsta} ${naziv} = ${vrijednost};`;
+
+          } else {
+            return `let ${vrsta} ${naziv} = ${vrijednost};`;
+          }
+        } else {
+          return `let ${vrsta} ${naziv};`;
+        }
+      } else {
         return podudaranje;
+      }
     } else {
-      //ako nije validna varijabla vraća podudaranje
       return podudaranje;
     }
   });
 
   return rezultatStringa;
-  }
+}
+
 
 function pretvrotiCsharp2DNizUJs(unos) {
   // Korištenje replace s funkcijom povratnog poziva za izvođenje zamjena
@@ -452,16 +498,29 @@ function pretvoriSpecijalce(unos) {
 
 
 function pretvoriCsharpUJs(csharpKod) {
+  //dio koda koji emulira c# enume jer js
   const enums = [];
-
+  const enumNazivi = [];
   csharpKod = csharpKod.replace(/enum\s+(\w+)\s*{([^}]+)}/g, (enumPodudaranje, enumNaziv, enumVrijednosti) => {
+    let indexPr = 0;
+    let prošPod = 0;
     const jsEnumVrijednosti = enumVrijednosti
       .split(',')
-      .map((vrijednost) => {
+      .map((vrijednost, index) => {
         const podudaranje = /\s*([^\s=]+)(?:\s*=\s*([^\s,]+))?/.exec(vrijednost.trim());
         if (podudaranje) {
           const nazivClan = podudaranje[1];
-          const vrijednostClan = podudaranje[2] ? `"${podudaranje[2]}"` : `"${nazivClan}"`;
+          let vrijednostInd;
+          if(podudaranje[2]){
+            vrijednostInd = podudaranje[2];
+            indexPr=index;
+            prošPod = podudaranje[2];
+          }
+          else{
+            vrijednostInd = Number(index)-Number(indexPr)+Number(prošPod); 
+          }
+
+          const vrijednostClan = `["${nazivClan}", ${vrijednostInd}]`;
           return `${nazivClan}: ${vrijednostClan}`;
         } 
         else {
@@ -470,7 +529,8 @@ function pretvoriCsharpUJs(csharpKod) {
       })
       .filter(Boolean)
       .join(',\n');
-  
+    
+    enumNazivi.push(enumNaziv)
     enums.push(`const ${enumNaziv} = {\n${jsEnumVrijednosti}\n};`);
     return '';
   });
@@ -519,7 +579,7 @@ function pretvoriCsharpUJs(csharpKod) {
   
   jsKod = pretvoriCsharpNizUJs(jsKod);
   jsKod = pretvrotiCsharp2DNizUJs(jsKod);
-  jsKod = nadodajLetDeklariranojVarijabli(jsKod);
+  jsKod = nadodajLetDeklariranojVarijabli(jsKod, enumNazivi);
   jsKod = pretvoriForeach(jsKod);
   jsKod = pretvoriDupluUTrostrukuJednakost(jsKod);
   

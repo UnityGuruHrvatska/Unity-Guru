@@ -2,9 +2,13 @@
 //dohvaćanje svih elemenata koji se trbaju pojaviti i/ili klizati na ekran
 const faders = document.querySelectorAll(".fade-in");
 const sliders = document.querySelectorAll("klizanje");
-
+let isMob = false;
 //opcije za pojavljivanje
 const Opcije = {
+    threshold: 0.3,
+    rootMargin: "200% 50% -30% 50%"
+};
+const OpcijeMob = {
     threshold: 0.3,
     rootMargin: "200% 50% -30% 50%"
 };
@@ -21,7 +25,7 @@ const pojavaTijekomSkrolanja = new IntersectionObserver(function(entries, pojava
             entry.target.classList.add("pojava");
         }
     });
-}, Opcije);
+}, isMob ? OpcijeMob : Opcije);
 
 faders.forEach(fader => {
     pojavaTijekomSkrolanja.observe(fader);
@@ -45,6 +49,9 @@ moramo za svaki posebno pisati da mu se aktivira/deaktivira
 svijetla tema u funkciji promjenaSvjetline*/
 const elementiScrollbara = [lNavigacija, scrollBarUnosnogKoda, scrollBarIzlaznogKoda];
 
+//gumbi za tablice(vidljivi samo u mobilnoj verziji stanice)
+const gumbiMob = document.querySelectorAll('.gumb-tab-za-mob');
+
 
 function promjenaSvjetline () {
     //govori da se promjenila tema i dohvaća kolačić koji prati temu
@@ -66,6 +73,13 @@ function promjenaSvjetline () {
 
         //prolazi kroz sve elemente koji imaju svoj poseban scroll bar i nadodaje im svijetlu temu
         elementiScrollbara.forEach(element => {
+            if (element !== null) {
+                element.classList.add('svijetla-tema');
+            }
+        });
+
+        //prolazi kroz sve elemente koji imaju klasu gumb-tab-za-mob i stavlja im svijetlu temu
+        gumbiMob.forEach(element => {
             if (element !== null) {
                 element.classList.add('svijetla-tema');
             }
@@ -175,6 +189,13 @@ function promjenaSvjetline () {
 
         //prolazi kroz sve elemente koji imaju svoj poseban scroll bar i mice im svijetlu temu
         elementiScrollbara.forEach(element => {
+            if (element !== null) {
+                element.classList.remove('svijetla-tema');
+            }
+        });
+
+        //prolazi kroz sve elemente koji imaju klasu gumb-tab-za-mob i mice im svijetlu temu
+        gumbiMob.forEach(element => {
             if (element !== null) {
                 element.classList.remove('svijetla-tema');
             }
@@ -307,16 +328,39 @@ function stilUOdnosuNaEkran() {
 
     // Update styles based on the width
     if (širinaProzora <= 750) {
+        isMob=true;
         sveq.forEach(element => {
             element.classList.add('mob');
             element.classList.remove('komp');
         });
+        lNavigacija.classList.remove("mobVidljivo");
+        lNavigacija.classList.add("mobMaknuto");
+        vidljiv = false;
+        console.log(širinaProzora)
+        /*faders.forEach(element => {
+            element.classList.remove('fade-in');
+        });
+        sliders.forEach(element => {
+            element.classList.remove('klizanje');
+        });*/
     } 
     else if (širinaProzora > 750) {
+        isMob=false;
+        //console.log(širinaProzora)
         sveq.forEach(element => {
             element.classList.add('komp');
             element.classList.remove('mob');
         });
+        lNavigacija.classList.remove("mobVidljivo");
+        lNavigacija.classList.remove("mobMaknuto");
+        try{zatvoriPopupTab()}
+        catch(error){}
+        /*faders.forEach(element => {
+            element.classList.add('fade-in');
+        });
+        sliders.forEach(element => {
+            element.classList.remove('klizanje');
+        });*/
     } 
 }
 window.addEventListener('resize', stilUOdnosuNaEkran);
@@ -348,19 +392,78 @@ function dohvatiKolačić(imeKolačića) {
 };
 
 
-document.getElementById("drzac-koda-textarea").addEventListener("keydown", function(e) {
-    if (e.key === "Tab") {
-        e.preventDefault();
+// provjerava sadrzi li stranica drzac koda(njega ima samo dio stranice s C#)
+if(document.getElementById("drzac-koda-textarea") != null)
+{
+    document.getElementById("drzac-koda-textarea").addEventListener("keydown", function(e) {
+        if (e.key === "Tab") {
+            e.preventDefault();
+    
+            // Informacije o odabiru
+            var pocetak = this.selectionStart;
+            var kraj = this.selectionEnd;
+    
+            // Umetni tab na trenutacnu poziciju pointera
+            var tab = "\t";
+            this.value = this.value.substring(0, pocetak) + tab + this.value.substring(kraj);
+    
+            // Pomakni poziciju pointera nakon umetnutog taba
+            this.selectionStart = this.selectionEnd = pocetak + tab.length;
+        }
+    });
+}
 
-        // Informacije o odabiru
-        var pocetak = this.selectionStart;
-        var kraj = this.selectionEnd;
 
-        // Umetni tab na trenutacnu poziciju pointera
-        var tab = "\t";
-        this.value = this.value.substring(0, pocetak) + tab + this.value.substring(kraj);
+const tppps = document.querySelectorAll(".tppp");
+function odaberiIdZaPopup(vrsta) {
+    let vrs = document.querySelectorAll("."+vrsta);
+    tppps.forEach(tppp => {
+        tppp.style.display = 'none';
+    });
+    vrs.forEach(vr => {
+        vr.style.display = 'block';
+    });
+}
 
-        // Pomakni poziciju pointera nakon umetnutog taba
-        this.selectionStart = this.selectionEnd = pocetak + tab.length;
+//pronalazi stvar s id popup to su gumbi koji otvaraju meni s sadrzajem tablica u mobilnoj verziji
+const popUp = document.getElementById('popup');
+
+//omogucuje glatko stvaranje popupa za tablice kada su u moblinom prikazu
+function otvoriPopupTab(vrsta) {
+    odaberiIdZaPopup(vrsta);
+    popUp.style.display = 'block';
+    setTimeout(() => {
+        popUp.style.transform = 'translate(-50%, -50%) scale(1)';
+    }, 5);
+}
+
+//omogucuje glatko smanjenje popupa za tablice kada su u moblinom prikazu
+function zatvoriPopupTab() {
+    popUp.style.transform = 'translate(-50%, -50%) scale(0)';
+    setTimeout(() => {
+        popUp.style.display = 'none';
+    }, 300);
+}
+
+//provjerava je li mis kliknut ako je onda ce se popup smanjiti
+document.body.addEventListener('mousedown', function(event) {
+    if (!event.target.classList.contains('gumb-tab-za-mob') && popUp != null) {
+        zatvoriPopupTab();
     }
 });
+
+//za pojavljivanje lekcije s gumbima
+//nadodaje se i mice klasa kada je u mob verziji 
+function pojavaLekcije(){
+    if(vidljiv){
+        lNavigacija.classList.remove("mobVidljivo");
+        lNavigacija.classList.add("mobMaknuto");
+        vidljiv = false;
+    }
+
+    else{
+        lNavigacija.classList.add("mobVidljivo");
+        lNavigacija.classList.remove("mobMaknuto");
+        vidljiv = true;
+    }
+}

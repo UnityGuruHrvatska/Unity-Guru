@@ -51,6 +51,9 @@ p{
   display: inline-block;
   transition-duration: 0.3s;
 }
+.aScale.mob {
+  padding-bottom: 30px;
+}
 
 .aScale:hover {
   transform: scale(1.1);
@@ -109,6 +112,17 @@ p{
   transform: scale(1.1); 
 }
 
+/*slika Unity UI kod cjeline*/
+.unityUI-slika{
+  height: 40%; 
+  width: 500px; 
+  border-radius: 20px;
+}
+
+.unityUI-slika.mob{
+  width: 300px;
+}
+
 /*Služi da dužina kutije bez obzira na dužinu koda bude jednaka*/
 .jednakost{
   margin-left: 80px; 
@@ -117,6 +131,7 @@ p{
 }
 .jednakost.mob{
   margin-left: 0px; 
+  width: 320px;
 }
 
 /*Utječe na širinu gumba i da je tekst unutar njega centriran*/
@@ -149,6 +164,10 @@ p{
   background-repeat: no-repeat;
   height: 1000px;
   background-attachment: fixed;
+  background-position: center;
+}
+.ds.mob {
+  height: 1700px;
 }
 
 /*CSS za Escape The Nightmare*/
@@ -162,6 +181,10 @@ p{
   background-repeat: no-repeat;
   height: 1000px;
   background-attachment: fixed;
+  background-position: center;
+}
+.etn.mob {
+  height: 1700px;
 }
 
 /*CSS za Drone Jumpy Ball*/
@@ -178,6 +201,9 @@ p{
   background-attachment: fixed;
   overflow: hidden;
 }
+.jb.mob {
+  height: 1700px;
+}
 
 .item1 { grid-area: gumbi; }
 .item2 { grid-area: video; }
@@ -186,7 +212,12 @@ p{
   display: grid;
   grid-template-areas: "tekst video" "gumbi video";
 }
-
+.jbgrid.mob {
+  grid-template-areas: "tekst" "video" "video" "gumbi";
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 
 /*CSS za projekte*/
 .naši-projekti{
@@ -199,6 +230,10 @@ p{
   row-gap: 50px;
   overflow-x: hidden;
 }
+.naši-projekti.mob{
+  grid-template-columns: auto;
+}
+
 
 /*CSS za tekstualnu kutiju kod Jumpy Balla*/
 .držač-teksta{
@@ -215,8 +250,29 @@ p{
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
+.držač-teksta.mob{
+  width: 320px;
+  text-align: center;
+}
+
 .držač-teksta2 {
+  background-color: #0b0c0e;
+  padding: 10px;
+  font-family: "Courier New", monospace;
+  font-size: 14px;;
+  line-height: 1.5;
+  overflow-x: auto;
+  border-radius: 20px;
+  text-align: justify;
+  width: 500px;
   height: 340px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+/*Ne dela bas najbolje*/
+.držač-teksta2.mob{
+  width: 320px;
+  text-align: center;
 }
 
 /*CSS za slike kod projekata*/
@@ -233,6 +289,10 @@ p{
   transition-duration: 0.25s;
 }
 
+.držač-slika.mob {
+  width: 320px;
+}
+
 /*CSS koji posebno utječe samo na sliku kale držač-slika*/
 .držač-slika img {
   width: 100%;
@@ -244,7 +304,9 @@ p{
   width: 500px;
   height: 320px;
 }
-
+.držač-gumba.mob {
+  width: 520px;
+}
 /*CSS za video di se može pogledati kratki gameplay od JumpyBalla*/
 .držač-videozapisa {
   position: relative;
@@ -271,6 +333,10 @@ p{
   outline: none;
 }
 
+.jbGumb.mob{
+  transform: scale(0.9);
+}
+
 .jbGumb:hover{
   transform: scale(1.1);
 }
@@ -291,6 +357,11 @@ p{
   text-align: center;
 }
 
+.opis.mob{
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
 /*CSS za koliko brzo će se pojaviti ili nestati slike kod naših projekata*/
 .fade-in{
   opacity: 0;
@@ -308,6 +379,13 @@ p{
   transform: translateX(100%);
 }
 
+.lijevo.mob {
+  transform: translateX(-50%);
+}
+.desno.mob {
+  transform: translateX(50%);
+}
+
 .lijevo,
 .desno {
   opacity: 0;
@@ -319,16 +397,35 @@ p{
   opacity: 1;
   transition: opacity 600ms ease-in, transform 600ms ease-out !important; 
 }
+.lijevo.pojava.mob,
+.desno.pojava.mob {
+  transform: translateX(0%);
+}
+
+.lijevo.pojava.mob.držač-teksta2 {
+  transform: translateX(25%);
+}
+
+
 .desno.pojava.držač-videozapisa {
   transform: translateX(-50%);
 }
 .desno.držač-videozapisa {
   transform: translateX(75%);
 }
+.desno.pojava.držač-videozapisa.mob {
+  transform: translateX(-50%);
+}
+.desno.držač-videozapisa.mob {
+  transform: translateX(0%);
+}
+
+
+
 
 
 /*CSS za izgled scrollbara*/
-::-webkit-scrollbar {
+::-webkit-scrollbar{
   width: 12px;
 }
 
@@ -362,18 +459,6 @@ svg.svijetlaTema {
 }
 
 
-@media (min-resolution: 1.501dppx) {
-  .drzac-cjelina {
-    display: grid; 
-  }
-  .jednakost {
-    margin-left: 0px;
-  }
-  .gumb-teksti {
-    margin-left: 110px;
-  }
-}
-
 /*CSS za gumb s kojim mjenjamo light i dark mod*/
 .tema-gumb{
   background-color: transparent;
@@ -388,7 +473,7 @@ svg.svijetlaTema {
   outline: none;
 }
 
-.tema-gumb:hover{
+.tema-gumb.komp:hover{
   transform: scale(1.8);
   transition-duration: 0.3s;
 }
