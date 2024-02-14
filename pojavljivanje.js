@@ -333,8 +333,12 @@ function stilUOdnosuNaEkran() {
             element.classList.add('mob');
             element.classList.remove('komp');
         });
-        lNavigacija.classList.remove("mobVidljivo");
-        lNavigacija.classList.add("mobMaknuto");
+
+        if(lNavigacija != null){
+            lNavigacija.classList.remove("mobVidljivo");
+            lNavigacija.classList.add("mobMaknuto");
+        }
+
         vidljiv = false;
         console.log(širinaProzora)
         /*faders.forEach(element => {
@@ -351,8 +355,11 @@ function stilUOdnosuNaEkran() {
             element.classList.add('komp');
             element.classList.remove('mob');
         });
-        lNavigacija.classList.remove("mobVidljivo");
-        lNavigacija.classList.remove("mobMaknuto");
+        
+        if(lNavigacija != null){
+            lNavigacija.classList.remove("mobVidljivo");
+            lNavigacija.classList.remove("mobMaknuto");
+        }
         try{zatvoriPopupTab()}
         catch(error){}
         /*faders.forEach(element => {
