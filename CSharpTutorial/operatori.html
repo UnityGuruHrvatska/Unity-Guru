@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="hr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,10 @@
     <link rel="stylesheet" href="../stil.css">
     <link rel="stylesheet" href="../prism.css">
 </head>
-<body onload="stilUOdnosuNaEkran(), promjenaSvjetline()"><!--Promjena svjetline radi samo kada je stranica objavljena na serveru-->
-    
+
+<body onload="stilUOdnosuNaEkran(), promjenaSvjetline()">
+    <!--Promjena svjetline radi samo kada je stranica objavljena na serveru-->
+
     <div id="popup">
         <div id="zatvoriGumb" onclick="zatvoriPopupTab()">X</div>
         <div class="tppp Zbrajanje">
@@ -99,9 +102,9 @@
             <p>Radnja: x = x >> 3</p>
         </div>
         <div class="tppp bsl-jed">
-            <p>Znak: <<=</p>
-            <p>Primjer: x <<= 3</p>
-            <p>Radnja: x = x << 3</p>
+            <p>Znak: <<=< /p>
+                    <p>Primjer: x <<= 3</p>
+                            <p>Radnja: x = x << 3</p>
         </div>
 
         <div class="tppp Jednak">
@@ -121,8 +124,8 @@
         </div>
         <div class="tppp Manji-od">
             <p>Manji od</p>
-            <p>Znak: <</p>
-            <p>Primjer: x < 3</p>
+            <p>Znak: << /p>
+                    <p>Primjer: x < 3</p>
         </div>
         <div class="tppp Veći-ili-jednak">
             <p>Veće ili jednako</p>
@@ -131,14 +134,14 @@
         </div>
         <div class="tppp Manji-ili-jednak">
             <p>Manje ili jednako</p>
-            <p>Znak: <=</p>
-            <p>Primjer: x <= 3</p>
+            <p>Znak: <=< /p>
+                    <p>Primjer: x <= 3</p>
         </div>
 
         <div class="tppp i">
             <p>Logička konjunkcija (i)</p>
             <p>Opis: Vraća istinitu vrijednost ako su obje izjave istinite</p>
-            <p>Primjer: x < 5 &&  x < 10</p>
+            <p>Primjer: x < 5 && x < 10</p>
         </div>
         <div class="tppp ili">
             <p>Logička disjunkcija (ili)</p>
@@ -151,25 +154,32 @@
             <p>Primjer: !(x < 5 && x < 10)</p>
         </div>
     </div>
-    
-    <button id="treba" onclick="svjetlina()" class = "tema-gumb"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm40-83q119-15 199.5-104.5T800-480q0-123-80.5-212.5T520-797v634Z"/></svg></button>
-    <button class = "tema-gumba-meni komp" onclick="pojavaLekcije()"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></button>   
+
+    <button id="treba" onclick="svjetlina()" class="tema-gumb"><svg xmlns="http://www.w3.org/2000/svg" height="24"
+            viewBox="0 -960 960 960" width="24">
+            <path
+                d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm40-83q119-15 199.5-104.5T800-480q0-123-80.5-212.5T520-797v634Z" />
+        </svg></button>
+    <button class="tema-gumba-meni komp" onclick="pojavaLekcije()"><svg xmlns="http://www.w3.org/2000/svg" height="24"
+            viewBox="0 -960 960 960" width="24">
+            <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+        </svg></button>
     <div class="gornja-navigacija">
-        <a class="gornji-gumbi"  id = "odabrano" href="intro.html">C#</a>
+        <a class="gornji-gumbi" id="odabrano" href="intro.html">C#</a>
         <a class="gornji-gumbi" href="../UnityUI/intro.html">Unity UI</a>
         <a class="gornji-gumbi" href="../UnityCSharp/intro.html">Unity C#</a>
     </div>
 
     <div class="lijeva-navigacija">
-        <a class="lijevi-gumbi" href="../index.html">Početna stranica</a><br>  
-        <a class="lijevi-gumbi" href = "intro.html">Polazna lekcija</a><br>
+        <a class="lijevi-gumbi" href="../index.html">Početna stranica</a><br>
+        <a class="lijevi-gumbi" href="intro.html">Polazna lekcija</a><br>
         <a class="lijevi-gumbi" href="instalacija.html">Instalacija</a><br>
         <a class="lijevi-gumbi" href="ispisivanjeIsintaksa.html">Sintaksa i ispisivanje</a><br>
         <a class="lijevi-gumbi" href="komentari.html">Komentari</a><br>
         <a class="lijevi-gumbi" href="varijable.html">Varijable i vrste podataka</a><br>
         <a class="lijevi-gumbi" href="pretvaranjePodataka.html">Pretvaranje vrsta podataka</a><br>
         <a class="lijevi-gumbi" href="unosPodataka.html">Unošenje podataka</a><br>
-        <a class="lijevi-gumbi" id = "odabrano" href="operatori.html">Operatori</a><br>
+        <a class="lijevi-gumbi" id="odabrano" href="operatori.html">Operatori</a><br>
         <a class="lijevi-gumbi" href="math.html">Math</a><br>
         <a class="lijevi-gumbi" href="string.html">String</a><br>
         <a class="lijevi-gumbi" href="booleans.html">Booleans</a><br>
@@ -188,15 +198,16 @@
 
     <br>
 
-    <div class="tekstualna-kutija"> 
+    <div class="tekstualna-kutija">
         <h1>Operatori</h1>
-        <p>U računalnom programiranju, operator je računalni konstrukt definiran unutar programskog jezika, koji se ponaša poput funkcije, ali se razlikuje sintaksom.</p>
+        <p>U računalnom programiranju, operator je računalni konstrukt definiran unutar programskog jezika, koji se
+            ponaša poput funkcije, ali se razlikuje sintaksom.</p>
         <p>Operatori se razlikuju prema broju operanada koje primaju i prema tipu podatka koji vraćaju kao rezultat.</p>
     </div>
 
     <br>
 
-    <div class="tekstualna-kutija"> 
+    <div class="tekstualna-kutija">
         <h1>Aritmetički operatori</h1>
         <p>Aritmetički operatori služe za obavljanje čestih matematičkih radnji.</p>
         <table class="tablica">
@@ -286,7 +297,7 @@ Console.WriteLine(10 + 5); //Ispisuje: "15"
 
     <br>
 
-    <div class="tekstualna-kutija"> 
+    <div class="tekstualna-kutija">
         <h1>Operatori dodjele</h1>
         <p>Operatori dodjele koriste se za dodjelu vrijednosti varijablama.</p>
         <table class="tablica">
@@ -346,7 +357,8 @@ Console.WriteLine(10 + 5); //Ispisuje: "15"
                 <th>x = x >> 3</th>
             </tr>
             <tr>
-                <th><<=</th>
+                <th>
+                    <<=< /th>
                 <th>x <<= 3</th>
                 <th>x = x << 3</th>
             </tr>
@@ -383,7 +395,9 @@ Console.WriteLine(10 + 5); //Ispisuje: "15"
                 <th><button onclick="otvoriPopupTab('bsd-jed')" class="gumb-tab-za-mob">>>=</button></th>
             </tr>
             <tr>
-                <th><button onclick="otvoriPopupTab('bsl-jed')" class="gumb-tab-za-mob"><<=</button></th>
+                <th><button onclick="otvoriPopupTab('bsl-jed')" class="gumb-tab-za-mob">
+                        <<=< /button>
+                </th>
             </tr>
         </table>
 
@@ -403,10 +417,12 @@ Console.WriteLine(x); //Ispisuje: "15"
 
     <br>
 
-    <div class="tekstualna-kutija"> 
+    <div class="tekstualna-kutija">
         <h1>Operatori usporedbe</h1>
         <p>Operatori usporedbe koriste se za usporedbu dviju vrijednosti ili varijabli.</p>
-        <p>Povratna vrijednost usporedbe je istina (<span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">True</span>) ili neistina (<span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">False</span>).</p>
+        <p>Povratna vrijednost usporedbe je istina (<span
+                style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">True</span>) ili neistina (<span
+                style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">False</span>).</p>
         <table class="tablica">
             <tr>
                 <th>Operator</th>
@@ -429,7 +445,8 @@ Console.WriteLine(x); //Ispisuje: "15"
                 <th>x > y</th>
             </tr>
             <tr>
-                <th><</th>
+                <th>
+                    << /th>
                 <th>Manji od</th>
                 <th>x < y</th>
             </tr>
@@ -439,7 +456,8 @@ Console.WriteLine(x); //Ispisuje: "15"
                 <th>x >= y</th>
             </tr>
             <tr>
-                <th><=</th>
+                <th>
+                    <=< /th>
                 <th>Manje ili jednako</th>
                 <th>x <= y</th>
             </tr>
@@ -455,13 +473,17 @@ Console.WriteLine(x); //Ispisuje: "15"
                 <th><button onclick="otvoriPopupTab('Veći-od')" class="gumb-tab-za-mob">></button></th>
             </tr>
             <tr>
-                <th><button onclick="otvoriPopupTab('Manji-od')" class="gumb-tab-za-mob"><></button></th>
+                <th><button onclick="otvoriPopupTab('Manji-od')" class="gumb-tab-za-mob">
+                        <>
+                    </button></th>
             </tr>
             <tr>
                 <th><button onclick="otvoriPopupTab('Veći-ili-jednak')" class="gumb-tab-za-mob">>=</button></th>
             </tr>
             <tr>
-                <th><button onclick="otvoriPopupTab('Manji-ili-jednak')" class="gumb-tab-za-mob"><=</button></th>
+                <th><button onclick="otvoriPopupTab('Manji-ili-jednak')" class="gumb-tab-za-mob">
+                        <=< /button>
+                </th>
             </tr>
         </table>
 
@@ -480,10 +502,12 @@ Console.WriteLine(x > y); //Ispisuje: "True" jer je 10 veće od 5
 
     <br>
 
-    <div class="tekstualna-kutija"> 
+    <div class="tekstualna-kutija">
         <h1>Logički operatori</h1>
         <p>Logički operatori koriste se za određivanje logike između varijabli ili vrijednosti.</p>
-        <p>Kao i kod operatora usporedbe povratna vrijednost im je istina (<span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">True</span>) ili neistina (<span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">False</span>).</p>
+        <p>Kao i kod operatora usporedbe povratna vrijednost im je istina (<span
+                style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">True</span>) ili neistina (<span
+                style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">False</span>).</p>
         <table class="tablica">
             <tr>
                 <th>Operator</th>
@@ -495,7 +519,7 @@ Console.WriteLine(x > y); //Ispisuje: "True" jer je 10 veće od 5
                 <th>&&</th>
                 <th>Logička konjunkcija (i)</th>
                 <th>Vraća istinitu vrijednost ako su obje izjave istinite</th>
-                <th>x < 5 &&  x < 10</th>
+                <th>x < 5 && x < 10</th>
             </tr>
             <tr>
                 <th>||</th>
@@ -535,12 +559,17 @@ Console.WriteLine(x < y && x > y); //Ispisuje: "False" jer je izraz neistinit
         <br>
     </div>
 
-    
+
 
     <div class="drzac-gumba">
-        <a class="donji-gumbi" href="unosPodataka.html"><h1 class="naslovni-gumb">Prijašnje</h1></a>
-        <a class="donji-gumbi" href="math.html"><h1 class="naslovni-gumb">Sljedeće</h1></a>
+        <a class="donji-gumbi" href="unosPodataka.html">
+            <h1 class="naslovni-gumb">Prijašnje</h1>
+        </a>
+        <a class="donji-gumbi" href="math.html">
+            <h1 class="naslovni-gumb">Sljedeće</h1>
+        </a>
     </div>
     <script src="../pojavljivanje.js"></script>
 </body>
+
 </html>

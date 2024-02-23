@@ -14,14 +14,13 @@ const OpcijeMob = {
 };
 
 //služi za pojavljivanje elemenata kada uđu na ekran (doda im klasu pojava)
-const pojavaTijekomSkrolanja = new IntersectionObserver(function(entries, pojavaTijekomSkrolanja) {
+const pojavaTijekomSkrolanja = new IntersectionObserver(function (entries, pojavaTijekomSkrolanja) {
     entries.forEach(entry => {
         if (!entry.isIntersecting) {
             entry.target.classList.remove("pojava");
-        } 
-        
-        else 
-        {
+        }
+
+        else {
             entry.target.classList.add("pojava");
         }
     });
@@ -53,12 +52,12 @@ const elementiScrollbara = [lNavigacija, scrollBarUnosnogKoda, scrollBarIzlaznog
 const gumbiMob = document.querySelectorAll('.gumb-tab-za-mob');
 
 
-function promjenaSvjetline () {
+function promjenaSvjetline() {
     //govori da se promjenila tema i dohvaća kolačić koji prati temu
     let svjetlina = dohvatiKolačić("svjetlina");
 
     //stvara novi kolačić ako nema postojećeg
-    if (svjetlina == ""){
+    if (svjetlina == "") {
         postaviKolačić("svjetlina", "true", 1000000000);
     }
 
@@ -66,8 +65,7 @@ function promjenaSvjetline () {
     const lijevigumbiElementi = document.querySelectorAll(".lijevi-gumbi, .gornji-gumbi");
 
     //ako je svijetla tema
-    if (svjetlina == "false") 
-    {
+    if (svjetlina == "false") {
         //mjeanja boju scrollbara
         document.body.classList.add('svijetla-tema');
 
@@ -87,14 +85,14 @@ function promjenaSvjetline () {
 
         //mjenja boju za kada mis prekriva gumbove lekcije
         lijevigumbiElementi.forEach(element => {
-            element.addEventListener("mouseover", function() {
+            element.addEventListener("mouseover", function () {
                 //ako ne prekriva id odabrano onda ce mu promjeniti boju pod uvjetom da je to kalasa .lijevi-gumbi
                 if (this.id != "odabrano") {
                     this.style.backgroundColor = "rgb(146, 223, 224)";
                 }
             });
-            
-            element.addEventListener("mouseout", function() {
+
+            element.addEventListener("mouseout", function () {
                 //ako ne prekriva id odabrano onda ce mu promjeniti boju pod uvjetom da je to kalasa .lijevi-gumbi
                 if (this.id != "odabrano") {
                     this.style.backgroundColor = "transparent";
@@ -102,26 +100,25 @@ function promjenaSvjetline () {
             });
         });
 
-        for (const nes of sve) 
-        {
+        for (const nes of sve) {
             nes.style.transition = '0.3s';
-            
+
             //mjenja boju pozadine
             let boja = "rgb(255, 255, 255)";
-            
+
             switch (window.getComputedStyle(nes).backgroundColor) {
                 //pozadina1
                 case "rgb(35, 37, 41)":
                     nes.style.backgroundColor = "rgb(255, 255, 255)";
                     boja = "rgb(228, 228, 255)";
                     break;
-                    
+
                 //pozadina2
                 case "rgb(41, 44, 49)":
                     nes.style.backgroundColor = "rgb(245, 245, 255)";
                     boja = "rgb(255, 255, 255)";
                     break;
-                    
+
                 //gumb
                 case "rgb(40, 42, 54)":
                     nes.style.backgroundColor = "rgb(227, 231, 250)";
@@ -131,7 +128,7 @@ function promjenaSvjetline () {
                 case "rgb(23, 25, 32)":
                     nes.style.backgroundColor = "rgb(138, 141, 156)";
                     break;
-                    
+
                 //boja gumba za odabranu lekciju
                 case "rgb(63, 67, 88)":
                     nes.style.backgroundColor = "rgb(155, 200, 201)";
@@ -139,8 +136,7 @@ function promjenaSvjetline () {
             }
 
             //slovaa varijabli u prism.css
-            if(window.getComputedStyle(nes).color === "rgb(138, 113, 197)")
-            {
+            if (window.getComputedStyle(nes).color === "rgb(138, 113, 197)") {
                 nes.style.transition = '0.3s';
                 nes.style.color = "rgb(8, 193, 255)";
             }
@@ -150,40 +146,39 @@ function promjenaSvjetline () {
                 lijevigumbi.classList.add("svijetlo");
             });
 
-            
+
 
             //mjenja boju pozadine kod svg 
-            if(nes.tagName == "svg") {
+            if (nes.tagName == "svg") {
                 nes.style.transition = '0.3s';
                 const pathElement = nes.querySelector("#wavepath");
                 if (pathElement) {
                     pathElement.setAttribute("fill", boja);
                 }
             }
-            
+
             //mjenja boju slova
-            if(window.getComputedStyle(nes).color === "rgb(239, 239, 239)"){
+            if (window.getComputedStyle(nes).color === "rgb(239, 239, 239)") {
                 nes.style.transition = '0.3s';
                 if (nes.id == "treba") {
                     continue;
                 }
-                else{
+                else {
                     nes.style.color = "rgb(0, 0, 0)";
                 }
             }
         }
-                    
+
         //mijenja logo ovisno o temi
         try {
             logo.src = "slike/logo3dark.png";
         }
-        catch(err) {
+        catch (err) {
             //console.log("Nema loga");
         }
     }
     //ako je tamna tema
-    else if (svjetlina == "true")
-    {
+    else if (svjetlina == "true") {
         //mjenja boju scrollbara bodya
         document.body.classList.remove('svijetla-tema');
 
@@ -203,14 +198,14 @@ function promjenaSvjetline () {
 
         //mjenja boju za kada mis prekriva gumbove lekcije
         lijevigumbiElementi.forEach(element => {
-            element.addEventListener("mouseover", function() {
+            element.addEventListener("mouseover", function () {
                 //ako ne prekriva id odabrano onda ce mu promjeniti boju pod uvjetom da je to kalasa .lijevi-gumbi
                 if (this.id != "odabrano") {
                     this.style.backgroundColor = "rgb(83, 91, 127)";
                 }
             });
-            
-            element.addEventListener("mouseout", function() {
+
+            element.addEventListener("mouseout", function () {
                 //ako ne prekriva id odabrano onda ce mu promjeniti boju pod uvjetom da je to kalasa .lijevi-gumbi
                 if (this.id != "odabrano") {
                     this.style.backgroundColor = "transparent";
@@ -218,30 +213,29 @@ function promjenaSvjetline () {
             });
         });
 
-        for (const nes of sve) 
-        {
+        for (const nes of sve) {
             nes.style.transition = '0.3s';
 
             let boja = "rgb(35, 37, 41)";
-            
+
             switch (window.getComputedStyle(nes).backgroundColor) {
                 //pozadina1
                 case "rgb(255, 255, 255)":
                     nes.style.backgroundColor = "rgb(35, 37, 41)";
                     boja = "rgb(41, 44, 49)";
                     break;
-                    
+
                 //pozadina2
                 case "rgb(245, 245, 255)":
                     nes.style.backgroundColor = "rgb(41, 44, 49)";
                     boja = "rgb(35, 37, 41)";
                     break;
-                    
+
                 //gumb
                 case "rgb(227, 231, 250)":
                     nes.style.backgroundColor = "rgb(40, 42, 54)";
                     break;
-                        
+
                 //unutrasnjojst code containera
                 case "rgb(138, 141, 156)":
                     nes.style.backgroundColor = "rgb(23, 25, 32)";
@@ -254,8 +248,7 @@ function promjenaSvjetline () {
             }
 
             //slovaa varijabli u prism.css
-            if(window.getComputedStyle(nes).color === "rgb(8, 193, 255)")
-            {
+            if (window.getComputedStyle(nes).color === "rgb(8, 193, 255)") {
                 nes.style.transition = '0.3s';
                 nes.style.color = "rgb(138, 113, 197)";
             }
@@ -266,16 +259,16 @@ function promjenaSvjetline () {
             });
 
             //mjenja boju pozadine kod svg
-            if(nes.tagName == "svg") {
+            if (nes.tagName == "svg") {
                 nes.style.transition = '0.3s';
                 const pathElement = nes.querySelector("#wavepath");
                 if (pathElement) {
                     pathElement.setAttribute("fill", boja);
                 }
             }
-            
+
             //mjenja boju slova
-            if(window.getComputedStyle(nes).color === "rgb(0, 0, 0)"){
+            if (window.getComputedStyle(nes).color === "rgb(0, 0, 0)") {
                 nes.style.transition = '0.3s';
                 nes.style.color = "rgb(239, 239, 239)";
             }
@@ -284,7 +277,7 @@ function promjenaSvjetline () {
         try {
             logo.src = "slike/logo3.png";
         }
-        catch(err) {
+        catch (err) {
             //console.log("Nema loga");
         }
     }
@@ -304,7 +297,7 @@ function svjetlina(gumb) {
         postaviKolačić("svjetlina", svjetlo, 1000000000);
         promjenaSvjetline();
 
-        setTimeout(function() {
+        setTimeout(function () {
             gumbSeMožeStisnuti = true;
         }, 350);
 
@@ -324,51 +317,51 @@ function stilUOdnosuNaEkran() {
     var visinaProzora = window.innerHeight;
     var zumiranje = window.devicePixelRatio || 1;
 
-    let AR = visinaProzora/širinaProzora;
+    let AR = visinaProzora / širinaProzora;
 
     // Update styles based on the width
     if (širinaProzora <= 750) {
-        isMob=true;
+        isMob = true;
         sveq.forEach(element => {
             element.classList.add('mob');
             element.classList.remove('komp');
         });
 
-        if(lNavigacija != null){
+        if (lNavigacija != null) {
             lNavigacija.classList.remove("mobVidljivo");
             lNavigacija.classList.add("mobMaknuto");
         }
 
         vidljiv = false;
-        console.log(širinaProzora)
+        //console.log(širinaProzora)
         /*faders.forEach(element => {
             element.classList.remove('fade-in');
         });
         sliders.forEach(element => {
             element.classList.remove('klizanje');
         });*/
-    } 
+    }
     else if (širinaProzora > 750) {
-        isMob=false;
+        isMob = false;
         //console.log(širinaProzora)
         sveq.forEach(element => {
             element.classList.add('komp');
             element.classList.remove('mob');
         });
-        
-        if(lNavigacija != null){
+
+        if (lNavigacija != null) {
             lNavigacija.classList.remove("mobVidljivo");
             lNavigacija.classList.remove("mobMaknuto");
         }
-        try{zatvoriPopupTab()}
-        catch(error){}
+        try { zatvoriPopupTab() }
+        catch (error) { }
         /*faders.forEach(element => {
             element.classList.add('fade-in');
         });
         sliders.forEach(element => {
             element.classList.remove('klizanje');
         });*/
-    } 
+    }
 }
 window.addEventListener('resize', stilUOdnosuNaEkran);
 
@@ -377,7 +370,7 @@ window.addEventListener('resize', stilUOdnosuNaEkran);
 function postaviKolačić(kolačićIme, kolačićVrijednot, vrijemeTrajanja) {
     const d = new Date();
     d.setTime(d.getTime() + (vrijemeTrajanja * 24 * 60 * 60 * 1000));
-    let expires = "expires="+d.toUTCString();
+    let expires = "expires=" + d.toUTCString();
     document.cookie = kolačićIme + "=" + kolačićVrijednot + ";" + expires + ";path=/";
 };
 
@@ -386,7 +379,7 @@ function dohvatiKolačić(imeKolačića) {
     let ime = imeKolačića + "=";
     let ka = document.cookie.split(";");
 
-    for(let i = 0; i < ka.length; i++) {
+    for (let i = 0; i < ka.length; i++) {
         let kol = ka[i];
         while (kol.charAt(0) == " ") {
             kol = kol.substring(1);
@@ -400,20 +393,19 @@ function dohvatiKolačić(imeKolačića) {
 
 
 // provjerava sadrzi li stranica drzac koda(njega ima samo dio stranice s C#)
-if(document.getElementById("drzac-koda-textarea") != null)
-{
-    document.getElementById("drzac-koda-textarea").addEventListener("keydown", function(e) {
+if (document.getElementById("drzac-koda-textarea") != null) {
+    document.getElementById("drzac-koda-textarea").addEventListener("keydown", function (e) {
         if (e.key === "Tab") {
             e.preventDefault();
-    
+
             // Informacije o odabiru
             var pocetak = this.selectionStart;
             var kraj = this.selectionEnd;
-    
+
             // Umetni tab na trenutacnu poziciju pointera
             var tab = "\t";
             this.value = this.value.substring(0, pocetak) + tab + this.value.substring(kraj);
-    
+
             // Pomakni poziciju pointera nakon umetnutog taba
             this.selectionStart = this.selectionEnd = pocetak + tab.length;
         }
@@ -423,7 +415,7 @@ if(document.getElementById("drzac-koda-textarea") != null)
 
 const tppps = document.querySelectorAll(".tppp");
 function odaberiIdZaPopup(vrsta) {
-    let vrs = document.querySelectorAll("."+vrsta);
+    let vrs = document.querySelectorAll("." + vrsta);
     tppps.forEach(tppp => {
         tppp.style.display = 'none';
     });
@@ -453,7 +445,7 @@ function zatvoriPopupTab() {
 }
 
 //provjerava je li mis kliknut ako je onda ce se popup smanjiti
-document.body.addEventListener('mousedown', function(event) {
+document.body.addEventListener('mousedown', function (event) {
     if (!event.target.classList.contains('gumb-tab-za-mob') && popUp != null) {
         zatvoriPopupTab();
     }
@@ -461,14 +453,14 @@ document.body.addEventListener('mousedown', function(event) {
 
 //za pojavljivanje lekcije s gumbima
 //nadodaje se i mice klasa kada je u mob verziji 
-function pojavaLekcije(){
-    if(vidljiv){
+function pojavaLekcije() {
+    if (vidljiv) {
         lNavigacija.classList.remove("mobVidljivo");
         lNavigacija.classList.add("mobMaknuto");
         vidljiv = false;
     }
 
-    else{
+    else {
         lNavigacija.classList.add("mobVidljivo");
         lNavigacija.classList.remove("mobMaknuto");
         vidljiv = true;

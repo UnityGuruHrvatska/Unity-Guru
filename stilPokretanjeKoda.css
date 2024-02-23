@@ -37,39 +37,37 @@ textarea {
   padding: 10px;
   margin-top: 30px;
   box-shadow: 1px 1px 0.5em #000 inset;
-  scrollbar-width: thin;
-  scrollbar-color: rgb(57, 61, 89) rgb(70, 69, 69);
   outline: none;
   color: rgb(239, 239, 239);
 }
 
 /* Scrollbar za dio di se unosi kod*/
 textarea::-webkit-scrollbar {
- width: 12px;
+  width: 12px;
 }
 
 textarea::-webkit-scrollbar-track {
- background: transparent;
+  background: transparent;
 }
 
-/*Ovo je scrool bar za tamnu temu*/  
+/*Ovo je scrool bar za tamnu temu*/
 textarea::-webkit-scrollbar-thumb {
-  background-color: #393d59; 
-  border-radius: 5px; 
+  background-color: #393d59;
+  border-radius: 5px;
 }
 
 textarea::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(55, 58, 74, 0.7); 
+  background-color: rgba(55, 58, 74, 0.7);
 }
 
 /*Ovo je scrollbar za svijetlu temu*/
 textarea.svijetla-tema::-webkit-scrollbar-thumb {
-  background-color: rgb(166, 219, 252); 
-  border-radius: 5px; 
+  background-color: rgb(166, 219, 252);
+  border-radius: 5px;
 }
 
 textarea.svijetla-tema::-webkit-scrollbar-thumb:hover {
-  background-color: rgb(106, 171, 212); 
+  background-color: rgb(106, 171, 212);
 }
 
 
@@ -90,85 +88,85 @@ textarea.svijetla-tema::-webkit-scrollbar-thumb:hover {
   overflow-wrap: break-word;
 }
 
-  /*Scrollbar za output koda*/
-  #drzac-izlaznog-koda-podrucje::-webkit-scrollbar {
-    width: 12px;
-  }
+/*Scrollbar za output koda*/
+#drzac-izlaznog-koda-podrucje::-webkit-scrollbar {
+  width: 12px;
+}
 
-  #drzac-izlaznog-koda-podrucje::-webkit-scrollbar-track {
-    background: transparent;
-  }
+#drzac-izlaznog-koda-podrucje::-webkit-scrollbar-track {
+  background: transparent;
+}
 
-  #drzac-izlaznog-koda-podrucje::-webkit-scrollbar-thumb {
-    background-color: rgb(57, 61, 89);
-    border-radius: 5px;
-  }
+#drzac-izlaznog-koda-podrucje::-webkit-scrollbar-thumb {
+  background-color: rgb(57, 61, 89);
+  border-radius: 5px;
+}
 
-  #drzac-izlaznog-koda-podrucje::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(55, 58, 74, 0.7);
-  }
+#drzac-izlaznog-koda-podrucje::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(55, 58, 74, 0.7);
+}
 
-  #drzac-izlaznog-koda-podrucje.svijetla-tema::-webkit-scrollbar-thumb {
-    background-color: rgb(166, 219, 252); 
-    border-radius: 5px; 
-  }
+#drzac-izlaznog-koda-podrucje.svijetla-tema::-webkit-scrollbar-thumb {
+  background-color: rgb(166, 219, 252);
+  border-radius: 5px;
+}
 
-  #drzac-izlaznog-koda-podrucje.svijetla-tema::-webkit-scrollbar-thumb:hover {
-    background-color: rgb(106, 171, 212); 
-  }
- 
+#drzac-izlaznog-koda-podrucje.svijetla-tema::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(106, 171, 212);
+}
+
 
 /*CSS za gumb koji mjenja izmedu tamne i svijetle teme*/
-.tema-gumb{
-    background-color: transparent;
-    border: transparent;
-    position: fixed;
-    top: 0;
-    right: 0;
-    margin-top: 20px;
-    margin-right: 20px;
-    transition-duration: 0.2s;
-    transform: scale(1.5);
-  }
-  
-.tema-gumb.komp:hover{
-    transform: scale(1.8);
-    transition-duration: 0.2s;
-  }
+.tema-gumb {
+  background-color: transparent;
+  border: transparent;
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin-top: 20px;
+  margin-right: 20px;
+  transition-duration: 0.2s;
+  transform: scale(1.5);
+}
+
+.tema-gumb.komp:hover {
+  transform: scale(1.8);
+  transition-duration: 0.2s;
+}
 
 /*CSS za gumb koji pokreće kod*/
 .tema-gumba-pokretanje {
-    background-color: transparent;
-    border: transparent;
-    position: fixed;
-    top: 0;
-    right: 50%;
-    transform: translateX(50%) scale(1.5);
-    margin-top: 20px;
-    transition-duration: 0.2s;
-  }
-  
+  background-color: transparent;
+  border: transparent;
+  position: fixed;
+  top: 0;
+  right: 50%;
+  transform: translateX(50%) scale(1.5);
+  margin-top: 20px;
+  transition-duration: 0.2s;
+}
 
-  .tema-gumba-pokretanje.komp:hover{
-    transform: translateX(50%) scale(1.8);
-    transition-duration: 0.2s;
-  }
 
-  /*Gumb za home page*/
-  .tema-gumba-home {
-    background-color: transparent;
-    border: transparent;
-    position: fixed;
-    top: 0;
-    left: 0;
-    margin-top: 20px;
-    margin-left: 20px;
-    transition-duration: 0.2s;
-    transform: scale(1.5);
-  }
-  
+.tema-gumba-pokretanje.komp:hover {
+  transform: translateX(50%) scale(1.8);
+  transition-duration: 0.2s;
+}
 
-  .tema-gumba-home.komp:hover{
-    transform: scale(1.8);
-    transition-duration: 0.2s;
-  }
+/*Gumb za home page*/
+.tema-gumba-home {
+  background-color: transparent;
+  border: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin-top: 20px;
+  margin-left: 20px;
+  transition-duration: 0.2s;
+  transform: scale(1.5);
+}
+
+
+.tema-gumba-home.komp:hover {
+  transform: scale(1.8);
+  transition-duration: 0.2s;
+}

@@ -6,7 +6,7 @@ body {
   background-color: rgb(35, 37, 41);
 }
 
-body.mob{
+body.mob {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -19,13 +19,15 @@ body.mob{
   align-items: center;
 }
 
-h1{
+h1 {
   color: rgb(239, 239, 239);
 }
-h2{
+
+h2 {
   color: rgb(239, 239, 239);
 }
-p{
+
+p {
   color: rgb(239, 239, 239);
 }
 
@@ -49,10 +51,9 @@ p{
   border-radius: 5px;
 }
 
-.lijevi-gumbi.mob{
+.lijevi-gumbi.mob {
   width: fit-content;
   width: -moz-fit-content
-  
 }
 
 /*CSS za gornje gumbe kod cjelina(C#, Unity UI, Unity C#)*/
@@ -152,10 +153,10 @@ kada je prekrijemo mišem*/
 }
 
 /*nije potreban za mobilnu verziju pa ga se ovako makne*/
-.lijeva-navigacija.mobMaknuto{
+.lijeva-navigacija.mobMaknuto {
   transform: scale(0);
   font-size: 1em;
-  scrollbar-width: thin; 
+  scrollbar-width: thin;
   scrollbar-color: transparent transparent;
 }
 
@@ -192,7 +193,7 @@ neke cjeline*/
 }
 
 .lijeva-navigacija.svijetla-tema::-webkit-scrollbar-thumb {
-  background-color: rgb(166, 219, 252); 
+  background-color: rgb(166, 219, 252);
 }
 
 .lijeva-navigacija.svijetla-tema::-webkit-scrollbar-thumb:hover {
@@ -216,14 +217,14 @@ neke cjeline*/
 }
 
 /*nije potreban za mobilnu verziju pa ga se ovako makne*/
-.gornja-navigacija.mob{
+.gornja-navigacija.mob {
   opacity: 0;
   transform: scale(0);
 }
 
 /*CSS koji stvori "kutiju" sa zaobljenim rubovima di se nalaze primjeri koda i opis
 sluzi da se odvoje podnaslovi unutar jedne lekcije*/
-.tekstualna-kutija{
+.tekstualna-kutija {
   background-color: rgb(41, 44, 49);
   border-radius: 10px;
   padding: 10px;
@@ -236,7 +237,7 @@ sluzi da se odvoje podnaslovi unutar jedne lekcije*/
   overflow-x: scroll;
 }
 
-.tekstualna-kutija.mob{
+.tekstualna-kutija.mob {
   background-color: rgb(41, 44, 49);
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
@@ -256,24 +257,24 @@ sluzi da se odvoje podnaslovi unutar jedne lekcije*/
   background: transparent;
 }
 
-/*Ovo je scrool bar za tamnu temu*/  
+/*Ovo je scrool bar za tamnu temu*/
 ::-webkit-scrollbar-thumb {
-  background-color: #393d59; 
-  border-radius: 5px; 
+  background-color: #393d59;
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(55, 58, 74, 0.7); 
+  background-color: rgba(55, 58, 74, 0.7);
 }
 
 /*Ovo je scrollbar za svijetlu temu*/
 .svijetla-tema::-webkit-scrollbar-thumb {
-  background-color: rgb(166, 219, 252); 
-  border-radius: 5px; 
+  background-color: rgb(166, 219, 252);
+  border-radius: 5px;
 }
 
 .svijetla-tema::-webkit-scrollbar-thumb:hover {
-  background-color: rgb(106, 171, 212); 
+  background-color: rgb(106, 171, 212);
 }
 
 
@@ -295,7 +296,7 @@ sluzi da se odvoje podnaslovi unutar jedne lekcije*/
   border-radius: 20px;
   width: 500px;
   height: 381px;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   left: 50%;
   transform: translateX(-50%);
   background-color: rgb(40, 42, 54);
@@ -334,36 +335,38 @@ sluzi da se odvoje podnaslovi unutar jedne lekcije*/
   background-color: rgb(35, 37, 41);
   color: rgb(239, 239, 239);
   border: 2px transparent;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2), 0 1.5px 5px 0 rgba(0,0,0,0.19);
-  
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 1.5px 5px 0 rgba(0, 0, 0, 0.19);
+
 }
 
 /*mjenja sijenu gumba talbice kada je pritisnuta
 ovi gumbi su samo vidljivi u mobilnoj verziji*/
-.gumb-tab-za-mob:active{
-  box-shadow: 0 2px 4px 0 rgba(151, 151, 151, 0.2), 0 1.5px 5px 0 rgba(0,0,0,0.19); 
+.gumb-tab-za-mob:active {
+  box-shadow: 0 2px 4px 0 rgba(151, 151, 151, 0.2), 0 1.5px 5px 0 rgba(0, 0, 0, 0.19);
 }
 
-.gumb-tab-za-mob.svijetla-tema:active{
-  box-shadow: 0 2px 4px 0 rgba(0, 255, 17, 0.2), 0 1.5px 5px 0 rgba(255, 0, 0, 0.19); 
+.gumb-tab-za-mob.svijetla-tema:active {
+  box-shadow: 0 2px 4px 0 rgba(0, 255, 17, 0.2), 0 1.5px 5px 0 rgba(255, 0, 0, 0.19);
 }
 
 
-td, th {
+td,
+th {
   border: 1px solid #393d59;
   text-align: left;
   padding: 8px;
   overflow-x: hidden;
 }
 
-td.mob, th.mob {
+td.mob,
+th.mob {
   border: none;
   text-align: left;
   padding: 8px;
 }
 
 /*CSS za gumb s kojim mjenjamo light i dark mod*/
-.tema-gumb{
+.tema-gumb {
   background-color: transparent;
   border: transparent;
   position: fixed;
@@ -376,7 +379,7 @@ td.mob, th.mob {
   outline: none;
 }
 
-.tema-gumb.komp:hover{
+.tema-gumb.komp:hover {
   transform: scale(1.8);
   transition-duration: 0.3s;
 }
@@ -385,11 +388,11 @@ td.mob, th.mob {
 /*Ovaj se gumb pojavljuje samo u mobilnoj verziji 
 ili ako je stranica na pc previse zumirana*/
 
-.tema-gumba-meni.komp{
+.tema-gumba-meni.komp {
   display: none;
 }
 
-.tema-gumba-meni.mob{
+.tema-gumba-meni.mob {
   background-color: transparent;
   border: transparent;
   position: fixed;
@@ -403,7 +406,7 @@ ili ako je stranica na pc previse zumirana*/
 }
 
 /*CSS za gumb koji vodi na link*/
-.link-gumba{
+.link-gumba {
   display: inline-block;
   text-align: center;
   justify-content: center;
@@ -416,19 +419,19 @@ ili ako je stranica na pc previse zumirana*/
   border-radius: 20px;
   transition-duration: 0.3s;
   background-color: rgb(40, 42, 54);
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); 
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   transition-duration: 0.3s;
   outline: none;
 }
 
-.link-gumba:hover{
+.link-gumba:hover {
   transform: scale(1.1);
   transition-duration: 0.3s;
 }
 
 /*Ako neki tekst vodi na neki link promjeni mu boju u malo 
 drugačiju nijansu od one kojima su istaknute ključne riječi u lekciji*/
-.link-teksta{
+.link-teksta {
   text-decoration: none;
   color: #8a71c5;
 }
@@ -446,7 +449,7 @@ drugačiju nijansu od one kojima su istaknute ključne riječi u lekciji*/
   width: 50%;
   height: auto;
   border-radius: 10px;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); 
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 #zatvoriGumb {

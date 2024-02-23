@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="hr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +9,9 @@
     <link rel="stylesheet" href="../stil.css">
     <link href="../prism.css" rel="stylesheet">
 </head>
-<body onload="stilUOdnosuNaEkran(), promjenaSvjetline()"><!--Promjena svjetline radi samo kada je stranica objavljena na serveru-->
+
+<body onload="stilUOdnosuNaEkran(), promjenaSvjetline()">
+    <!--Promjena svjetline radi samo kada je stranica objavljena na serveru-->
     <div id="popup">
         <div id="zatvoriGumb" onclick="zatvoriPopupTab()">X</div>
         <div class="tppp public">
@@ -24,18 +27,25 @@
             <p>Kod je dostupan samo unutar vlastite skupine, ali ne i iz druge skupine.</p>
         </div>
     </div>
-    
-    <button id="treba" onclick="svjetlina()" class = "tema-gumb"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm40-83q119-15 199.5-104.5T800-480q0-123-80.5-212.5T520-797v634Z"/></svg></button>
-    <button class = "tema-gumba-meni komp" onclick="pojavaLekcije()"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></button>   
+
+    <button id="treba" onclick="svjetlina()" class="tema-gumb"><svg xmlns="http://www.w3.org/2000/svg" height="24"
+            viewBox="0 -960 960 960" width="24">
+            <path
+                d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm40-83q119-15 199.5-104.5T800-480q0-123-80.5-212.5T520-797v634Z" />
+        </svg></button>
+    <button class="tema-gumba-meni komp" onclick="pojavaLekcije()"><svg xmlns="http://www.w3.org/2000/svg" height="24"
+            viewBox="0 -960 960 960" width="24">
+            <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+        </svg></button>
     <div class="gornja-navigacija">
-        <a class="gornji-gumbi"  id = "odabrano" href="intro.html">C#</a>
+        <a class="gornji-gumbi" id="odabrano" href="intro.html">C#</a>
         <a class="gornji-gumbi" href="../UnityUI/intro.html">Unity UI</a>
         <a class="gornji-gumbi" href="../UnityCSharp/intro.html">Unity C#</a>
-    </div> 
+    </div>
 
     <div class="lijeva-navigacija">
-        <a class="lijevi-gumbi" href="../index.html">Početna stranica</a><br>  
-        <a class="lijevi-gumbi" href = "intro.html">Polazna lekcija</a><br>
+        <a class="lijevi-gumbi" href="../index.html">Početna stranica</a><br>
+        <a class="lijevi-gumbi" href="intro.html">Polazna lekcija</a><br>
         <a class="lijevi-gumbi" href="instalacija.html">Instalacija</a><br>
         <a class="lijevi-gumbi" href="ispisivanjeIsintaksa.html">Sintaksa i ispisivanje</a><br>
         <a class="lijevi-gumbi" href="komentari.html">Komentari</a><br>
@@ -53,7 +63,7 @@
         <a class="lijevi-gumbi" href="breakandcontinue.html">Break i Continue</a><br>
         <a class="lijevi-gumbi" href="array.html">Niz</a><br>
         <a class="lijevi-gumbi" href="metoda.html">Metoda</a><br>
-        <a class="lijevi-gumbi" id = "odabrano" href="klasa.html">Klasa</a><br>
+        <a class="lijevi-gumbi" id="odabrano" href="klasa.html">Klasa</a><br>
         <a class="lijevi-gumbi" href="enum.html">Enum</a><br>
         <a class="lijevi-gumbi" href="iznimka.html">Iznimka</a><br>
         <a class="lijevi-gumbi" href="datoteke.html">Datoteke</a><br>
@@ -63,15 +73,23 @@
 
     <div class="tekstualna-kutija">
         <h1>OOP</h1>
-        <p><span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">OOP</span>(objektno orijentirano programiranje) je vrsta programiranja koja se temelji na konceptu objekta di su objekti instance klase, a klase predstavljaju šablone za stvaranje objekta.</p>
-        <p><span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Objekt</span> su instance klasa koje kombiniraju atribute i funkcije/metode.</p>
-        <p><span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Klase</span>  predstavljaju šablone za stvaranje objekata. Definiraju atribute i metode koje će objekti imati, ali same po sebi ne stvaraju objekte.</p>
-        <p>Primjer <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">klase</span> iz stvarnog života bi bio auto, a njegovi <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">objekti</span> bi bili Toyota, Nissan, Tesla...</p>
+        <p><span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">OOP</span>(objektno orijentirano
+            programiranje) je vrsta programiranja koja se temelji na konceptu objekta di su objekti instance klase, a
+            klase predstavljaju šablone za stvaranje objekta.</p>
+        <p><span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Objekt</span> su instance klasa
+            koje kombiniraju atribute i funkcije/metode.</p>
+        <p><span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Klase</span> predstavljaju šablone
+            za stvaranje objekata. Definiraju atribute i metode koje će objekti imati, ali same po sebi ne stvaraju
+            objekte.</p>
+        <p>Primjer <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">klase</span> iz stvarnog
+            života bi bio auto, a njegovi <span
+                style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">objekti</span> bi bili Toyota,
+            Nissan, Tesla...</p>
     </div>
 
     <br>
 
-    <div class = "tekstualna-kutija">
+    <div class="tekstualna-kutija">
         <h1>Klase i objekti</h1>
         <p>U sljedećem primjeru ćemo vam pokazati kako kreirati klasu.</p>
         <div>
@@ -85,7 +103,12 @@ class ImeKlase
         </div>
         <br>
 
-        <p>Objekt se stvori iz klase. U sljedećem primjeru ćemo stvoriti klasu <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Auto</span> i iz nje ćemo stvoriti objekt. Kako bi stvorili objekt iz klase <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Auto</span>, moramo specificirati ime klase i nakon toga ime objekta. Nakon toga koristimo se s <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">new</span>.</p>
+        <p>Objekt se stvori iz klase. U sljedećem primjeru ćemo stvoriti klasu <span
+                style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Auto</span> i iz nje ćemo stvoriti
+            objekt. Kako bi stvorili objekt iz klase <span
+                style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Auto</span>, moramo specificirati
+            ime klase i nakon toga ime objekta. Nakon toga koristimo se s <span
+                style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">new</span>.</p>
         <div>
             <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
             <pre><code class="language-csharp">
@@ -124,7 +147,8 @@ class Auto
         </div>
         <br>
 
-        <p>Možete stvoriti objekt klase i pristupiti mu u drugoj klasi. To se uglavnom radi zbog bolje organizacije koda.</p>
+        <p>Možete stvoriti objekt klase i pristupiti mu u drugoj klasi. To se uglavnom radi zbog bolje organizacije
+            koda.</p>
         <div>
             <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Program1.cs:</h1>
             <pre><code class="language-csharp">
@@ -154,7 +178,7 @@ class Program
 
     <br>
 
-    <div class = "tekstualna-kutija">
+    <div class="tekstualna-kutija">
         <h1>Članovi klase</h1>
         <p>Polja i metode unutar klasa često se nazivaju "članovi klasa".</p>
         <div>
@@ -182,10 +206,13 @@ class Auto
 
     <br>
 
-    <div class = "tekstualna-kutija">
+    <div class="tekstualna-kutija">
         <h1>Objekt metode</h1>
-        <p><span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Objekti metode</span> bi se odnoslio na  metode objekta, odnosno funkcije koje su povezane s objektom određene klase. Klase u C# definiraju objekte, a metode su funkcije koje se izvršavaju u kontekstu tih objekata.</p>
-        <p>U sljedećem primjeru ćemo stvoriti objekt metode <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">maksimalniPotencijal</span>.</p>
+        <p><span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Objekti metode</span> bi se
+            odnoslio na metode objekta, odnosno funkcije koje su povezane s objektom određene klase. Klase u C#
+            definiraju objekte, a metode su funkcije koje se izvršavaju u kontekstu tih objekata.</p>
+        <p>U sljedećem primjeru ćemo stvoriti objekt metode <span
+                style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">maksimalniPotencijal</span>.</p>
         <div>
             <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
             <pre><code class="language-csharp">
@@ -213,9 +240,10 @@ class Auto
 
     <br>
 
-    <div class = "tekstualna-kutija">
+    <div class="tekstualna-kutija">
         <h1>Konstruktori</h1>
-        <p>Konstruktor je posebna metoda koja se koristi za inicijalizaciju objekti. Prednost konstruktora je u tome što se poziva kada se stvori objekt klase. Koristi se za postavljanje početnih vrijednosti za polja.</p>
+        <p>Konstruktor je posebna metoda koja se koristi za inicijalizaciju objekti. Prednost konstruktora je u tome što
+            se poziva kada se stvori objekt klase. Koristi se za postavljanje početnih vrijednosti za polja.</p>
         <div>
             <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
             <pre><code class="language-csharp">
@@ -267,8 +295,8 @@ class Auto
 
     <br>
 
-    
-    <div class = "tekstualna-kutija">
+
+    <div class="tekstualna-kutija">
         <h1>Modifikatori pristupa</h1>
         <table class="tablica">
             <tr>
@@ -314,7 +342,10 @@ private string model;
         </div>
         <br>
 
-        <p>U sljedećem primjeru ako probamo pristupiti <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">boja</span> dobit ćemo <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">error</span>. Razlog zašto ga ne dobivamo je jer je taj dio koda komentiran.</p>
+        <p>U sljedećem primjeru ako probamo pristupiti <span
+                style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">boja</span> dobit ćemo <span
+                style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">error</span>. Razlog zašto ga ne
+            dobivamo je jer je taj dio koda komentiran.</p>
         <div>
             <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
             <pre><code class="language-csharp">
@@ -359,8 +390,13 @@ class Program
             </code></pre>
         </div>
         <br>
-        
-        <p>U ovom primjeru, pristupanjem <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">boja</span> iz <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Main</span> metode izazvat će grešku jer <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">boja</span> ima protected pristup, što znači da je vidljiva samo unutar klase <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Auto</span>.</p>
+
+        <p>U ovom primjeru, pristupanjem <span
+                style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">boja</span> iz <span
+                style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Main</span> metode izazvat će grešku
+            jer <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">boja</span> ima protected
+            pristup, što znači da je vidljiva samo unutar klase <span
+                style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Auto</span>.</p>
         <div>
             <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
             <pre><code class="language-csharp">
@@ -383,7 +419,11 @@ class Program
         </div>
         <br>
 
-        <p>U ovom primjeru, <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">boja</span> je označena s <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">internal</span>, pa se može koristiti unutar iste skupine (u okviru istog projekta). Ako biste pokušali pristupiti <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">boja</span> iz druge skupine, dobili biste grešku pristupa.</p>
+        <p>U ovom primjeru, <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">boja</span> je
+            označena s <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">internal</span>, pa se
+            može koristiti unutar iste skupine (u okviru istog projekta). Ako biste pokušali pristupiti <span
+                style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">boja</span> iz druge skupine, dobili
+            biste grešku pristupa.</p>
         <div>
             <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
             <pre><code class="language-csharp">
@@ -410,11 +450,18 @@ class Program
 
     <br>
 
-    
-    <div class = "tekstualna-kutija">
+
+    <div class="tekstualna-kutija">
         <h1>Svojstva</h1>
-        <p><span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Svojstva</span> vam omogućuju definiranje članova klase koji se ponašaju kao atributi, ali imaju dodatnu logiku povezanu s čitanjem <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">get</span> i pisanjem <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">set</span> njihovih vrijednosti.</p>
-        <p>U prijašnjoj lekciji naučili smo da ne možemo pristupiti atribute s modifikatorom <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">private</span> unutar drugih klasa. Nekad nam je potrebno pristupiti privatnom atributu i to je moguće uz korištenje svojstva <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">get</span> i <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">set</span>.</p>
+        <p><span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">Svojstva</span> vam omogućuju
+            definiranje članova klase koji se ponašaju kao atributi, ali imaju dodatnu logiku povezanu s čitanjem <span
+                style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">get</span> i pisanjem <span
+                style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">set</span> njihovih vrijednosti.</p>
+        <p>U prijašnjoj lekciji naučili smo da ne možemo pristupiti atribute s modifikatorom <span
+                style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">private</span> unutar drugih klasa.
+            Nekad nam je potrebno pristupiti privatnom atributu i to je moguće uz korištenje svojstva <span
+                style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">get</span> i <span
+                style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">set</span>.</p>
         <div>
             <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
             <pre><code class="language-csharp">
@@ -449,14 +496,16 @@ class Program
 
     <br>
 
-    
-    <div class = "tekstualna-kutija">
+
+    <div class="tekstualna-kutija">
         <h1>Nasljeđivanje</h1>
         <p>U C# je moguće naslijediti polja i metode iz jedne klase u drugu</p>
         <p><span style="color: #8a71c5;">Izvedena klasa</span> je klasa koja nasljeđuje iz druge klase.</p>
         <p><span style="color: #8a71c5;">Osnovna klasa</span> je klasa od koje se nasljeđuje.</p>
         <p>Da bismo nešto naslijedili iz klase, koristimo se znakom<span style="color: #8a71c5;">:</span>.</p>
-        <p>U sljedećem primjeru, klasa <span style="color: #8a71c5;">Kompjuter</span> će nasljediti <span style="color: #8a71c5;">polja</span> i <span style="color: #8a71c5;">metode</span> iz klase <span style="color: #8a71c5;">Racunala</span>.</p>
+        <p>U sljedećem primjeru, klasa <span style="color: #8a71c5;">Kompjuter</span> će nasljediti <span
+                style="color: #8a71c5;">polja</span> i <span style="color: #8a71c5;">metode</span> iz klase <span
+                style="color: #8a71c5;">Racunala</span>.</p>
         <div>
             <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
             <pre><code class="language-csharp">
@@ -523,12 +572,17 @@ dobit ćemo error koji glasi
     </div>
 
     <br>
-  
+
 
     <div class="drzac-gumba">
-        <a class="donji-gumbi" href="metoda.html"><h1 class="naslovni-gumb">Prijašnje</h1></a>
-        <a class="donji-gumbi" href="enum.html"><h1 class="naslovni-gumb">Sljedeće</h1></a>
+        <a class="donji-gumbi" href="metoda.html">
+            <h1 class="naslovni-gumb">Prijašnje</h1>
+        </a>
+        <a class="donji-gumbi" href="enum.html">
+            <h1 class="naslovni-gumb">Sljedeće</h1>
+        </a>
     </div>
     <script src="../pojavljivanje.js"></script>
 </body>
+
 </html>
