@@ -43,6 +43,7 @@
         <a class="lijevi-gumbi" href="vektori.html">Vektori</a><br>
         <a class="lijevi-gumbi" href="quaternion.html">Kvaternion</a><br>
         <a class="lijevi-gumbi" href="transform.html">Transform</a><br>
+        <a class="lijevi-gumbi" href="instantiate.html">Instantiate</a><br>
         <a class="lijevi-gumbi" href="RigidBody.html">RigidBody</a><br>
         <a class="lijevi-gumbi" href="voidOnTrigger.html">OnTrigger</a><br>
         <a class="lijevi-gumbi" href="voidOnCollision.html">OnCollision</a><br>
@@ -66,15 +67,30 @@
         <p>Varijable koje su označene s <span
                 style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">[SerializeField]</span> su privatne
             varijable koje su vidljive u Unity editoru.</p>
-        <p>Napomena, <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">[SerializeField]</span>
-            se ne smatra kao pravo pristupa nego kao atribut.</p>
+        <p>Varijable koje su označene s <span
+                style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">[HideInInspector]</span> su uglavnom
+            public varijable koje nisu vidljive u Unity editoru.</p>
+        <p>Napomena, <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">[SerializeField]</span> i
+            <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">[HideInInspector]</span>
+            ne smatraju se kao prava pristupa nego kao atributi.
+        </p>
+        <p> Nije smisleno pisati
+            <span style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">[HideInInspector] private int
+                broj;</span>
+            iz razloga što su varijable s pravom pristupa <span
+                style="font-size: 20px; color: #8a71c5; transition-duration: 0.3s;">private</span> adanom nevidljive u inspectoru.
+        </p>
 
         <div>
-            <h1 style="margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
+            <h1 style=" margin: 0.2%; margin-top: 0%; margin-bottom: 0%;">Primjer:</h1>
             <pre><code class="language-csharp">
+//prava pristupa
 private int broj1;
 public int broj2;
-[SerializeField] int broj3; //ovo je isto kao i da napišemo [SerializeField] private int broj3;
+
+//atributi
+[SerializeField] private int broj3; // private nije potrebno pisati, ali je poželjno radi urednosti
+[HideInInspector] public int broj4; // ova varijabla nije vidljiva u Inspectoru zbog atributa HideInInspector
             </code></pre>
         </div>
         <script src="../prism.js"></script>
@@ -83,6 +99,7 @@ public int broj2;
                 <img src="slike/PravaPristupa1.png" alt="Slika 1">
             </div>
         </div>
+        <br>
     </div style="p">
 
     </div>
